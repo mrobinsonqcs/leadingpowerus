@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, createContext, useContext } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 
 // ═══════════════════ THEME ═══════════════════
 const ACCENT = "#C8252E";        // Red from logo
@@ -435,28 +436,89 @@ function ContactForm({ dark = true }) {
   const inputBorder = dark ? "rgba(255,255,255,0.1)" : BORDER;
   const textColor = dark ? WHITE : DARK;
   const labelColor = dark ? MID : TEXT_MUTED;
+
+  const [formspreeState, handleFormspreeSubmit] = useForm("xqejjwgo");
+
+  const [fields, setFields] = useState({ name: "", email: "", phone: "", generatorType: "", message: "" });
+  const [errors, setErrors] = useState({});
+
+  const set = (k) => (e) => setFields(f => ({ ...f, [k]: e.target.value }));
+
+  function validate() {
+    const errs = {};
+    if (!fields.name.trim()) errs.name = "Full name is required.";
+    if (!fields.email.trim()) {
+      errs.email = "Email is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) {
+      errs.email = "Enter a valid email address.";
+    }
+    if (!fields.message.trim()) errs.message = "Please tell us about your power needs.";
+    return errs;
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const errs = validate();
+    if (Object.keys(errs).length > 0) { setErrors(errs); return; }
+    setErrors({});
+    handleFormspreeSubmit({ name: fields.name, email: fields.email, phone: fields.phone, generatorType: fields.generatorType, message: fields.message });
+  }
+
+  const inputStyle = (field) => ({
+    width: "100%", padding: "12px 16px", background: inputBg,
+    border: `1px solid ${errors[field] ? ACCENT : inputBorder}`,
+    borderRadius: 8, color: textColor, fontSize: 14, outline: "none", boxSizing: "border-box",
+  });
+  const errStyle = { fontSize: 12, color: ACCENT, marginTop: 4 };
+
+  if (formspreeState.succeeded) {
+    return (
+      <div style={{ background: bg, borderRadius: 20, padding: "40px 36px", border: `1px solid ${dark ? "rgba(255,255,255,0.06)" : BORDER}`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: 320, textAlign: "center" }}>
+        <div style={{ width: 56, height: 56, borderRadius: "50%", background: "rgba(200,37,46,0.12)", border: `1px solid rgba(200,37,46,0.3)`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20 }}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={ACCENT} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h3 style={{ fontSize: 20, fontWeight: 700, color: textColor, margin: "0 0 10px" }}>Request sent!</h3>
+        <p style={{ fontSize: 14, color: labelColor, lineHeight: 1.6, margin: 0, maxWidth: 280 }}>Thanks for reaching out. We'll get back to you shortly.</p>
+      </div>
+    );
+  }
+
   return (
     <div style={{ background: bg, borderRadius: 20, padding: "40px 36px", border: `1px solid ${dark ? "rgba(255,255,255,0.06)" : BORDER}` }}>
       <h3 style={{ fontSize: 20, fontWeight: 700, color: textColor, margin: "0 0 28px" }}>Request a quote</h3>
-      {[{ label: "Full name", type: "text", ph: "John Smith" }, { label: "Email", type: "email", ph: "john@company.com" }, { label: "Phone", type: "tel", ph: "(432) 555-0100" }].map(f => (
-        <div key={f.label} style={{ marginBottom: 20 }}>
-          <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: labelColor, marginBottom: 6 }}>{f.label}</label>
-          <input type={f.type} placeholder={f.ph} style={{ width: "100%", padding: "12px 16px", background: inputBg, border: `1px solid ${inputBorder}`, borderRadius: 8, color: textColor, fontSize: 14, outline: "none", boxSizing: "border-box" }} />
+      <form onSubmit={handleSubmit} noValidate>
+        {[
+          { label: "Full name", type: "text", key: "name", ph: "John Smith" },
+          { label: "Email", type: "email", key: "email", ph: "john@company.com" },
+          { label: "Phone", type: "tel", key: "phone", ph: "(432) 555-0100" },
+        ].map(f => (
+          <div key={f.key} style={{ marginBottom: 20 }}>
+            <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: labelColor, marginBottom: 6 }}>{f.label}{f.key !== "phone" && " *"}</label>
+            <input type={f.type} placeholder={f.ph} value={fields[f.key]} onChange={set(f.key)} style={inputStyle(f.key)} />
+            {errors[f.key] && <div style={errStyle}>{errors[f.key]}</div>}
+          </div>
+        ))}
+        <div style={{ marginBottom: 20 }}>
+          <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: labelColor, marginBottom: 6 }}>Generator type</label>
+          <select value={fields.generatorType} onChange={set("generatorType")} style={{ width: "100%", padding: "12px 16px", background: inputBg, border: `1px solid ${inputBorder}`, borderRadius: 8, color: textColor, fontSize: 14, outline: "none" }}>
+            {["Select a type...", "Silent Type", "Open Type", "Mobile / Trailer Type", "Container Type", "Not sure — need advice"].map(o => <option key={o}>{o}</option>)}
+          </select>
         </div>
-      ))}
-      <div style={{ marginBottom: 20 }}>
-        <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: labelColor, marginBottom: 6 }}>Generator type</label>
-        <select style={{ width: "100%", padding: "12px 16px", background: inputBg, border: `1px solid ${inputBorder}`, borderRadius: 8, color: textColor, fontSize: 14, outline: "none" }}>
-          {["Select a type...", "Silent Type", "Open Type", "Mobile / Trailer Type", "Container Type", "Not sure — need advice"].map(o => <option key={o}>{o}</option>)}
-        </select>
-      </div>
-      <div style={{ marginBottom: 24 }}>
-        <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: labelColor, marginBottom: 6 }}>Message</label>
-        <textarea rows={4} placeholder="Tell us about your power needs..." style={{ width: "100%", padding: "12px 16px", background: inputBg, border: `1px solid ${inputBorder}`, borderRadius: 8, color: textColor, fontSize: 14, outline: "none", resize: "vertical", boxSizing: "border-box" }} />
-      </div>
-      <button style={{ width: "100%", padding: "14px", background: ACCENT, color: WHITE, border: "none", borderRadius: 8, fontWeight: 700, fontSize: 15, cursor: "pointer", transition: "transform 0.2s" }}
-        onMouseEnter={e => e.target.style.transform = "scale(1.02)"} onMouseLeave={e => e.target.style.transform = "scale(1)"}
-      >Submit request</button>
+        <div style={{ marginBottom: 24 }}>
+          <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: labelColor, marginBottom: 6 }}>Message *</label>
+          <textarea rows={4} placeholder="Tell us about your power needs..." value={fields.message} onChange={set("message")} style={{ ...inputStyle("message"), resize: "vertical" }} />
+          {errors.message && <div style={errStyle}>{errors.message}</div>}
+        </div>
+        {formspreeState.errors && formspreeState.errors.length > 0 && (
+          <div style={{ marginBottom: 16, padding: "12px 16px", background: "rgba(200,37,46,0.1)", border: `1px solid rgba(200,37,46,0.3)`, borderRadius: 8, fontSize: 13, color: ACCENT }}>
+            Something went wrong. Please try again or email us directly.
+          </div>
+        )}
+        <button type="submit" disabled={formspreeState.submitting} style={{ width: "100%", padding: "14px", background: formspreeState.submitting ? DARK3 : ACCENT, color: WHITE, border: "none", borderRadius: 8, fontWeight: 700, fontSize: 15, cursor: formspreeState.submitting ? "not-allowed" : "pointer", transition: "transform 0.2s, background 0.2s", opacity: formspreeState.submitting ? 0.7 : 1 }}
+          onMouseEnter={e => { if (!formspreeState.submitting) e.target.style.transform = "scale(1.02)"; }}
+          onMouseLeave={e => e.target.style.transform = "scale(1)"}
+        >{formspreeState.submitting ? "Sending…" : "Submit request"}</button>
+      </form>
     </div>
   );
 }
