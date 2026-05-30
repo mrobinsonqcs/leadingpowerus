@@ -488,9 +488,9 @@ function ContactForm({ dark = true }) {
       <h3 style={{ fontSize: 20, fontWeight: 700, color: textColor, margin: "0 0 28px" }}>Request a quote</h3>
       <form onSubmit={handleSubmit} noValidate>
         {[
-          { label: "Full name", type: "text", key: "name", ph: "John Smith" },
-          { label: "Email", type: "email", key: "email", ph: "john@company.com" },
-          { label: "Phone", type: "tel", key: "phone", ph: "(432) 555-0100" },
+          { label: "Full name", type: "text", key: "name", ph: "Your full name" },
+          { label: "Email", type: "email", key: "email", ph: "your@company.com" },
+          { label: "Phone", type: "tel", key: "phone", ph: "(000) 000-0000" },
         ].map(f => (
           <div key={f.key} style={{ marginBottom: 20 }}>
             <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: labelColor, marginBottom: 6 }}>{f.label}{f.key !== "phone" && " *"}</label>
@@ -1254,7 +1254,24 @@ function PageSwitch() {
     if (product && product.hasPhotos) return <ProductDetailPage product={product} />;
     return <ProductsPage />;
   }
-  return <HomePage />;
+  return <NotFoundPage />;
+}
+
+function NotFoundPage() {
+  const { navigate } = useRouter();
+  return (
+    <section style={{ background: DARK, minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 24px", textAlign: "center" }}>
+      <div>
+        <div style={{ fontSize: 96, fontWeight: 800, color: ACCENT, lineHeight: 1, letterSpacing: "-0.04em" }}>404</div>
+        <h1 style={{ fontSize: 28, fontWeight: 700, color: WHITE, margin: "16px 0 12px" }}>Page not found</h1>
+        <p style={{ fontSize: 16, color: MID, margin: "0 0 32px", maxWidth: 400 }}>The page you're looking for doesn't exist. Try one of the links below.</p>
+        <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+          <button onClick={() => navigate("home")} style={{ background: ACCENT, color: WHITE, padding: "13px 28px", borderRadius: 8, fontWeight: 700, fontSize: 15, border: "none", cursor: "pointer" }}>Go home</button>
+          <button onClick={() => navigate("products")} style={{ background: "transparent", color: WHITE, padding: "13px 28px", borderRadius: 8, fontWeight: 600, fontSize: 15, border: `1px solid ${DARK3}`, cursor: "pointer" }}>View products</button>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default function App() {
