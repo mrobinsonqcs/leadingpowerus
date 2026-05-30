@@ -392,7 +392,7 @@ function Footer() {
           </div>
         </div>
         <div style={{ borderTop: `1px solid ${DARK3}`, marginTop: 40, paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-          <span style={{ fontSize: 12, color: "#5A5850" }}>© 2026 Leading Power USA. All rights reserved.</span>
+          <span style={{ fontSize: 12, color: "#5A5850" }}>© {new Date().getFullYear()} Leading Power USA. All rights reserved.</span>
           <span style={{ fontSize: 12, color: "#5A5850" }}>A division of Ningde Leading Power Co., Ltd.</span>
         </div>
       </div>
