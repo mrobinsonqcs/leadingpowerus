@@ -86,6 +86,7 @@ const PRODUCTS = [
     range: "Configurable",
     desc: "White silent enclosure with heavy-duty industrial caster wheels for in-facility positioning. Available in multiple kW configurations to fit your specific application.",
     hasPhotos: true,
+    rangePage: "range-silent-3-30",
     folder: "silent-rollers",
     photos: ["1.jpg", "2.jpg", "3.jpg", "4.jpg"],
     specs: [
@@ -116,6 +117,7 @@ const PRODUCTS = [
     range: "20 kW / 25 kVA",
     desc: "20kW silent diesel generator powered by a SIDA (Shanghai Diesel) engine. Compact silent enclosure with full instrumentation panel — ideal for small commercial backup, telecom sites, and light industrial applications.",
     hasPhotos: true,
+    rangePage: "range-silent-3-30",
     folder: "sida-20kw",
     photos: ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"],
     specs: [
@@ -147,6 +149,7 @@ const PRODUCTS = [
     range: "30 kVA",
     desc: "Single-phase Perkins 404D-22T engine paired with Leroy-Somer alternator. 60Hz, 110V, EPA Tier 4 certified for U.S. emergency standby use.",
     hasPhotos: true,
+    rangePage: "range-silent-3-30",
     folder: "perkins-24kw",
     photos: ["1.jpg", "2.jpg", "3a.jpg", "3b.jpg", "3c.jpg", "4a.jpg", "4b.jpg", "4c.jpg", "5a.jpg", "5b.jpg", "5c.jpg", "6a.jpg", "6b.jpg", "6c.jpg"],
     specs: [
@@ -190,6 +193,7 @@ const PRODUCTS = [
     range: "75 kW / 100 kVA",
     desc: "75kW silent diesel generator built around a Ricardo YM4110BZL engine. Heavy-duty silent enclosure with acoustic dampening for industrial and commercial use.",
     hasPhotos: true,
+    rangePage: "range-silent-30-150",
     folder: "ricardo-75kw",
     photos: ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5a.jpg", "5b.jpg", "5c.jpg", "6.jpg"],
     specs: [
@@ -240,6 +244,7 @@ const PRODUCTS = [
     range: "25 – 125 kVA",
     desc: "Trailer-mounted silent diesel generators covering the full 20kW to 100kW range. Configurable trailer styles (single axle, tandem axle, 4-wheel cart) and color options to match your fleet. Built for job sites, events, and emergency deployment.",
     hasPhotos: true,
+    rangePage: "range-mobile-10-50",
     folder: "trailer-20-100kw",
     photos: ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"],
     specs: [
@@ -708,7 +713,7 @@ function HomePage() {
                     </div>
                   ))}
                 </div>
-                <Link to="product-perkins-24kw" style={{ display: "inline-flex", alignItems: "center", gap: 8, color: ACCENT, fontWeight: 700, fontSize: 15 }}>
+                <Link to="range-silent-3-30" style={{ display: "inline-flex", alignItems: "center", gap: 8, color: ACCENT, fontWeight: 700, fontSize: 15 }}>
                   View this product <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </Link>
               </div>
@@ -736,7 +741,7 @@ function HomePage() {
                     </div>
                   ))}
                 </div>
-                <Link to="product-ricardo-75kw" style={{ display: "inline-flex", alignItems: "center", gap: 8, color: ACCENT, fontWeight: 700, fontSize: 15 }}>
+                <Link to="range-silent-30-150" style={{ display: "inline-flex", alignItems: "center", gap: 8, color: ACCENT, fontWeight: 700, fontSize: 15 }}>
                   View this product <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </Link>
               </div>
@@ -943,7 +948,7 @@ function HomePage() {
 // ═══════════════════ PRODUCT CARD ═══════════════════
 function ProductCard({ product }) {
   const { navigate } = useRouter();
-  const goTo = product.hasPhotos ? `product-${product.id}` : "products";
+  const goTo = product.rangePage || "products";
   return (
     <div onClick={() => navigate(goTo)} style={{ background: WHITE, borderRadius: 14, overflow: "hidden", border: `1px solid ${BORDER}`, cursor: "pointer", transition: "transform 0.3s, box-shadow 0.3s", height: "100%", display: "flex", flexDirection: "column" }}
       onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.08)"; }}
