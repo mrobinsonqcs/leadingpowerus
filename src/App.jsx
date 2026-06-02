@@ -382,6 +382,7 @@ function Footer() {
             <div>
               <div style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>Categories</div>
               {CATEGORIES.map(c => fLink(c.title, "products"))}
+              {fLink("Natural Gas Generators", "products-natural-gas")}
             </div>
             <div>
               <div style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>Contact</div>
@@ -646,7 +647,7 @@ function HomePage() {
               <h2 style={{ fontSize: 38, fontWeight: 800, color: DARK, margin: "12px 0 0", letterSpacing: "-0.02em" }}>Built for every application</h2>
             </div>
           </FadeIn>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 20 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }}>
             {CATEGORIES.map((c, i) => (
               <FadeIn key={c.id} delay={i * 0.08}>
                 <div onClick={() => navigate("products")} style={{ background: WHITE, borderRadius: 16, padding: "36px 28px", textAlign: "center", border: `1px solid ${BORDER}`, cursor: "pointer", transition: "transform 0.3s, box-shadow 0.3s, border-color 0.3s", height: "100%" }}
@@ -661,6 +662,24 @@ function HomePage() {
                 </div>
               </FadeIn>
             ))}
+            <FadeIn delay={CATEGORIES.length * 0.08}>
+              <div onClick={() => navigate("products-natural-gas")} style={{ background: WHITE, borderRadius: 16, padding: "36px 28px", textAlign: "center", border: `1px solid ${BORDER}`, cursor: "pointer", transition: "transform 0.3s, box-shadow 0.3s, border-color 0.3s", height: "100%" }}
+                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.08)"; e.currentTarget.style.borderColor = ACCENT; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = BORDER; }}
+              >
+                <div style={{ display: "flex", justifyContent: "center", marginBottom: 16 }}>
+                  <svg width="70" height="70" viewBox="0 0 80 80" fill="none">
+                    <path d="M40 12 C40 12 26 28 26 42 C26 50.84 32.27 58 40 58 C47.73 58 54 50.84 54 42 C54 28 40 12 40 12Z" fill={DARK3} stroke={ACCENT} strokeWidth="1.5" strokeLinejoin="round" />
+                    <path d="M40 30 C40 30 33 38 33 44 C33 47.87 36.13 51 40 51 C43.87 51 47 47.87 47 44 C47 38 40 30 40 30Z" fill={DARK2} stroke={ACCENT} strokeWidth="1" strokeLinejoin="round" />
+                    <circle cx="40" cy="44" r="4" fill="none" stroke={ACCENT} strokeWidth="1.5" />
+                    <line x1="40" y1="58" x2="40" y2="64" stroke={ACCENT} strokeWidth="1.5" />
+                    <line x1="28" y1="62" x2="52" y2="62" stroke={ACCENT} strokeWidth="1.5" strokeLinecap="round" />
+                  </svg>
+                </div>
+                <h3 style={{ fontSize: 18, fontWeight: 700, color: DARK, margin: "0 0 6px" }}>Natural Gas</h3>
+                <div style={{ fontSize: 13, color: ACCENT, fontWeight: 600 }}>20 – 500 kW</div>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -725,6 +744,52 @@ function HomePage() {
             <FadeIn delay={0.1}>
               <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "1", border: `1px solid ${DARK3}` }}>
                 <img src="/images/products/ricardo-75kw/1.jpg" alt="LDGP-75 Super Silent Diesel Generator" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURED SPOTLIGHT 3 - NATURAL GAS */}
+      <section style={{ background: DARK, padding: isMobile ? "60px 20px" : "100px 24px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 32 : 64, alignItems: "center" }}>
+            <FadeIn>
+              <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "1", border: `1px solid ${DARK3}`, background: DARK2, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <svg width="220" height="220" viewBox="0 0 220 220" fill="none">
+                  <rect x="20" y="80" width="180" height="110" rx="6" fill={DARK3} stroke={ACCENT} strokeWidth="1.5" />
+                  <rect x="20" y="80" width="180" height="18" rx="6" fill={DARK2} />
+                  <rect x="30" y="108" width="60" height="72" rx="4" fill={DARK2} stroke={ACCENT} strokeWidth="1" strokeOpacity="0.5" />
+                  <circle cx="60" cy="144" r="20" fill="none" stroke={ACCENT} strokeWidth="1.5" />
+                  <circle cx="60" cy="144" r="8" fill={DARK3} stroke={ACCENT} strokeWidth="1" />
+                  <rect x="100" y="108" width="90" height="72" rx="4" fill={DARK2} stroke={ACCENT} strokeWidth="1" strokeOpacity="0.5" />
+                  <line x1="110" y1="124" x2="180" y2="124" stroke={ACCENT} strokeWidth="1" strokeOpacity="0.4" />
+                  <line x1="110" y1="138" x2="175" y2="138" stroke={ACCENT} strokeWidth="1" strokeOpacity="0.4" />
+                  <line x1="110" y1="152" x2="180" y2="152" stroke={ACCENT} strokeWidth="1" strokeOpacity="0.4" />
+                  <path d="M110 50 C110 50 98 63 98 71 C98 77.63 103.37 83 110 83 C116.63 83 122 77.63 122 71 C122 63 110 50 110 50Z" fill="rgba(200,37,46,0.2)" stroke={ACCENT} strokeWidth="1.5" strokeLinejoin="round" />
+                  <path d="M110 59 C110 59 104 66 104 71 C104 73.76 106.24 76 109 76 C111.76 76 114 73.76 114 71 C114 66 110 59 110 59Z" fill={DARK2} stroke={ACCENT} strokeWidth="1" strokeLinejoin="round" />
+                  <text x="110" y="74" textAnchor="middle" fill={DARK3} fontSize="9" fontFamily="sans-serif" fontWeight="800">G</text>
+                </svg>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <div>
+                <span style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.15em", textTransform: "uppercase" }}>Featured Category</span>
+                <h2 style={{ fontSize: 38, fontWeight: 800, color: WHITE, margin: "12px 0 16px", letterSpacing: "-0.02em", lineHeight: 1.15 }}>Natural Gas Generator Sets</h2>
+                <p style={{ fontSize: 16, color: MID, lineHeight: 1.75, margin: "0 0 24px" }}>
+                  Clean-burning natural gas generators for commercial, industrial, and utility applications. Specialists in Permian Basin wellhead gas and flare gas recovery — turning waste gas into reliable on-site power.
+                </p>
+                <div style={{ display: "flex", gap: 24, flexWrap: "wrap", marginBottom: 32 }}>
+                  {[["Clean fuel", "Lower emissions vs. diesel"], ["Wellhead gas", "Permian Basin specialists"], ["20–500 kW", "Full commercial range"]].map(([t, d]) => (
+                    <div key={t}>
+                      <div style={{ fontSize: 14, fontWeight: 700, color: WHITE }}>{t}</div>
+                      <div style={{ fontSize: 12, color: MID, marginTop: 2 }}>{d}</div>
+                    </div>
+                  ))}
+                </div>
+                <Link to="products-natural-gas" style={{ display: "inline-flex", alignItems: "center", gap: 8, color: ACCENT, fontWeight: 700, fontSize: 15 }}>
+                  View natural gas generators <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </Link>
               </div>
             </FadeIn>
           </div>
