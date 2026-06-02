@@ -913,7 +913,7 @@ function QuoteConfiguratorForm({ powerOptions = [], rangeTitle = "" }) {
   const EMPTY = {
     power: "", engineBrand: "", alternatorBrand: "", phase: "", voltage: "",
     enclosure: "", fuelTank: "", controlPanel: "", soundAttenuation: "",
-    atsIncluded: false, customColor: "", warranty: "",
+    atsIncluded: false, customColor: "",
     name: "", company: "", email: "", phone: "", message: "",
   };
   const [fields, setFields] = useState(EMPTY);
@@ -990,7 +990,10 @@ function QuoteConfiguratorForm({ powerOptions = [], rangeTitle = "" }) {
           <Sel label="Fuel tank runtime" k="fuelTank" opts={["Select...", "Base tank (4–6 hrs)", "8 hour", "12 hour", "24 hour", "48 hour"]} />
           <Sel label="Control panel" k="controlPanel" opts={["Select...", "Deep Sea Electronics (DSE)", "ComAp", "SmartGen", "Manual gauge panel"]} />
           <Sel label="Sound attenuation" k="soundAttenuation" opts={["Select...", "Standard silent (65–75 dB)", "Super silent (50–65 dB)", "Open frame"]} />
-          <Sel label="Warranty" k="warranty" opts={["Select...", "1 year", "2 year", "Extended"]} />
+          <div style={{ display: "flex", alignItems: "center", gap: 8, background: "rgba(22,163,74,0.10)", border: "1.5px solid rgba(22,163,74,0.38)", borderRadius: 8, padding: "10px 16px" }}>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style={{ flexShrink: 0 }}><circle cx="9" cy="9" r="9" fill="rgba(22,163,74,0.18)"/><path d="M5 9.5l2.5 2.5L13 6.5" stroke="#16A34A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <span style={{ fontSize: 14, fontWeight: 700, color: "#16A34A", letterSpacing: "0.01em" }}>1 Year Warranty — Included</span>
+          </div>
         </div>
 
         {/* Options row */}
