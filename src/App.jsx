@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, createContext, useContext } from "react";
 import { useForm, ValidationError } from "@formspree/react";
+import { RANGES, SUBCATEGORIES, DIESEL_RANGES_BY_SUBCAT, DIESEL_SUBCAT_NAMES, CATEGORY_META } from "./productData";
 
 // ═══════════════════ THEME ═══════════════════
 const ACCENT = "#C8252E";        // Red from logo
@@ -906,49 +907,220 @@ function ProductCard({ product }) {
   );
 }
 
-// ═══════════════════ PRODUCTS PAGE ═══════════════════
-function ProductsPage() {
-  const [activeCategory, setActiveCategory] = useState("all");
+// ═══════════════════ QUOTE CONFIGURATOR FORM ═══════════════════
+function QuoteConfiguratorForm({ powerOptions = [], rangeTitle = "" }) {
+  const [fsState, handleFsSubmit] = useForm("xqejjwgo");
+  const EMPTY = {
+    power: "", engineBrand: "", alternatorBrand: "", phase: "", voltage: "",
+    enclosure: "", fuelTank: "", controlPanel: "", soundAttenuation: "",
+    atsIncluded: false, customColor: "", warranty: "",
+    name: "", company: "", email: "", phone: "", message: "",
+  };
+  const [fields, setFields] = useState(EMPTY);
+  const [errors, setErrors] = useState({});
+
+  const set = (k) => (e) => setFields(f => ({ ...f, [k]: e.target.type === "checkbox" ? e.target.checked : e.target.value }));
+
+  function validate() {
+    const errs = {};
+    if (!fields.name.trim()) errs.name = "Full name is required.";
+    if (!fields.email.trim()) errs.email = "Email is required.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) errs.email = "Enter a valid email address.";
+    return errs;
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const errs = validate();
+    if (Object.keys(errs).length > 0) { setErrors(errs); return; }
+    setErrors({});
+    handleFsSubmit({ ...fields, rangeTitle, _subject: `Quote Request: ${rangeTitle}` });
+  }
+
+  const inputStyle = { width: "100%", padding: "11px 14px", background: DARK2, border: `1px solid rgba(255,255,255,0.1)`, borderRadius: 8, color: WHITE, fontSize: 14, outline: "none", boxSizing: "border-box" };
+  const errStyle = { fontSize: 12, color: ACCENT, marginTop: 4 };
+  const labelStyle = { display: "block", fontSize: 12, fontWeight: 600, color: MID, marginBottom: 6 };
+
+  const Sel = ({ label, k, opts }) => (
+    <div>
+      <label style={labelStyle}>{label}</label>
+      <select value={fields[k]} onChange={set(k)} style={{ ...inputStyle, cursor: "pointer" }}>
+        {opts.map(o => <option key={o}>{o}</option>)}
+      </select>
+    </div>
+  );
+
+  const Inp = ({ label, k, type = "text", ph, required }) => (
+    <div>
+      <label style={labelStyle}>{label}{required && " *"}</label>
+      <input type={type} placeholder={ph} value={fields[k]} onChange={set(k)}
+        style={{ ...inputStyle, borderColor: errors[k] ? ACCENT : "rgba(255,255,255,0.1)" }} />
+      {errors[k] && <div style={errStyle}>{errors[k]}</div>}
+    </div>
+  );
+
+  if (fsState.succeeded) {
+    return (
+      <div style={{ background: DARK3, borderRadius: 20, padding: "60px 40px", border: `1px solid rgba(255,255,255,0.06)`, textAlign: "center" }}>
+        <div style={{ width: 60, height: 60, borderRadius: "50%", background: "rgba(200,37,46,0.12)", border: `1px solid rgba(200,37,46,0.3)`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={ACCENT} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h3 style={{ fontSize: 22, fontWeight: 700, color: WHITE, margin: "0 0 10px" }}>Quote request sent!</h3>
+        <p style={{ fontSize: 15, color: MID, lineHeight: 1.6, margin: 0, maxWidth: 340, marginLeft: "auto", marginRight: "auto" }}>
+          We'll review your configuration and get back to you shortly with pricing and availability.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ background: DARK3, borderRadius: 20, padding: "40px 36px", border: `1px solid rgba(255,255,255,0.06)` }}>
+      <h3 style={{ fontSize: 22, fontWeight: 700, color: WHITE, margin: "0 0 6px" }}>Configure your generator</h3>
+      <p style={{ fontSize: 14, color: MID, margin: "0 0 28px" }}>Customize your spec and we'll quote accordingly.</p>
+      <form onSubmit={handleSubmit} noValidate>
+
+        {/* Config grid */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "18px 24px", marginBottom: 18 }}>
+          <Sel label="Power output" k="power" opts={["Select...", ...powerOptions]} />
+          <Sel label="Engine brand" k="engineBrand" opts={["Select...", "Cummins", "Doosan", "Perkins", "Ricardo", "Weichai", "SIDA"]} />
+          <Sel label="Alternator brand" k="alternatorBrand" opts={["Select...", "Stamford", "Leroy-Somer", "Marathon", "Mecc Alte"]} />
+          <Sel label="Phase" k="phase" opts={["Select...", "Single phase", "Three phase"]} />
+          <Sel label="Voltage" k="voltage" opts={["Select...", "120/240V single phase", "120/208V three phase", "277/480V three phase", "Custom"]} />
+          <Sel label="Enclosure type" k="enclosure" opts={["Select...", "Silent canopy", "Open frame", "Portable on casters", "Trailer mounted", "Container"]} />
+          <Sel label="Fuel tank runtime" k="fuelTank" opts={["Select...", "Base tank (4–6 hrs)", "8 hour", "12 hour", "24 hour", "48 hour"]} />
+          <Sel label="Control panel" k="controlPanel" opts={["Select...", "Deep Sea Electronics (DSE)", "ComAp", "SmartGen", "Manual gauge panel"]} />
+          <Sel label="Sound attenuation" k="soundAttenuation" opts={["Select...", "Standard silent (65–75 dB)", "Super silent (50–65 dB)", "Open frame"]} />
+          <Sel label="Warranty" k="warranty" opts={["Select...", "1 year", "2 year", "Extended"]} />
+        </div>
+
+        {/* Options row */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "18px 24px", marginBottom: 28 }}>
+          <div>
+            <label style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}>
+              <input type="checkbox" checked={fields.atsIncluded} onChange={set("atsIncluded")}
+                style={{ width: 16, height: 16, accentColor: ACCENT, cursor: "pointer" }} />
+              <span style={{ fontSize: 14, color: MID, fontWeight: 500 }}>Include ATS (Auto Transfer Switch)</span>
+            </label>
+          </div>
+          <Inp label="Custom color (optional)" k="customColor" ph="RAL 7035, olive green, custom…" />
+        </div>
+
+        {/* Divider */}
+        <div style={{ borderTop: `1px solid rgba(255,255,255,0.08)`, margin: "0 0 24px" }} />
+        <h4 style={{ fontSize: 16, fontWeight: 700, color: WHITE, margin: "0 0 20px" }}>Your information</h4>
+
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "18px 24px", marginBottom: 18 }}>
+          <Inp label="Full name" k="name" ph="Your full name" required />
+          <Inp label="Company" k="company" ph="Company name" />
+          <Inp label="Email" k="email" type="email" ph="your@company.com" required />
+          <Inp label="Phone" k="phone" type="tel" ph="(000) 000-0000" />
+        </div>
+
+        <div style={{ marginBottom: 24 }}>
+          <label style={labelStyle}>Message</label>
+          <textarea rows={3} placeholder="Project details, timeline, site location…" value={fields.message} onChange={set("message")}
+            style={{ ...inputStyle, resize: "vertical" }} />
+        </div>
+
+        {fsState.errors && fsState.errors.length > 0 && (
+          <div style={{ marginBottom: 16, padding: "12px 16px", background: "rgba(200,37,46,0.1)", border: `1px solid rgba(200,37,46,0.3)`, borderRadius: 8, fontSize: 13, color: ACCENT }}>
+            Something went wrong. Please try again or email us directly.
+          </div>
+        )}
+
+        <button type="submit" disabled={fsState.submitting}
+          style={{ width: "100%", padding: "15px", background: fsState.submitting ? DARK2 : ACCENT, color: WHITE, border: "none", borderRadius: 8, fontWeight: 700, fontSize: 15, cursor: fsState.submitting ? "not-allowed" : "pointer", opacity: fsState.submitting ? 0.7 : 1, transition: "background 0.2s" }}
+          onMouseEnter={e => { if (!fsState.submitting) e.currentTarget.style.background = ACCENT_DARK; }}
+          onMouseLeave={e => { if (!fsState.submitting) e.currentTarget.style.background = ACCENT; }}
+        >{fsState.submitting ? "Sending…" : "Request quote"}</button>
+      </form>
+    </div>
+  );
+}
+
+// ═══════════════════ PRODUCTS LANDING PAGE (Level 1) ═══════════════════
+function ProductsLandingPage() {
+  const { navigate } = useRouter();
   const isMobile = useIsMobile();
-  const filtered = activeCategory === "all" ? PRODUCTS : PRODUCTS.filter(p => p.category === activeCategory);
+
+  const DieselIcon = () => (
+    <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+      <rect x="4" y="16" width="48" height="30" rx="4" fill={DARK2} stroke={ACCENT} strokeWidth="1.5"/>
+      <rect x="8" y="20" width="18" height="22" rx="2" fill={DARK3}/>
+      <circle cx="17" cy="31" r="7" fill="none" stroke={ACCENT} strokeWidth="1.5"/>
+      <circle cx="17" cy="31" r="3" fill={ACCENT} opacity="0.4"/>
+      <rect x="30" y="20" width="18" height="22" rx="2" fill={DARK3}/>
+      <line x1="33" y1="27" x2="45" y2="27" stroke={ACCENT} strokeWidth="1.5" opacity="0.6"/>
+      <line x1="33" y1="31" x2="44" y2="31" stroke={ACCENT} strokeWidth="1.5" opacity="0.5"/>
+      <line x1="33" y1="35" x2="45" y2="35" stroke={ACCENT} strokeWidth="1.5" opacity="0.6"/>
+      <rect x="20" y="10" width="16" height="6" rx="2" fill={DARK3} stroke={ACCENT} strokeWidth="1"/>
+    </svg>
+  );
+
+  const GasIcon = () => (
+    <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+      <path d="M28 6 C22 14 16 20 16 28 C16 37.9 21.1 44 28 44 C34.9 44 40 37.9 40 28 C40 20 34 14 28 6Z" fill={DARK2} stroke={ACCENT} strokeWidth="1.5"/>
+      <path d="M28 16 C25 21 22 24 22 28 C22 31.3 24.7 34 28 34 C31.3 34 34 31.3 34 28 C34 24 31 21 28 16Z" fill={ACCENT} opacity="0.3"/>
+      <circle cx="28" cy="28" r="4" fill={ACCENT} opacity="0.6"/>
+    </svg>
+  );
+
+  const categories = [
+    {
+      id: "diesel",
+      title: "Diesel Generators",
+      range: "3kW – 3MW",
+      desc: "Stationary, mobile, and containerized diesel generator sets in silent, open frame, trailer-mounted, and container configurations. Factory-direct US-spec builds.",
+      to: "products-diesel",
+      highlights: ["Silent Type", "Open Frame", "Mobile & Trailer", "Container Type"],
+      icon: <DieselIcon />,
+    },
+    {
+      id: "natural-gas",
+      title: "Natural Gas Generators",
+      range: "20kW – 10MW+",
+      desc: "Clean-burning natural gas generators for commercial, industrial, and utility applications. Specialists in Permian Basin wellhead gas and flare gas recovery.",
+      to: "products-natural-gas",
+      highlights: ["Small Commercial", "Commercial & Industrial", "Industrial", "Utility Scale"],
+      icon: <GasIcon />,
+    },
+  ];
+
   return (
     <>
       <PageHeader
-        label="Our generators"
-        title="Products"
-        subtitle="From portable 3kW units to 3MW containerized power plants — find the right generator for your application."
+        label="Products"
+        title="Factory-direct power generation"
+        subtitle="Diesel and natural gas generator sets from 3kW to 10MW+, built to US specifications and stocked in Houston, Texas."
         breadcrumbs={[{ label: "Home", to: "home" }, { label: "Products" }]}
       />
-      <section style={{ background: LIGHT, padding: isMobile ? "40px 20px 60px" : "60px 24px 100px" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "240px 1fr", gap: isMobile ? 24 : 40, alignItems: "start" }}>
-          {/* Sidebar */}
-          <aside>
-            <div style={{ background: WHITE, borderRadius: 12, padding: "24px 20px", border: `1px solid ${BORDER}`, position: isMobile ? "static" : "sticky", top: 92 }}>
-              <h3 style={{ fontSize: 14, fontWeight: 700, color: ACCENT, letterSpacing: "0.1em", textTransform: "uppercase", margin: "0 0 16px", paddingBottom: 12, borderBottom: `1px solid ${BORDER}` }}>Category</h3>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                {[{ id: "all", title: "All Products" }, ...CATEGORIES].map(c => (
-                  <li key={c.id} style={{ marginBottom: 4 }}>
-                    <button onClick={() => setActiveCategory(c.id)} style={{ width: "100%", textAlign: "left", padding: "10px 12px", background: activeCategory === c.id ? ACCENT_LIGHT : "transparent", color: activeCategory === c.id ? DARK : TEXT_MUTED, border: "none", borderRadius: 6, fontSize: 14, fontWeight: activeCategory === c.id ? 700 : 500, cursor: "pointer", transition: "background 0.2s, color 0.2s" }}
-                      onMouseEnter={e => { if (activeCategory !== c.id) { e.target.style.background = LIGHT2; e.target.style.color = DARK; } }}
-                      onMouseLeave={e => { if (activeCategory !== c.id) { e.target.style.background = "transparent"; e.target.style.color = TEXT_MUTED; } }}
-                    >{c.title}</button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </aside>
-
-          {/* Grid */}
-          <div>
-            <h2 style={{ fontSize: 22, fontWeight: 800, color: DARK, margin: "0 0 24px" }}>
-              {activeCategory === "all" ? "All Products" : CATEGORIES.find(c => c.id === activeCategory)?.title}
-              <span style={{ fontSize: 14, color: TEXT_MUTED, fontWeight: 500, marginLeft: 10 }}>({filtered.length} {filtered.length === 1 ? "product" : "products"})</span>
-            </h2>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20 }}>
-              {filtered.map((p, i) => (
-                <FadeIn key={p.id} delay={i * 0.04}><ProductCard product={p} /></FadeIn>
-              ))}
-            </div>
+      <section style={{ background: LIGHT, padding: isMobile ? "48px 20px 80px" : "80px 24px 120px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: 24 }}>
+            {categories.map((cat, i) => (
+              <FadeIn key={cat.id} delay={i * 0.1}>
+                <div
+                  onClick={() => navigate(cat.to)}
+                  style={{ background: DARK, borderRadius: 20, padding: isMobile ? "36px 28px" : "52px 44px", cursor: "pointer", border: `1px solid ${DARK3}`, transition: "transform 0.3s, box-shadow 0.3s, border-color 0.3s", display: "flex", flexDirection: "column", height: "100%" }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "0 24px 56px rgba(0,0,0,0.3)"; e.currentTarget.style.borderColor = ACCENT; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = DARK3; }}
+                >
+                  <div style={{ marginBottom: 24 }}>{cat.icon}</div>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 8 }}>{cat.range}</div>
+                  <h2 style={{ fontSize: isMobile ? 24 : 30, fontWeight: 800, color: WHITE, margin: "0 0 14px", letterSpacing: "-0.02em", lineHeight: 1.2 }}>{cat.title}</h2>
+                  <p style={{ fontSize: 15, color: MID, lineHeight: 1.7, margin: "0 0 24px", flex: 1 }}>{cat.desc}</p>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 28 }}>
+                    {cat.highlights.map(h => (
+                      <span key={h} style={{ fontSize: 12, fontWeight: 600, color: MID, background: DARK2, padding: "5px 12px", borderRadius: 50, border: `1px solid ${DARK3}` }}>{h}</span>
+                    ))}
+                  </div>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 8, color: ACCENT, fontWeight: 700, fontSize: 15 }}>
+                    Browse options
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
@@ -956,80 +1128,203 @@ function ProductsPage() {
   );
 }
 
-// ═══════════════════ PRODUCT DETAIL PAGE ═══════════════════
-function ProductDetailPage({ product }) {
-  const p = product;
-  const [activeImg, setActiveImg] = useState(0);
+// ═══════════════════ CATEGORY PAGE (Level 2) ═══════════════════
+function CategoryPage({ catId }) {
+  const { navigate } = useRouter();
   const isMobile = useIsMobile();
-  if (!p) return null;
-  const imgs = p.hasPhotos ? p.photos.map(ph => `/images/products/${p.folder}/${ph}`) : [];
+  const meta = CATEGORY_META[catId];
+  const subcats = SUBCATEGORIES[catId] || [];
+
   return (
     <>
-      <section style={{ background: `linear-gradient(160deg, ${DARK} 0%, ${DARK2} 100%)`, padding: isMobile ? "92px 20px 40px" : "120px 24px 60px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, backgroundImage: `radial-gradient(ellipse 60% 50% at 80% 30%, rgba(200,37,46,0.06) 0%, transparent 70%)` }} />
-        <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
-          <FadeIn>
-            <Link to="products" style={{ display: "inline-flex", alignItems: "center", gap: 6, color: MID, fontSize: 13, fontWeight: 500, marginBottom: 24 }}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to all products
-            </Link>
-          </FadeIn>
-          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 32 : 56, alignItems: "start" }}>
-            {/* Image Gallery */}
-            <FadeIn>
-              <div>
-                <div style={{ background: DARK3, borderRadius: 16, overflow: "hidden", aspectRatio: "1", marginBottom: 12, border: `1px solid ${DARK3}` }}>
-                  <img src={imgs[activeImg]} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+      <PageHeader
+        label={catId === "diesel" ? "Diesel Generators" : "Natural Gas Generators"}
+        title={meta.title}
+        subtitle={meta.desc}
+        breadcrumbs={meta.breadcrumb}
+      />
+      <section style={{ background: LIGHT, padding: isMobile ? "48px 20px 80px" : "80px 24px 120px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: 20 }}>
+            {subcats.map((sc, i) => (
+              <FadeIn key={sc.id} delay={i * 0.08}>
+                <div
+                  onClick={() => navigate(sc.pageId)}
+                  style={{ background: WHITE, borderRadius: 16, padding: "36px 32px", cursor: "pointer", border: `1px solid ${BORDER}`, transition: "transform 0.3s, box-shadow 0.3s, border-color 0.3s", display: "flex", flexDirection: "column", height: "100%" }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.08)"; e.currentTarget.style.borderColor = ACCENT; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = BORDER; }}
+                >
+                  <div style={{ fontSize: 13, fontWeight: 700, color: ACCENT, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>{sc.range}</div>
+                  <h3 style={{ fontSize: 22, fontWeight: 800, color: DARK, margin: "0 0 12px", letterSpacing: "-0.01em" }}>{sc.title}</h3>
+                  <p style={{ fontSize: 14, color: TEXT_MUTED, lineHeight: 1.65, margin: "0 0 20px", flex: 1 }}>{sc.desc}</p>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, color: ACCENT, fontWeight: 700, fontSize: 14 }}>
+                    {catId === "diesel" ? "View power ranges" : "View products"}
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </div>
                 </div>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 6 }}>
-                  {imgs.slice(0, 7).map((src, i) => (
-                    <div key={i} onClick={() => setActiveImg(i)} style={{ aspectRatio: "1", borderRadius: 6, overflow: "hidden", cursor: "pointer", border: `2px solid ${activeImg === i ? ACCENT : "transparent"}`, opacity: activeImg === i ? 1 : 0.6, transition: "all 0.2s" }}>
-                      <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+// ═══════════════════ SUBCATEGORY PAGE (Level 3 — Diesel only) ═══════════════════
+function SubCategoryPage({ subCatId }) {
+  const { navigate } = useRouter();
+  const isMobile = useIsMobile();
+  const subCatName = DIESEL_SUBCAT_NAMES[subCatId] || subCatId;
+  const ranges = DIESEL_RANGES_BY_SUBCAT[subCatId] || [];
+
+  return (
+    <>
+      <PageHeader
+        label="Diesel Generators"
+        title={`${subCatName} — Choose a power range`}
+        subtitle="Select the power range that fits your application. Each range includes a full photo gallery, use cases, and a quote configurator."
+        breadcrumbs={[
+          { label: "Products", to: "products" },
+          { label: "Diesel Generators", to: "products-diesel" },
+          { label: subCatName },
+        ]}
+      />
+      <section style={{ background: LIGHT, padding: isMobile ? "48px 20px 80px" : "80px 24px 120px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : `repeat(${Math.min(ranges.length, 2)}, 1fr)`, gap: 20 }}>
+            {ranges.map((r, i) => {
+              const rangeData = RANGES[r.id];
+              const allPhotos = rangeData ? rangeData.photos.flatMap(s => s.files.map(f => `/images/products/${s.folder}/${f}`)) : [];
+              const thumb = allPhotos[0] || null;
+              return (
+                <FadeIn key={r.id} delay={i * 0.08}>
+                  <div
+                    onClick={() => navigate(`range-${r.id}`)}
+                    style={{ background: DARK, borderRadius: 16, overflow: "hidden", cursor: "pointer", border: `1px solid ${DARK3}`, transition: "transform 0.3s, box-shadow 0.3s, border-color 0.3s", display: "flex", flexDirection: "column" }}
+                    onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 20px 48px rgba(0,0,0,0.25)"; e.currentTarget.style.borderColor = ACCENT; }}
+                    onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = DARK3; }}
+                  >
+                    <div style={{ aspectRatio: "16/9", overflow: "hidden", background: DARK2, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      {thumb ? (
+                        <img src={thumb} alt={r.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                      ) : (
+                        <CategoryIcon id={subCatId === "open-frame" ? "open" : subCatId === "mobile-trailer" ? "mobile" : subCatId === "container" ? "container" : "silent"} size={80} />
+                      )}
                     </div>
-                  ))}
-                </div>
-              </div>
-            </FadeIn>
-            {/* Info */}
-            <FadeIn delay={0.1}>
-              <div>
-                <span style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.15em", textTransform: "uppercase" }}>{p.range}</span>
-                <h1 style={{ fontSize: "clamp(28px, 3.5vw, 40px)", fontWeight: 800, color: WHITE, margin: "10px 0 16px", letterSpacing: "-0.02em", lineHeight: 1.2 }}>{p.title}</h1>
-                <p style={{ fontSize: 16, color: MID, lineHeight: 1.7, margin: "0 0 28px" }}>{p.desc}</p>
-                {/* Quick specs */}
-                <div style={{ background: DARK3, borderRadius: 12, padding: "20px 24px", marginBottom: 28, border: `1px solid rgba(255,255,255,0.06)` }}>
-                  <div style={{ fontSize: 11, fontWeight: 700, color: ACCENT, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 14 }}>Quick specs</div>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px 24px" }}>
-                    {p.specs.slice(0, 6).map(([k, v]) => (
-                      <div key={k}>
-                        <div style={{ fontSize: 11, color: MID, marginBottom: 2 }}>{k}</div>
-                        <div style={{ fontSize: 14, color: WHITE, fontWeight: 600 }}>{v}</div>
+                    <div style={{ padding: "28px 28px 32px" }}>
+                      <h3 style={{ fontSize: 26, fontWeight: 800, color: WHITE, margin: "0 0 6px", letterSpacing: "-0.02em" }}>{r.title}</h3>
+                      {r.subtitle && <div style={{ fontSize: 13, color: ACCENT, fontWeight: 600, marginBottom: 14 }}>{r.subtitle}</div>}
+                      {rangeData && <p style={{ fontSize: 14, color: MID, lineHeight: 1.6, margin: "0 0 20px" }}>{rangeData.desc}</p>}
+                      <div style={{ display: "inline-flex", alignItems: "center", gap: 6, color: ACCENT, fontWeight: 700, fontSize: 14 }}>
+                        View range & configure
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                      </div>
+                    </div>
+                  </div>
+                </FadeIn>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+// ═══════════════════ RANGE PAGE ═══════════════════
+function RangePage({ rangeId }) {
+  const { navigate } = useRouter();
+  const isMobile = useIsMobile();
+  const [activeImg, setActiveImg] = useState(0);
+
+  const range = RANGES[rangeId];
+  if (!range) return <NotFoundPage />;
+
+  const allPhotos = range.photos.flatMap(s => s.files.map(f => `/images/products/${s.folder}/${f}`));
+  const hasPhotos = allPhotos.length > 0;
+
+  const relatedRanges = (range.related || []).map(id => RANGES[id]).filter(Boolean);
+
+  const catIconId = range.subCat === "open-frame" ? "open" : range.subCat === "mobile-trailer" ? "mobile" : range.subCat === "container" ? "container" : "silent";
+
+  return (
+    <>
+      {/* Hero */}
+      <PageHeader
+        label={range.fuelType === "natural-gas" ? "Natural Gas Generators" : `Diesel Generators — ${DIESEL_SUBCAT_NAMES[range.subCat] || ""}`}
+        title={range.title}
+        subtitle={range.desc}
+        breadcrumbs={range.breadcrumb}
+      />
+
+      {/* Photo Gallery */}
+      <section style={{ background: LIGHT, padding: isMobile ? "48px 20px" : "80px 24px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <FadeIn>
+            <h2 style={{ fontSize: 28, fontWeight: 800, color: DARK, margin: "0 0 32px", letterSpacing: "-0.02em" }}>
+              {hasPhotos ? "Photo gallery" : "Product overview"}
+            </h2>
+          </FadeIn>
+          {hasPhotos ? (
+            <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 20 : 32, alignItems: "start" }}>
+              <FadeIn>
+                <div>
+                  <div style={{ borderRadius: 16, overflow: "hidden", aspectRatio: "1", border: `1px solid ${BORDER}`, marginBottom: 10 }}>
+                    <img src={allPhotos[activeImg]} alt={range.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  </div>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 6 }}>
+                    {allPhotos.slice(0, 7).map((src, i) => (
+                      <div key={i} onClick={() => setActiveImg(i)}
+                        style={{ aspectRatio: "1", borderRadius: 6, overflow: "hidden", cursor: "pointer", border: `2px solid ${activeImg === i ? ACCENT : "transparent"}`, opacity: activeImg === i ? 1 : 0.55, transition: "all 0.2s" }}>
+                        <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                       </div>
                     ))}
                   </div>
                 </div>
-                <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                  <Link to="contact" style={{ background: ACCENT, color: WHITE, padding: "14px 28px", borderRadius: 8, fontWeight: 700, fontSize: 15 }}>Request a quote</Link>
-                  <a href="tel:4322350801" style={{ background: "transparent", color: WHITE, padding: "14px 28px", borderRadius: 8, fontWeight: 600, fontSize: 15, border: `1px solid ${DARK3}`, textDecoration: "none" }}>Call (432) 235-0801</a>
+              </FadeIn>
+              <FadeIn delay={0.1}>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+                  {allPhotos.slice(1, 5).map((src, i) => (
+                    <div key={i} onClick={() => setActiveImg(i + 1)}
+                      style={{ aspectRatio: "1", borderRadius: 10, overflow: "hidden", border: `1px solid ${BORDER}`, cursor: "pointer", transition: "transform 0.2s" }}
+                      onMouseEnter={e => e.currentTarget.style.transform = "scale(1.02)"}
+                      onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
+                      <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    </div>
+                  ))}
                 </div>
+              </FadeIn>
+            </div>
+          ) : (
+            <FadeIn>
+              <div style={{ background: DARK2, borderRadius: 20, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "80px 40px", border: `1px solid ${DARK3}`, textAlign: "center" }}>
+                <CategoryIcon id={catIconId} size={100} />
+                <p style={{ fontSize: 15, color: MID, margin: "20px 0 0", maxWidth: 340, lineHeight: 1.6 }}>
+                  Photos for this range coming soon. Contact us for current unit photos and specifications.
+                </p>
               </div>
             </FadeIn>
-          </div>
+          )}
         </div>
       </section>
 
-      {/* Key Components */}
-      <section style={{ background: LIGHT, padding: "80px 24px" }}>
+      {/* Use Cases */}
+      <section style={{ background: WHITE, padding: isMobile ? "48px 20px" : "80px 24px", borderTop: `1px solid ${BORDER}` }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <FadeIn>
-            <h2 style={{ fontSize: 32, fontWeight: 800, color: DARK, margin: "0 0 12px", letterSpacing: "-0.02em" }}>Key components</h2>
-            <p style={{ fontSize: 15, color: TEXT_MUTED, marginBottom: 40, maxWidth: 700, lineHeight: 1.6 }}>Built with premium components from globally recognized manufacturers.</p>
+            <span style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.15em", textTransform: "uppercase" }}>Applications</span>
+            <h2 style={{ fontSize: 28, fontWeight: 800, color: DARK, margin: "10px 0 32px", letterSpacing: "-0.02em" }}>Who uses this range?</h2>
           </FadeIn>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20 }}>
-            {p.keyComponents.map((kc, i) => (
-              <FadeIn key={i} delay={i * 0.05}>
-                <div style={{ background: WHITE, borderRadius: 12, padding: "24px 24px", border: `1px solid ${BORDER}`, height: "100%" }}>
-                  <h3 style={{ fontSize: 16, fontWeight: 700, color: DARK, margin: "0 0 8px" }}>{kc.title}</h3>
-                  <p style={{ fontSize: 13, color: TEXT_MUTED, lineHeight: 1.6, margin: 0 }}>{kc.desc}</p>
+          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(240px, 1fr))", gap: 16 }}>
+            {range.useCases.map((uc, i) => (
+              <FadeIn key={i} delay={i * 0.06}>
+                <div style={{ background: LIGHT, borderRadius: 12, padding: "24px 24px", border: `1px solid ${BORDER}`, height: "100%" }}>
+                  <div style={{ width: 32, height: 32, background: ACCENT_LIGHT, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 14 }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={ACCENT} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                  </div>
+                  <h3 style={{ fontSize: 15, fontWeight: 700, color: DARK, margin: "0 0 6px" }}>{uc.title}</h3>
+                  <p style={{ fontSize: 13, color: TEXT_MUTED, lineHeight: 1.6, margin: 0 }}>{uc.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -1037,58 +1332,67 @@ function ProductDetailPage({ product }) {
         </div>
       </section>
 
-      {/* Photo Gallery */}
-      {imgs.length > 1 && (
-        <section style={{ background: WHITE, padding: "80px 24px", borderTop: `1px solid ${BORDER}` }}>
-          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-            <FadeIn>
-              <h2 style={{ fontSize: 32, fontWeight: 800, color: DARK, margin: "0 0 12px", letterSpacing: "-0.02em" }}>Detailed photos</h2>
-              <p style={{ fontSize: 15, color: TEXT_MUTED, marginBottom: 40 }}>Close-up views of components, nameplates, and build quality.</p>
-            </FadeIn>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 12 }}>
-              {imgs.map((src, i) => (
-                <FadeIn key={i} delay={i * 0.03}>
-                  <div style={{ aspectRatio: "1", borderRadius: 10, overflow: "hidden", border: `1px solid ${BORDER}`, cursor: "pointer", transition: "transform 0.2s" }}
-                    onMouseEnter={e => e.currentTarget.style.transform = "scale(1.02)"} onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
-                    onClick={() => setActiveImg(i)}
-                  >
-                    <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Specs Table */}
-      <section style={{ background: LIGHT, padding: "80px 24px" }}>
-        <div style={{ maxWidth: 800, margin: "0 auto" }}>
+      {/* Quote Configurator */}
+      <section style={{ background: DARK2, padding: isMobile ? "48px 20px" : "80px 24px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <FadeIn>
-            <h2 style={{ fontSize: 32, fontWeight: 800, color: DARK, margin: "0 0 32px", letterSpacing: "-0.02em", textAlign: "center" }}>Technical specifications</h2>
-            <div style={{ borderRadius: 16, overflow: "hidden", border: `1px solid ${BORDER}`, background: WHITE }}>
-              {p.specs.map(([label, value], i) => (
-                <div key={label} style={{ display: "flex", borderBottom: i < p.specs.length - 1 ? `1px solid ${BORDER}` : "none", background: i % 2 === 0 ? LIGHT : WHITE }}>
-                  <div style={{ width: 240, padding: "14px 20px", fontSize: 14, fontWeight: 600, color: DARK, flexShrink: 0 }}>{label}</div>
-                  <div style={{ padding: "14px 20px", fontSize: 14, color: TEXT_MUTED, flex: 1 }}>{value}</div>
-                </div>
-              ))}
+            <div style={{ textAlign: "center", marginBottom: 40 }}>
+              <span style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.15em", textTransform: "uppercase" }}>Get a quote</span>
+              <h2 style={{ fontSize: 28, fontWeight: 800, color: WHITE, margin: "10px 0 12px", letterSpacing: "-0.02em" }}>Configure your {range.title} generator</h2>
+              <p style={{ fontSize: 15, color: MID, maxWidth: 560, margin: "0 auto" }}>Select your specs below and we'll come back with pricing, lead time, and availability from our Houston inventory.</p>
             </div>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <QuoteConfiguratorForm powerOptions={range.powerOptions} rangeTitle={range.title} />
           </FadeIn>
         </div>
       </section>
 
-      {/* CTA */}
-      <section style={{ background: DARK, padding: "80px 24px", textAlign: "center" }}>
-        <FadeIn>
-          <h2 style={{ fontSize: 28, fontWeight: 800, color: WHITE, margin: "0 0 16px" }}>Interested in this product?</h2>
-          <p style={{ fontSize: 15, color: MID, margin: "0 0 28px" }}>Contact us today for pricing, availability, and custom configurations.</p>
-          <Link to="contact" style={{ display: "inline-block", background: ACCENT, color: WHITE, padding: "16px 40px", borderRadius: 8, fontWeight: 700, fontSize: 15 }}>Request a quote</Link>
-        </FadeIn>
-      </section>
+      {/* Related Ranges */}
+      {relatedRanges.length > 0 && (
+        <section style={{ background: LIGHT, padding: isMobile ? "48px 20px" : "80px 24px" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <FadeIn>
+              <h2 style={{ fontSize: 24, fontWeight: 800, color: DARK, margin: "0 0 28px", letterSpacing: "-0.02em" }}>You might also consider</h2>
+            </FadeIn>
+            <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : `repeat(${relatedRanges.length}, 1fr)`, gap: 16 }}>
+              {relatedRanges.map((r, i) => {
+                const rPhotos = r.photos.flatMap(s => s.files.map(f => `/images/products/${s.folder}/${f}`));
+                return (
+                  <FadeIn key={r.id} delay={i * 0.07}>
+                    <div onClick={() => { navigate(`range-${r.id}`); }}
+                      style={{ background: WHITE, borderRadius: 14, overflow: "hidden", border: `1px solid ${BORDER}`, cursor: "pointer", transition: "transform 0.3s, box-shadow 0.3s, border-color 0.3s" }}
+                      onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 12px 32px rgba(0,0,0,0.08)"; e.currentTarget.style.borderColor = ACCENT; }}
+                      onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = BORDER; }}
+                    >
+                      <div style={{ aspectRatio: "16/9", background: DARK, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+                        {rPhotos[0] ? (
+                          <img src={rPhotos[0]} alt={r.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                        ) : (
+                          <CategoryIcon id={r.subCat === "open-frame" ? "open" : r.subCat === "mobile-trailer" ? "mobile" : r.subCat === "container" ? "container" : "silent"} size={60} />
+                        )}
+                      </div>
+                      <div style={{ padding: "20px 22px" }}>
+                        <div style={{ fontSize: 11, fontWeight: 600, color: ACCENT, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 6 }}>{r.fuelType === "natural-gas" ? "Natural Gas" : "Diesel"}</div>
+                        <h3 style={{ fontSize: 16, fontWeight: 700, color: DARK, margin: "0 0 6px" }}>{r.title}</h3>
+                        {r.subtitle && <div style={{ fontSize: 12, color: TEXT_MUTED, marginBottom: 10 }}>{r.subtitle}</div>}
+                        <div style={{ display: "inline-flex", alignItems: "center", gap: 5, color: ACCENT, fontWeight: 700, fontSize: 13 }}>
+                          View range
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                      </div>
+                    </div>
+                  </FadeIn>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }
+
 
 // ═══════════════════ ABOUT PAGE ═══════════════════
 function AboutPage() {
@@ -1245,15 +1549,17 @@ function ContactPage() {
 function PageSwitch() {
   const { page } = useRouter();
   if (page === "home") return <HomePage />;
-  if (page === "products") return <ProductsPage />;
   if (page === "about") return <AboutPage />;
   if (page === "contact") return <ContactPage />;
-  if (page.startsWith("product-")) {
-    const id = page.replace("product-", "");
-    const product = PRODUCTS.find(p => p.id === id);
-    if (product && product.hasPhotos) return <ProductDetailPage product={product} />;
-    return <ProductsPage />;
-  }
+  // Product navigation
+  if (page === "products") return <ProductsLandingPage />;
+  if (page === "products-diesel") return <CategoryPage catId="diesel" />;
+  if (page === "products-natural-gas") return <CategoryPage catId="natural-gas" />;
+  if (page === "products-diesel-silent") return <SubCategoryPage subCatId="silent" />;
+  if (page === "products-diesel-open-frame") return <SubCategoryPage subCatId="open-frame" />;
+  if (page === "products-diesel-mobile-trailer") return <SubCategoryPage subCatId="mobile-trailer" />;
+  if (page === "products-diesel-container") return <SubCategoryPage subCatId="container" />;
+  if (page.startsWith("range-")) return <RangePage rangeId={page.replace("range-", "")} />;
   return <NotFoundPage />;
 }
 
