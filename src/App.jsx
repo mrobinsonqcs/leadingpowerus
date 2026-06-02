@@ -22,8 +22,29 @@ const RouterCtx = createContext();
 const useRouter = () => useContext(RouterCtx);
 
 function Router({ children }) {
-  const [page, setPage] = useState("home");
-  const navigate = (p) => { setPage(p); window.scrollTo({ top: 0, behavior: "instant" }); };
+  const [page, setPage] = useState(() => {
+    const hash = window.location.hash.slice(1);
+    return hash || "home";
+  });
+
+  const navigate = (p) => {
+    window.history.pushState({ page: p }, "", p === "home" ? "/" : `#${p}`);
+    setPage(p);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+
+  useEffect(() => {
+    const onPop = (e) => {
+      const p = (e.state && e.state.page) || window.location.hash.slice(1) || "home";
+      setPage(p);
+      window.scrollTo({ top: 0, behavior: "instant" });
+    };
+    window.addEventListener("popstate", onPop);
+    // Replace the initial history entry so the home state is recorded
+    window.history.replaceState({ page }, "", window.location.href);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
+
   return <RouterCtx.Provider value={{ page, navigate }}>{children}</RouterCtx.Provider>;
 }
 
