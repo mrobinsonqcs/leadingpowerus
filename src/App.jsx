@@ -1055,10 +1055,11 @@ function QuoteConfiguratorForm({ powerOptions = [], rangeTitle = "" }) {
           <Sel label="Fuel tank runtime" k="fuelTank" opts={["Select...", "Base tank (4–6 hrs)", "8 hour", "12 hour", "24 hour", "48 hour"]} />
           <Sel label="Control panel" k="controlPanel" opts={["Select...", "Deep Sea Electronics (DSE)", "ComAp", "SmartGen", "Manual gauge panel"]} />
           <Sel label="Sound attenuation" k="soundAttenuation" opts={["Select...", "Standard silent (65–75 dB)", "Super silent (50–65 dB)", "Open frame"]} />
+          <Inp label="Custom color (optional)" k="customColor" ph="RAL 7035, olive green, custom…" />
         </div>
 
         {/* Options row */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "18px 24px", marginBottom: 28 }}>
+        <div style={{ marginBottom: 28 }}>
           <div>
             <label style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}>
               <input type="checkbox" checked={fields.atsIncluded} onChange={set("atsIncluded")}
@@ -1066,7 +1067,6 @@ function QuoteConfiguratorForm({ powerOptions = [], rangeTitle = "" }) {
               <span style={{ fontSize: 14, color: MID, fontWeight: 500 }}>Include ATS (Auto Transfer Switch)</span>
             </label>
           </div>
-          <Inp label="Custom color (optional)" k="customColor" ph="RAL 7035, olive green, custom…" />
         </div>
 
         {/* Divider */}
