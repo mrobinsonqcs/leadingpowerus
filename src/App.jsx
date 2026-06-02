@@ -1055,10 +1055,6 @@ function QuoteConfiguratorForm({ powerOptions = [], rangeTitle = "" }) {
           <Sel label="Fuel tank runtime" k="fuelTank" opts={["Select...", "Base tank (4–6 hrs)", "8 hour", "12 hour", "24 hour", "48 hour"]} />
           <Sel label="Control panel" k="controlPanel" opts={["Select...", "Deep Sea Electronics (DSE)", "ComAp", "SmartGen", "Manual gauge panel"]} />
           <Sel label="Sound attenuation" k="soundAttenuation" opts={["Select...", "Standard silent (65–75 dB)", "Super silent (50–65 dB)", "Open frame"]} />
-          <div style={{ display: "flex", alignItems: "center", gap: 8, background: "rgba(22,163,74,0.10)", border: "1.5px solid rgba(22,163,74,0.38)", borderRadius: 8, padding: "10px 16px" }}>
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style={{ flexShrink: 0 }}><circle cx="9" cy="9" r="9" fill="rgba(22,163,74,0.18)"/><path d="M5 9.5l2.5 2.5L13 6.5" stroke="#16A34A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            <span style={{ fontSize: 14, fontWeight: 700, color: "#16A34A", letterSpacing: "0.01em" }}>1 Year Warranty — Included</span>
-          </div>
         </div>
 
         {/* Options row */}
@@ -1096,6 +1092,14 @@ function QuoteConfiguratorForm({ powerOptions = [], rangeTitle = "" }) {
           </div>
         )}
 
+        <div style={{ display: "flex", gap: 24, justifyContent: "center", marginBottom: 16, flexWrap: "wrap" }}>
+          {[["1 Year Warranty Included"], ["Factory-Direct Pricing"]].map(([text]) => (
+            <div key={text} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" style={{ flexShrink: 0 }}><path d="M2.5 7.5l3.5 3.5 6.5-7" stroke={ACCENT} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <span style={{ fontSize: 13, color: TEXT_MUTED, fontWeight: 500 }}>{text}</span>
+            </div>
+          ))}
+        </div>
         <button type="submit" disabled={fsState.submitting}
           style={{ width: "100%", padding: "15px", background: fsState.submitting ? DARK2 : ACCENT, color: WHITE, border: "none", borderRadius: 8, fontWeight: 700, fontSize: 15, cursor: fsState.submitting ? "not-allowed" : "pointer", opacity: fsState.submitting ? 0.7 : 1, transition: "background 0.2s" }}
           onMouseEnter={e => { if (!fsState.submitting) e.currentTarget.style.background = ACCENT_DARK; }}
