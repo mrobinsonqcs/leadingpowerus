@@ -545,8 +545,8 @@ function HomePage() {
           </div>
           <FadeIn delay={0.2} style={{ flex: "0 0 auto", width: isMobile ? "100%" : "auto", maxWidth: isMobile ? 400 : "none" }}>
             <div style={{ position: "relative", width: "100%" }}>
-              <div style={{ width: isMobile ? "100%" : 480, aspectRatio: "1", borderRadius: 24, overflow: "hidden", border: `1px solid ${DARK3}`, boxShadow: "0 30px 80px rgba(0,0,0,0.5)", background: DARK2, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <CategoryIcon id="silent" size={180} />
+              <div style={{ position: "relative", width: isMobile ? "100%" : 480, aspectRatio: "1", borderRadius: 24, overflow: "hidden", border: `1px solid ${DARK3}`, boxShadow: "0 30px 80px rgba(0,0,0,0.5)", background: DARK2 }}>
+                <img src="/images/products/silent-30-150kw/silent-30-150kw-1.png" alt="Silent Diesel Generator" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
               <div style={{ position: "absolute", bottom: 24, left: -16, background: ACCENT, borderRadius: 10, padding: "14px 18px", boxShadow: "0 8px 32px rgba(0,0,0,0.4)" }}>
                 <div style={{ fontSize: 22, fontWeight: 800, color: WHITE }}>3kW – 3MW</div>
