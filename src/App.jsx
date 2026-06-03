@@ -85,227 +85,124 @@ function Link({ to, children, style = {}, ...props }) {
 
 // ═══════════════════ DATA ═══════════════════
 const CATEGORIES = [
-  { id: "silent", title: "Silent Type", range: "15 – 1000 kVA" },
-  { id: "open", title: "Open Type", range: "70 – 1000 kVA" },
-  { id: "mobile", title: "Mobile Type", range: "3 – 125 kVA" },
-  { id: "container", title: "Container Type", range: "1000 – 2500 kVA" },
+  { id: "silent", title: "Silent Type", range: "15 – 1000 kVA", photo: "/images/products/silent-30-150kw/silent-30-150kw-1.png" },
+  { id: "open", title: "Open Frame", range: "70 – 1000 kVA", photo: "/images/products/open-frame-20-100kw/open-frame-20-100kw-1.png" },
+  { id: "mobile", title: "Mobile & Trailer", range: "3 – 125 kVA", photo: "/images/products/mobile-10-50kw/mobile-10-50kw-1.png" },
+  { id: "container", title: "Container Type", range: "1000 – 2500 kVA", photo: "/images/products/container-500kw-1mw/container-500kw-1mw-1.png" },
 ];
 
 const PRODUCTS = [
   {
-    id: "silent-12-20",
-    category: "silent",
-    title: "12kW – 20kW Silent Diesel Generator Set",
-    range: "15 – 25 kVA",
-    desc: "Standby 12kW, 15kW, 18kW, 20kW silent type diesel generator sets.",
-    hasPhotos: false,
-  },
-  {
-    id: "silent-rollers",
-    category: "silent",
-    title: "Portable Silent Diesel Generator on Rollers",
-    range: "Configurable",
-    desc: "White silent enclosure with heavy-duty industrial caster wheels for in-facility positioning. Available in multiple kW configurations to fit your specific application.",
-    hasPhotos: true,
+    id: "silent-3-30kw",
+    title: "Silent Diesel Generator Set",
+    range: "3 – 30 kW",
+    desc: "Compact silent canopy generators ideal for residential backup, small business, and telecom sites.",
+    photo: "/images/products/silent-3-30kw/silent-3-30kw-1.png",
     rangePage: "range-silent-3-30",
-    folder: "silent-rollers",
-    photos: ["1.jpg", "2.jpg", "3.jpg", "4.jpg"],
-    specs: [
-      ["Format", "Silent enclosure on industrial casters"],
-      ["Power range", "Configurable to customer requirements"],
-      ["Voltage", "Configurable (60Hz US-spec available)"],
-      ["Mobility", "Heavy-duty locking caster wheels"],
-      ["Enclosure color", "White (custom colors available)"],
-      ["Application", "Indoor positioning, factory floor, warehouse"],
-      ["Sound rating", "Silent canopy with acoustic insulation"],
-      ["Lift access", "Forklift pockets in base frame"],
-      ["Certifications", "CE, ISO 9001"],
-      ["Customization", "Color, branding, fuel tank size, kW rating"],
-    ],
-    keyComponents: [
-      { title: "Industrial caster wheels", desc: "Heavy-duty locking casters allow positioning anywhere in your facility without crane or forklift lifting." },
-      { title: "Silent enclosure", desc: "Sound-attenuating canopy with acoustic foam insulation for quiet indoor operation." },
-      { title: "Configurable kW rating", desc: "We can spec the unit at the exact power level you need — from small commercial to mid-range industrial." },
-      { title: "Locking access doors", desc: "Multi-point latching doors provide secure access to engine, alternator, and control panel." },
-      { title: "Custom color options", desc: "Standard white finish or specify any color to match your fleet branding." },
-      { title: "Forklift pockets", desc: "Integrated forklift channels in the steel base frame for safe lifting and transport." },
-    ],
   },
   {
-    id: "sida-20kw",
-    category: "silent",
-    title: "20kW SIDA Silent Diesel Generator",
-    range: "20 kW / 25 kVA",
-    desc: "20kW silent diesel generator powered by a SIDA (Shanghai Diesel) engine. Compact silent enclosure with full instrumentation panel — ideal for small commercial backup, telecom sites, and light industrial applications.",
-    hasPhotos: true,
-    rangePage: "range-silent-3-30",
-    folder: "sida-20kw",
-    photos: ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"],
-    specs: [
-      ["Model", "LDGP-20"],
-      ["Rated power", "20 kW"],
-      ["Voltage", "60Hz US-spec / 50Hz options available"],
-      ["Engine", "SIDA (Shanghai Diesel) 4-cylinder inline"],
-      ["Control panel", "Manual gauge panel with Genset Controller"],
-      ["Instrumentation", "Amp meter, voltage/frequency display, water temp & oil pressure gauges"],
-      ["Safety", "Emergency stop button, low oil warning"],
-      ["Enclosure", "Compact silent canopy"],
-      ["Color", "Standard cream/white (custom available)"],
-      ["Certifications", "ISO 9001 certified"],
-      ["Application", "Small commercial backup, telecom, light industrial"],
-    ],
-    keyComponents: [
-      { title: "SIDA engine", desc: "Shanghai Diesel 4-cylinder inline diesel engine, proven workhorse design with excellent reliability." },
-      { title: "Full instrumentation", desc: "Manual gauge panel with amp meter, voltage/frequency display, water temperature, and oil pressure gauges." },
-      { title: "Emergency stop", desc: "Red mushroom emergency stop button for instant shutdown in case of fault or emergency." },
-      { title: "Genset Controller", desc: "Integrated genset controller with low oil warning and protective auto-shutdown." },
-      { title: "Compact silent canopy", desc: "Smaller footprint silent enclosure ideal for tight installations and indoor placement." },
-      { title: "Service access", desc: "Multi-door enclosure design provides easy access for maintenance and inspection." },
-    ],
-  },
-  {
-    id: "perkins-24kw",
-    category: "silent",
-    title: "24kW Perkins Silent Diesel Generator | LDGP-30",
-    range: "30 kVA",
-    desc: "Single-phase Perkins 404D-22T engine paired with Leroy-Somer alternator. 60Hz, 110V, EPA Tier 4 certified for U.S. emergency standby use.",
-    hasPhotos: true,
-    rangePage: "range-silent-3-30",
-    folder: "perkins-24kw",
-    photos: ["1.jpg", "2.jpg", "3a.jpg", "3b.jpg", "3c.jpg", "4a.jpg", "4b.jpg", "4c.jpg", "5a.jpg", "5b.jpg", "5c.jpg", "6a.jpg", "6b.jpg", "6c.jpg"],
-    specs: [
-      ["Model", "LDGP-30"],
-      ["Rated power", "22 kW / 22 kVA"],
-      ["Standby power", "24 kW / 24 kVA"],
-      ["Voltage", "110V"],
-      ["Phase", "1 Phase"],
-      ["Frequency", "60 Hz"],
-      ["Amps", "200 A"],
-      ["Power factor", "1.0"],
-      ["RPM", "1800 r/min"],
-      ["Engine", "Perkins 404D-22T"],
-      ["Alternator", "Nidec Leroy-Somer TAL-A42-B-SJ"],
-      ["Weight", "1170 kg"],
-      ["Dimensions", "2150 × 920 × 1640 mm"],
-      ["Emissions", "EPA Tier 4 certified"],
-      ["Application", "Stationary emergency standby use"],
-    ],
-    keyComponents: [
-      { title: "Perkins engine", desc: "404D-22T turbocharged diesel — built in the UK by Perkins Engines, EPA-certified for U.S. emergency stationary use." },
-      { title: "Leroy-Somer alternator", desc: "Nidec Leroy-Somer TAL-A42-B-SJ brushless alternator, IP23 rated, made in France." },
-      { title: "DSE control panel", desc: "Deep Sea Electronics controller with auto-start, monitoring display, and emergency stop." },
-      { title: "Genuine Perkins filtration", desc: "Perkins Powerpart air, fuel, and oil filters for OEM-grade reliability." },
-      { title: "VARTA starting battery", desc: "Industrial-grade VARTA 6-QW-60(500)-L starting battery." },
-      { title: "Sound-attenuated enclosure", desc: "Double-layer steel canopy with acoustic insulation and weatherproof IP23 rating." },
-    ],
-  },
-  {
-    id: "silent-25-50",
-    category: "silent",
-    title: "25kW – 50kW Silent Diesel Generator Set",
-    range: "30 – 62.5 kVA",
-    desc: "Intelligent 25kW, 30kW, 40kW, 50kW silent type diesel generator sets for commercial and light industrial applications.",
-    hasPhotos: false,
-  },
-  {
-    id: "ricardo-75kw",
-    category: "silent",
-    title: "75kW Silent Diesel Generator | LDGP-75",
-    range: "75 kW / 100 kVA",
-    desc: "75kW silent diesel generator built around a Ricardo YM4110BZL engine. Heavy-duty silent enclosure with acoustic dampening for industrial and commercial use.",
-    hasPhotos: true,
+    id: "silent-30-150kw",
+    title: "Silent Diesel Generator Set",
+    range: "30 – 150 kW",
+    desc: "Mid-range silent series with soundproofed enclosure — commercial backup, hospitality, and light industrial.",
+    photo: "/images/products/silent-30-150kw/silent-30-150kw-1.png",
     rangePage: "range-silent-30-150",
-    folder: "ricardo-75kw",
-    photos: ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5a.jpg", "5b.jpg", "5c.jpg", "6.jpg"],
-    specs: [
-      ["Model", "LDGP-75"],
-      ["Rated power", "75 kW"],
-      ["Voltage", "380V (50Hz config) / 480V (60Hz config available)"],
-      ["Phase", "3 Phase"],
-      ["Frequency", "50 Hz / 60 Hz options"],
-      ["Amps", "142 A"],
-      ["Power factor", "0.8"],
-      ["RPM", "1500 / 1800 r/min"],
-      ["Engine", "Ricardo YM4110BZL"],
-      ["Engine rated power", "80 kW"],
-      ["Net weight", "1410 kg"],
-      ["Certifications", "CE, ISO 9001"],
-      ["Enclosure", "Silent canopy with acoustic foam"],
-      ["Application", "Industrial standby, commercial backup"],
-    ],
-    keyComponents: [
-      { title: "Ricardo engine", desc: "Ricardo YM4110BZL diesel engine rated at 80kW @ 1500 RPM, built for heavy-duty continuous and standby operation." },
-      { title: "Silent canopy", desc: "Sound-attenuating enclosure with internal acoustic foam, ventilation grilles, and weatherproof construction." },
-      { title: "CE / ISO 9001 certified", desc: "Internationally certified for quality and safety standards." },
-      { title: "Integrated exhaust system", desc: "Internal residential-grade muffler and exhaust ducting for low-noise operation." },
-      { title: "Lift points & forklift access", desc: "Engineered for crane lifting and forklift positioning at install sites." },
-      { title: "60Hz US configuration available", desc: "Standard 50Hz European spec; 60Hz / 480V US configurations available on request." },
-    ],
   },
   {
-    id: "silent-100-800",
-    category: "silent",
-    title: "100kW – 800kW Silent Diesel Generator Set",
-    range: "125 – 1000 kVA",
-    desc: "Large-scale silent type diesel generator sets for industrial backup, data centers, and utility applications.",
-    hasPhotos: false,
+    id: "silent-150-500kw-tan",
+    title: "Silent Diesel Generator Set",
+    range: "150 – 500 kW",
+    desc: "Large-frame silent generators for industrial facilities, data centers, and critical infrastructure.",
+    photo: "/images/products/silent-150-500kw-tan/silent-150-500kw-tan-1.png",
+    rangePage: "range-silent-150-500",
   },
   {
-    id: "mobile-3-12",
-    category: "mobile",
-    title: "3kW – 12kW Mobile Type Diesel Generator Set",
-    range: "3 – 12 kVA",
-    desc: "Single-phase portable diesel generators for residential backup, small businesses, and remote sites.",
-    hasPhotos: false,
+    id: "silent-500kw-3mw",
+    title: "Silent Diesel Generator Set",
+    range: "500 kW – 3 MW",
+    desc: "Heavy-duty large-scale silent generators for utilities, mining operations, and industrial plants.",
+    photo: "/images/products/silent-500kw-3mw/silent-500kw-3mw-1.png",
+    rangePage: "range-silent-500-3mw",
   },
   {
-    id: "trailer-20-100kw",
-    category: "mobile",
-    title: "20kW – 100kW Trailer-Mounted Silent Diesel Generator",
-    range: "25 – 125 kVA",
-    desc: "Trailer-mounted silent diesel generators covering the full 20kW to 100kW range. Configurable trailer styles (single axle, tandem axle, 4-wheel cart) and color options to match your fleet. Built for job sites, events, and emergency deployment.",
-    hasPhotos: true,
+    id: "open-frame-20-100kw",
+    title: "Open Frame Diesel Generator Set",
+    range: "20 – 100 kW",
+    desc: "Open frame generators for indoor installations with existing enclosures or noise-tolerant environments.",
+    photo: "/images/products/open-frame-20-100kw/open-frame-20-100kw-1.png",
+    rangePage: "range-open-20-100",
+  },
+  {
+    id: "open-frame-100-500kw",
+    title: "Open Frame Diesel Generator Set",
+    range: "100 – 500 kW",
+    desc: "High-output open frame generators for industrial facilities, manufacturing plants, and utility applications.",
+    photo: "/images/products/open-frame-100-500kw/open-frame-100-500kw-1.png",
+    rangePage: "range-open-100-500",
+  },
+  {
+    id: "mobile-10-50kw",
+    title: "Mobile / Trailer Generator Set",
+    range: "10 – 50 kW",
+    desc: "Trailer-mounted silent generators for construction sites, events, and emergency deployment.",
+    photo: "/images/products/mobile-10-50kw/mobile-10-50kw-1.png",
     rangePage: "range-mobile-10-50",
-    folder: "trailer-20-100kw",
-    photos: ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"],
-    specs: [
-      ["Power range", "20 kW – 100 kW (25 – 125 kVA)"],
-      ["Frequency", "60Hz US-spec available (50Hz also available)"],
-      ["Voltage", "Configurable single or three-phase"],
-      ["Trailer options", "Single axle, tandem axle, 4-wheel cart"],
-      ["Hitch", "Tongue hitch, pintle hitch options"],
-      ["Stabilizers", "Manual screw-down stabilizer jacks"],
-      ["Color options", "Olive green, teal, custom colors available"],
-      ["Enclosure", "Silent canopy with acoustic insulation"],
-      ["Lighting", "Reflective markings, optional DOT lighting kit"],
-      ["Speed rating", "Yard tow standard; DOT highway-rated trailers available on request"],
-      ["Certifications", "CE, ISO 9001"],
-      ["Application", "Construction, events, emergency deployment, remote sites"],
-    ],
-    keyComponents: [
-      { title: "Multiple trailer configurations", desc: "Choose from single-axle, tandem-axle, or 4-wheel cart trailers depending on your kW size and tow vehicle." },
-      { title: "Stabilizer jacks", desc: "Manual screw-down stabilizer jacks at all four corners for stable level operation on uneven ground." },
-      { title: "Color customization", desc: "Standard olive green or teal finishes, plus full custom color options to match your fleet branding." },
-      { title: "Silent enclosure", desc: "Sound-attenuating canopy with acoustic foam insulation — quiet enough for noise-sensitive deployments." },
-      { title: "Tongue & pintle hitch options", desc: "Standard 2\" ball tongue hitch, with pintle hitch available for heavier units and commercial fleets." },
-      { title: "Configurable kW range", desc: "Same trailer platform houses engines from 20kW up to 100kW — pick the power output that fits your application." },
-    ],
   },
   {
-    id: "open-50-800",
-    category: "open",
-    title: "50kW – 800kW Open Type Diesel Generator Set",
-    range: "70 – 1000 kVA",
-    desc: "Heavy-duty open frame diesel generators for indoor installations and industrial applications.",
-    hasPhotos: false,
+    id: "mobile-50-150kw",
+    title: "Mobile / Trailer Generator Set",
+    range: "50 – 150 kW",
+    desc: "Heavy-duty trailer generators for larger job sites, disaster response, and mobile power applications.",
+    photo: "/images/products/mobile-50-150kw/mobile-50-150kw-1.png",
+    rangePage: "range-mobile-50-150",
   },
   {
-    id: "container-800-2000",
-    category: "container",
-    title: "800kW – 2000kW Container Type Diesel Generator Set",
-    range: "1000 – 2500 kVA",
-    desc: "Containerized power plants for large-scale operations, mining, utilities, and industrial sites.",
-    hasPhotos: false,
+    id: "container-500kw-1mw",
+    title: "Container Type Generator Set",
+    range: "500 kW – 1 MW",
+    desc: "ISO containerized power plants for remote sites, mining operations, and large commercial facilities.",
+    photo: "/images/products/container-500kw-1mw/container-500kw-1mw-1.png",
+    rangePage: "range-container-500-1mw",
+  },
+  {
+    id: "container-1mw-3mw",
+    title: "Container Type Generator Set",
+    range: "1 MW – 3 MW",
+    desc: "Mega-scale containerized generator systems for utility-grade power and large industrial complexes.",
+    photo: "/images/products/container-1mw-3mw/container-1mw-3mw-1.png",
+    rangePage: "range-container-1mw-3mw",
+  },
+  {
+    id: "natgas-20-100kw",
+    title: "Natural Gas Generator Set",
+    range: "20 – 100 kW",
+    desc: "Clean-burning natural gas generators for commercial backup, wellhead gas, and distributed generation.",
+    photo: "/images/products/natgas-20-100kw/natgas-20-100kw-1.png",
+    rangePage: "range-natgas-20-100",
+  },
+  {
+    id: "natgas-100-500kw",
+    title: "Natural Gas Generator Set",
+    range: "100 – 500 kW",
+    desc: "Mid-range natural gas generators for industrial facilities, Permian Basin wellhead, and flare gas recovery.",
+    photo: "/images/products/natgas-100-500kw/natgas-100-500kw-1.png",
+    rangePage: "range-natgas-100-500",
+  },
+  {
+    id: "natgas-500kw-2mw",
+    title: "Natural Gas Generator Set",
+    range: "500 kW – 2 MW",
+    desc: "Large natural gas generator sets for utility applications, industrial plants, and gas field power.",
+    photo: "/images/products/natgas-500kw-2mw/natgas-500kw-2mw-1.png",
+    rangePage: "range-natgas-500-2mw",
+  },
+  {
+    id: "natgas-2mw-10mw",
+    title: "Natural Gas Generator Set",
+    range: "2 MW – 10 MW",
+    desc: "Mega-scale natural gas power plants for utilities, large industrial complexes, and grid support.",
+    photo: "/images/products/natgas-2mw-10mw/natgas-2mw-10mw-1.png",
+    rangePage: "range-natgas-2mw-10mw",
   },
 ];
 
@@ -680,8 +577,8 @@ function HomePage() {
                   onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.08)"; e.currentTarget.style.borderColor = ACCENT; }}
                   onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = BORDER; }}
                 >
-                  <div style={{ display: "flex", justifyContent: "center", marginBottom: 16 }}>
-                    <CategoryIcon id={c.id} size={70} />
+                  <div style={{ display: "flex", justifyContent: "center", marginBottom: 16, height: 70, alignItems: "center" }}>
+                    <img src={c.photo} alt={c.title} style={{ width: 70, height: 70, objectFit: "cover", borderRadius: 8 }} />
                   </div>
                   <h3 style={{ fontSize: 18, fontWeight: 700, color: DARK, margin: "0 0 6px" }}>{c.title}</h3>
                   <div style={{ fontSize: 13, color: ACCENT, fontWeight: 600 }}>{c.range}</div>
@@ -693,14 +590,8 @@ function HomePage() {
                 onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.08)"; e.currentTarget.style.borderColor = ACCENT; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = BORDER; }}
               >
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: 16 }}>
-                  <svg width="70" height="70" viewBox="0 0 80 80" fill="none">
-                    <path d="M40 12 C40 12 26 28 26 42 C26 50.84 32.27 58 40 58 C47.73 58 54 50.84 54 42 C54 28 40 12 40 12Z" fill={DARK3} stroke={ACCENT} strokeWidth="1.5" strokeLinejoin="round" />
-                    <path d="M40 30 C40 30 33 38 33 44 C33 47.87 36.13 51 40 51 C43.87 51 47 47.87 47 44 C47 38 40 30 40 30Z" fill={DARK2} stroke={ACCENT} strokeWidth="1" strokeLinejoin="round" />
-                    <circle cx="40" cy="44" r="4" fill="none" stroke={ACCENT} strokeWidth="1.5" />
-                    <line x1="40" y1="58" x2="40" y2="64" stroke={ACCENT} strokeWidth="1.5" />
-                    <line x1="28" y1="62" x2="52" y2="62" stroke={ACCENT} strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
+                <div style={{ display: "flex", justifyContent: "center", marginBottom: 16, height: 70, alignItems: "center" }}>
+                  <img src="/images/products/natgas-100-500kw/natgas-100-500kw-1.png" alt="Natural Gas" style={{ width: 70, height: 70, objectFit: "cover", borderRadius: 8 }} />
                 </div>
                 <h3 style={{ fontSize: 18, fontWeight: 700, color: DARK, margin: "0 0 6px" }}>Natural Gas</h3>
                 <div style={{ fontSize: 13, color: ACCENT, fontWeight: 600 }}>20 – 500 kW</div>
@@ -715,8 +606,8 @@ function HomePage() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 32 : 64, alignItems: "center" }}>
             <FadeIn>
-              <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "1", border: `1px solid ${DARK3}`, background: DARK2, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <CategoryIcon id="silent" size={180} />
+              <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "1", border: `1px solid ${DARK3}`, background: DARK2 }}>
+                <img src="/images/products/silent-30-150kw/silent-30-150kw-1.png" alt="Silent Diesel Generator" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
@@ -768,8 +659,8 @@ function HomePage() {
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "1", border: `1px solid ${DARK3}`, background: DARK2, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <CategoryIcon id="silent" size={180} />
+              <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "1", border: `1px solid ${DARK3}`, background: DARK2 }}>
+                <img src="/images/products/silent-30-150kw/silent-30-150kw-1.png" alt="Super Silent Diesel Generator" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
             </FadeIn>
           </div>
@@ -781,21 +672,8 @@ function HomePage() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 32 : 64, alignItems: "center" }}>
             <FadeIn>
-              <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "1", border: `1px solid ${DARK3}`, background: DARK2, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <svg width="220" height="220" viewBox="0 0 220 220" fill="none">
-                  <rect x="20" y="80" width="180" height="110" rx="6" fill={DARK3} stroke={ACCENT} strokeWidth="1.5" />
-                  <rect x="20" y="80" width="180" height="18" rx="6" fill={DARK2} />
-                  <rect x="30" y="108" width="60" height="72" rx="4" fill={DARK2} stroke={ACCENT} strokeWidth="1" strokeOpacity="0.5" />
-                  <circle cx="60" cy="144" r="20" fill="none" stroke={ACCENT} strokeWidth="1.5" />
-                  <circle cx="60" cy="144" r="8" fill={DARK3} stroke={ACCENT} strokeWidth="1" />
-                  <rect x="100" y="108" width="90" height="72" rx="4" fill={DARK2} stroke={ACCENT} strokeWidth="1" strokeOpacity="0.5" />
-                  <line x1="110" y1="124" x2="180" y2="124" stroke={ACCENT} strokeWidth="1" strokeOpacity="0.4" />
-                  <line x1="110" y1="138" x2="175" y2="138" stroke={ACCENT} strokeWidth="1" strokeOpacity="0.4" />
-                  <line x1="110" y1="152" x2="180" y2="152" stroke={ACCENT} strokeWidth="1" strokeOpacity="0.4" />
-                  <path d="M110 50 C110 50 98 63 98 71 C98 77.63 103.37 83 110 83 C116.63 83 122 77.63 122 71 C122 63 110 50 110 50Z" fill="rgba(200,37,46,0.2)" stroke={ACCENT} strokeWidth="1.5" strokeLinejoin="round" />
-                  <path d="M110 59 C110 59 104 66 104 71 C104 73.76 106.24 76 109 76 C111.76 76 114 73.76 114 71 C114 66 110 59 110 59Z" fill={DARK2} stroke={ACCENT} strokeWidth="1" strokeLinejoin="round" />
-                  <text x="110" y="74" textAnchor="middle" fill={DARK3} fontSize="9" fontFamily="sans-serif" fontWeight="800">G</text>
-                </svg>
+              <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "1", border: `1px solid ${DARK3}`, background: DARK2 }}>
+                <img src="/images/products/natgas-100-500kw/natgas-100-500kw-2.png" alt="Natural Gas Generator" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
@@ -875,16 +753,8 @@ function HomePage() {
           </FadeIn>
           <FadeIn delay={0.15}>
             <div style={{ position: "relative" }}>
-              <div style={{ background: DARK3, borderRadius: 20, overflow: "hidden", aspectRatio: "4/3", display: "flex", alignItems: "center", justifyContent: "center", border: `1px solid rgba(255,255,255,0.06)`, padding: 32 }}>
-                <svg viewBox="0 0 400 260" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%" }}>
-                  <rect x="10" y="80" width="380" height="140" rx="6" fill="#252830" stroke="#444" strokeWidth="1" /><rect x="10" y="80" width="380" height="20" rx="6" fill="#2E3138" />
-                  <text x="200" y="94" textAnchor="middle" fill={ACCENT} fontSize="10" fontWeight="700" fontFamily="sans-serif" letterSpacing="0.05em">LEADING POWER MANUFACTURING FACILITY</text>
-                  {[64, 158, 252].map(cx => (<g key={cx}><rect x={cx - 40} y="110" width="80" height="100" rx="4" fill="#1A1D23" stroke="#444" strokeWidth="0.5" /><circle cx={cx} cy="160" r="30" fill="#2E323B" stroke={ACCENT} strokeWidth="1.5" /><circle cx={cx} cy="160" r="14" fill="#1A1D23" stroke={ACCENT} strokeWidth="1" /></g>))}
-                  <rect x="306" y="110" width="72" height="100" rx="4" fill="#1A1D23" stroke="#444" strokeWidth="0.5" />
-                  {[120, 140, 160, 180].map(y => <rect key={y} x="316" y={y} width="52" height="14" rx="2" fill="#2E323B" />)}
-                  <text x="200" y="50" textAnchor="middle" fill="#777" fontSize="12" fontFamily="sans-serif" fontWeight="600">15,000 m² Production Base</text>
-                  <text x="200" y="68" textAnchor="middle" fill="#555" fontSize="10" fontFamily="sans-serif">Ningde, Fujian, China</text>
-                </svg>
+              <div style={{ background: DARK3, borderRadius: 20, overflow: "hidden", aspectRatio: "4/3", border: `1px solid rgba(255,255,255,0.06)` }}>
+                <img src="/images/products/silent-500kw-3mw/silent-500kw-3mw-4.png" alt="Leading Power manufacturing facility" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
               <div style={{ position: "absolute", bottom: -20, left: -20, background: ACCENT, borderRadius: 12, padding: "20px 24px", boxShadow: "0 8px 32px rgba(0,0,0,0.3)" }}>
                 <div style={{ fontSize: 28, fontWeight: 800, color: WHITE }}>10,000+</div>
@@ -975,10 +845,13 @@ function ProductCard({ product }) {
       onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.08)"; }}
       onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
     >
-      <div style={{ background: DARK, aspectRatio: "1", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", position: "relative" }}>
-        <CategoryIcon id={product.category} size={120} />
-        {false && (
-          <div style={{ position: "absolute", top: 12, right: 12, background: ACCENT, color: WHITE, padding: "4px 10px", borderRadius: 50, fontSize: 11, fontWeight: 700, letterSpacing: "0.05em" }}>IN STOCK</div>
+      <div style={{ background: DARK, aspectRatio: "1", overflow: "hidden", position: "relative" }}>
+        {product.photo ? (
+          <img src={product.photo} alt={product.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+        ) : (
+          <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <CategoryIcon id={product.category || "silent"} size={120} />
+          </div>
         )}
       </div>
       <div style={{ padding: "20px 22px", flex: 1, display: "flex", flexDirection: "column" }}>
@@ -986,7 +859,7 @@ function ProductCard({ product }) {
         <h3 style={{ fontSize: 15, fontWeight: 700, color: DARK, margin: "0 0 10px", lineHeight: 1.3 }}>{product.title}</h3>
         <p style={{ fontSize: 13, color: TEXT_MUTED, lineHeight: 1.55, margin: "0 0 14px", flex: 1 }}>{product.desc}</p>
         <div style={{ display: "flex", alignItems: "center", gap: 6, color: ACCENT, fontSize: 12, fontWeight: 700 }}>
-          <span>{product.hasPhotos ? "View Details" : "Inquire"}</span>
+          <span>{product.photo || product.hasPhotos ? "View Details" : "Inquire"}</span>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </div>
