@@ -554,7 +554,7 @@ function HomePage() {
               </div>
               <div style={{ position: "absolute", top: 24, right: -16, background: WHITE, borderRadius: 10, padding: "12px 16px", boxShadow: "0 8px 32px rgba(0,0,0,0.4)" }}>
                 <div style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.1em", textTransform: "uppercase" }}>Featured</div>
-                <div style={{ fontSize: 14, fontWeight: 700, color: DARK, marginTop: 2 }}>LDGP-30 Perkins</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: DARK, marginTop: 2 }}>Silent Diesel Generator</div>
               </div>
             </div>
           </FadeIn>
@@ -573,28 +573,30 @@ function HomePage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }}>
             {CATEGORIES.map((c, i) => (
               <FadeIn key={c.id} delay={i * 0.08}>
-                <div onClick={() => navigate("products")} style={{ background: WHITE, borderRadius: 16, padding: "36px 28px", textAlign: "center", border: `1px solid ${BORDER}`, cursor: "pointer", transition: "transform 0.3s, box-shadow 0.3s, border-color 0.3s", height: "100%" }}
-                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.08)"; e.currentTarget.style.borderColor = ACCENT; }}
-                  onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = BORDER; }}
+                <div onClick={() => navigate("products")} style={{ borderRadius: 16, overflow: "hidden", cursor: "pointer", transition: "transform 0.3s, box-shadow 0.3s", height: "100%", position: "relative", minHeight: 180 }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.25)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
                 >
-                  <div style={{ display: "flex", justifyContent: "center", marginBottom: 16, height: 70, alignItems: "center" }}>
-                    <img src={c.photo} alt={c.title} style={{ width: 70, height: 70, objectFit: "cover", borderRadius: 8 }} />
+                  <img src={c.photo} alt={c.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.1) 100%)" }} />
+                  <div style={{ position: "relative", zIndex: 1, padding: "36px 28px", textAlign: "center", display: "flex", flexDirection: "column", justifyContent: "flex-end", minHeight: 180 }}>
+                    <h3 style={{ fontSize: 18, fontWeight: 700, color: WHITE, margin: "0 0 6px" }}>{c.title}</h3>
+                    <div style={{ fontSize: 13, color: "rgba(255,255,255,0.8)", fontWeight: 600 }}>{c.range}</div>
                   </div>
-                  <h3 style={{ fontSize: 18, fontWeight: 700, color: DARK, margin: "0 0 6px" }}>{c.title}</h3>
-                  <div style={{ fontSize: 13, color: ACCENT, fontWeight: 600 }}>{c.range}</div>
                 </div>
               </FadeIn>
             ))}
             <FadeIn delay={CATEGORIES.length * 0.08}>
-              <div onClick={() => navigate("products-natural-gas")} style={{ background: WHITE, borderRadius: 16, padding: "36px 28px", textAlign: "center", border: `1px solid ${BORDER}`, cursor: "pointer", transition: "transform 0.3s, box-shadow 0.3s, border-color 0.3s", height: "100%" }}
-                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.08)"; e.currentTarget.style.borderColor = ACCENT; }}
-                onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = BORDER; }}
+              <div onClick={() => navigate("products-natural-gas")} style={{ borderRadius: 16, overflow: "hidden", cursor: "pointer", transition: "transform 0.3s, box-shadow 0.3s", height: "100%", position: "relative", minHeight: 180 }}
+                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.25)"; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
               >
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: 16, height: 70, alignItems: "center" }}>
-                  <img src="/images/products/natgas-100-500kw/natgas-100-500kw-1.png" alt="Natural Gas" style={{ width: 70, height: 70, objectFit: "cover", borderRadius: 8 }} />
+                <img src="/images/products/natgas-100-500kw/natgas-100-500kw-1.png" alt="Natural Gas" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.1) 100%)" }} />
+                <div style={{ position: "relative", zIndex: 1, padding: "36px 28px", textAlign: "center", display: "flex", flexDirection: "column", justifyContent: "flex-end", minHeight: 180 }}>
+                  <h3 style={{ fontSize: 18, fontWeight: 700, color: WHITE, margin: "0 0 6px" }}>Natural Gas</h3>
+                  <div style={{ fontSize: 13, color: "rgba(255,255,255,0.8)", fontWeight: 600 }}>20 – 500 kW</div>
                 </div>
-                <h3 style={{ fontSize: 18, fontWeight: 700, color: DARK, margin: "0 0 6px" }}>Natural Gas</h3>
-                <div style={{ fontSize: 13, color: ACCENT, fontWeight: 600 }}>20 – 500 kW</div>
               </div>
             </FadeIn>
           </div>
@@ -607,7 +609,7 @@ function HomePage() {
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 32 : 64, alignItems: "center" }}>
             <FadeIn>
               <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "1", border: `1px solid ${DARK3}`, background: DARK2 }}>
-                <img src="/images/products/silent-30-150kw/silent-30-150kw-1.png" alt="Silent Diesel Generator" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <img src="/images/products/silent-30-150kw/silent-30-150kw-2.png" alt="Silent Diesel Generator" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
@@ -660,7 +662,7 @@ function HomePage() {
             </FadeIn>
             <FadeIn delay={0.1}>
               <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "1", border: `1px solid ${DARK3}`, background: DARK2 }}>
-                <img src="/images/products/silent-30-150kw/silent-30-150kw-1.png" alt="Super Silent Diesel Generator" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <img src="/images/products/natgas-100-500kw/natgas-100-500kw-2.png" alt="Natural Gas Generator" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
             </FadeIn>
           </div>
