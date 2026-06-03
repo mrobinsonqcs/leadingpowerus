@@ -648,8 +648,8 @@ function HomePage() {
           </div>
           <FadeIn delay={0.2} style={{ flex: "0 0 auto", width: isMobile ? "100%" : "auto", maxWidth: isMobile ? 400 : "none" }}>
             <div style={{ position: "relative", width: "100%" }}>
-              <div style={{ width: isMobile ? "100%" : 480, aspectRatio: "1", borderRadius: 24, overflow: "hidden", border: `1px solid ${DARK3}`, boxShadow: "0 30px 80px rgba(0,0,0,0.5)" }}>
-                <img src="/images/products/perkins-24kw/1.jpg" alt="Leading Power LDGP-30 Silent Diesel Generator" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ width: isMobile ? "100%" : 480, aspectRatio: "1", borderRadius: 24, overflow: "hidden", border: `1px solid ${DARK3}`, boxShadow: "0 30px 80px rgba(0,0,0,0.5)", background: DARK2, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <CategoryIcon id="silent" size={180} />
               </div>
               <div style={{ position: "absolute", bottom: 24, left: -16, background: ACCENT, borderRadius: 10, padding: "14px 18px", boxShadow: "0 8px 32px rgba(0,0,0,0.4)" }}>
                 <div style={{ fontSize: 22, fontWeight: 800, color: WHITE }}>3kW – 3MW</div>
@@ -715,8 +715,8 @@ function HomePage() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 32 : 64, alignItems: "center" }}>
             <FadeIn>
-              <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "1", border: `1px solid ${DARK3}` }}>
-                <img src="/images/products/perkins-24kw/1.jpg" alt="LDGP-30 Perkins Silent Diesel Generator" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "1", border: `1px solid ${DARK3}`, background: DARK2, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <CategoryIcon id="silent" size={180} />
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
@@ -768,8 +768,8 @@ function HomePage() {
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "1", border: `1px solid ${DARK3}` }}>
-                <img src="/images/products/ricardo-75kw/1.jpg" alt="LDGP-75 Super Silent Diesel Generator" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "1", border: `1px solid ${DARK3}`, background: DARK2, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <CategoryIcon id="silent" size={180} />
               </div>
             </FadeIn>
           </div>
@@ -976,12 +976,8 @@ function ProductCard({ product }) {
       onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
     >
       <div style={{ background: DARK, aspectRatio: "1", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", position: "relative" }}>
-        {product.hasPhotos ? (
-          <img src={`/images/products/${product.folder}/1.jpg`} alt={product.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-        ) : (
-          <CategoryIcon id={product.category} size={120} />
-        )}
-        {product.hasPhotos && (
+        <CategoryIcon id={product.category} size={120} />
+        {false && (
           <div style={{ position: "absolute", top: 12, right: 12, background: ACCENT, color: WHITE, padding: "4px 10px", borderRadius: 50, fontSize: 11, fontWeight: 700, letterSpacing: "0.05em" }}>IN STOCK</div>
         )}
       </div>
@@ -1508,8 +1504,8 @@ function AboutPage() {
       <section style={{ background: LIGHT, padding: "80px 24px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <FadeIn>
-            <div style={{ background: DARK3, borderRadius: 20, overflow: "hidden", aspectRatio: "21/9", marginBottom: 64, border: `1px solid ${DARK3}` }}>
-              <img src="/images/products/perkins-24kw/1.jpg" alt="Leading Power generator" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <div style={{ background: DARK3, borderRadius: 20, overflow: "hidden", aspectRatio: "21/9", marginBottom: 64, border: `1px solid ${DARK3}`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <CategoryIcon id="silent" size={120} />
             </div>
           </FadeIn>
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1.4fr", gap: isMobile ? 32 : 64 }}>
