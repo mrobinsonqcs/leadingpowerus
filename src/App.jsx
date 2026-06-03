@@ -608,7 +608,7 @@ function HomePage() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 32 : 64, alignItems: "center" }}>
             <FadeIn>
-              <div style={{ borderRadius: 20, overflow: "hidden", border: `1px solid ${DARK3}`, background: `${DARK2} url('/images/products/silent-30-150kw/silent-30-150kw-2.png') center/cover no-repeat`, paddingTop: "100%" }} />
+              <img src="/images/products/silent-30-150kw/silent-30-150kw-2.png" alt="Silent Diesel Generator" style={{ display: "block", width: "100%", height: "auto", borderRadius: 20, border: `1px solid ${DARK3}` }} />
             </FadeIn>
             <FadeIn delay={0.1}>
               <div>
