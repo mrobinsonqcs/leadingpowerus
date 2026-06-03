@@ -120,10 +120,7 @@ export const RANGES = {
       { label: "Silent Type", to: "products-diesel-silent" },
       { label: "3kW – 30kW" },
     ],
-    photos: [
-      { folder: "silent-rollers", files: ["1.jpg", "2.jpg", "3.jpg", "4.jpg"] },
-      { folder: "sida-20kw", files: ["1.jpg", "2.jpg", "3.jpg"] },
-    ],
+    photos: [],
     useCases: [
       { title: "Homeowners", desc: "Whole-home backup power during outages" },
       { title: "Small Retail & Restaurants", desc: "Keep refrigeration and POS systems running" },
@@ -147,10 +144,7 @@ export const RANGES = {
       { label: "Silent Type", to: "products-diesel-silent" },
       { label: "30kW – 150kW" },
     ],
-    photos: [
-      { folder: "perkins-24kw", files: ["1.jpg", "2.jpg", "3a.jpg", "3b.jpg", "3c.jpg", "4a.jpg", "4b.jpg", "4c.jpg", "5a.jpg", "5b.jpg", "5c.jpg", "6a.jpg", "6b.jpg", "6c.jpg"] },
-      { folder: "sida-20kw", files: ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"] },
-    ],
+    photos: [],
     useCases: [
       { title: "Construction Sites", desc: "Reliable power for tools, lighting, and site offices" },
       { title: "Oil Field Support", desc: "Portable and stationary power for drilling and production" },
@@ -175,9 +169,7 @@ export const RANGES = {
       { label: "Silent Type", to: "products-diesel-silent" },
       { label: "150kW – 500kW" },
     ],
-    photos: [
-      { folder: "ricardo-75kw", files: ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5a.jpg", "5b.jpg", "5c.jpg", "6.jpg"] },
-    ],
+    photos: [],
     useCases: [
       { title: "Large Manufacturing", desc: "Continuous and standby power for production lines" },
       { title: "Data Centers", desc: "N+1 backup for server farms and colocation facilities" },
@@ -273,10 +265,7 @@ export const RANGES = {
       { label: "Mobile & Trailer", to: "products-diesel-mobile-trailer" },
       { label: "10kW – 50kW" },
     ],
-    photos: [
-      { folder: "trailer-20-100kw", files: ["1.jpg", "2.jpg", "3.jpg"] },
-      { folder: "silent-rollers", files: ["1.jpg", "2.jpg", "3.jpg", "4.jpg"] },
-    ],
+    photos: [],
     useCases: [
       { title: "Construction & Job Sites", desc: "Tools, lighting, and site office power" },
       { title: "Outdoor Events", desc: "Festivals, weddings, and temporary installations" },
@@ -300,9 +289,7 @@ export const RANGES = {
       { label: "Mobile & Trailer", to: "products-diesel-mobile-trailer" },
       { label: "50kW – 150kW" },
     ],
-    photos: [
-      { folder: "trailer-20-100kw", files: ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"] },
-    ],
+    photos: [],
     useCases: [
       { title: "Large Construction Projects", desc: "Cranes, welders, and heavy equipment support" },
       { title: "Oil Field Operations", desc: "Remote drilling and production site power" },
