@@ -73,6 +73,19 @@ function useIsMobile(breakpoint = 820) {
   return isMobile;
 }
 
+function useSEO(title, description) {
+  useEffect(() => {
+    document.title = title;
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement("meta");
+      metaDesc.setAttribute("name", "description");
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute("content", description);
+  }, [title, description]);
+}
+
 function FadeIn({ children, delay = 0, style = {} }) {
   const [ref, visible] = useInView();
   return <div ref={ref} style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(28px)", transition: `opacity 0.6s ease ${delay}s, transform 0.6s ease ${delay}s`, ...style }}>{children}</div>;
@@ -310,10 +323,13 @@ function Footer() {
             <div>
               <div style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>Contact</div>
               <div style={{ fontSize: 13, color: MID, lineHeight: 1.8 }}>
-                (432) 235-0801<br />
+                <a href="tel:4322350801" style={{ color: MID, textDecoration: "none" }}>(432) 235-0801</a><br />
                 mrobinson@leadingpowerus.com<br />
-                Houston, TX
+                Houston, TX<br />
+                <span style={{ fontSize: 12, color: "#5A6070" }}>Mon–Fri 9:00 AM – 5:00 PM CST</span>
               </div>
+              {fLink("Privacy Policy", "privacy")}
+              <button onClick={() => navigate("contact")} style={{ marginTop: 14, background: ACCENT, color: WHITE, padding: "9px 18px", borderRadius: 6, fontWeight: 700, fontSize: 12, border: "none", cursor: "pointer", letterSpacing: "0.02em" }}>Request a Quote</button>
             </div>
           </div>
         </div>
@@ -508,6 +524,7 @@ function CategoryIcon({ id, size = 80 }) {
 function HomePage() {
   const { navigate } = useRouter();
   const isMobile = useIsMobile();
+  useSEO("Leading Power USA | Diesel & Natural Gas Generators 3kW–3MW", "Factory-direct diesel and natural gas generators for the continental US. Silent, open frame, mobile, container, and natural gas units from 3kW to 3MW. Houston, TX.");
   return (
     <>
       {/* HERO */}
@@ -720,8 +737,9 @@ function HomePage() {
       </section>
 
       {/* STATS */}
-      <section style={{ background: DARK, padding: "80px 24px", borderTop: `1px solid ${DARK3}`, borderBottom: `1px solid ${DARK3}` }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 40 }}>
+      <section style={{ background: DARK, padding: "80px 24px", borderTop: `1px solid ${DARK3}`, borderBottom: `1px solid ${DARK3}`, position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, backgroundImage: `url(/images/products/silent-500kw-3mw/silent-500kw-3mw-1.png)`, backgroundSize: "cover", backgroundPosition: "center", opacity: 0.15 }} />
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 40, position: "relative", zIndex: 1 }}>
           {STATS.map((s, i) => (
             <FadeIn key={s.label} delay={i * 0.08}>
               <div style={{ textAlign: "center" }}>
@@ -738,7 +756,7 @@ function HomePage() {
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 40 : 64, alignItems: "center" }}>
           <FadeIn>
             <div>
-              <span style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.15em", textTransform: "uppercase" }}>About LDGP</span>
+              <span style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.15em", textTransform: "uppercase" }}>About Leading Power USA</span>
               <h2 style={{ fontSize: 36, fontWeight: 800, color: WHITE, margin: "12px 0 24px", letterSpacing: "-0.02em", lineHeight: 1.15 }}>Ningde Leading Power Co., Ltd.</h2>
               <p style={{ fontSize: 16, color: MID, lineHeight: 1.75, margin: "0 0 20px" }}>
                 Headquartered in Ningde, Fujian, China, our parent company has 16 years of diesel generator manufacturing experience. Production strictly follows international standards and industry norms, with a comprehensive quality inspection system in place.
@@ -1009,6 +1027,7 @@ function QuoteConfiguratorForm({ powerOptions = [], rangeTitle = "" }) {
 function ProductsLandingPage() {
   const { navigate } = useRouter();
   const isMobile = useIsMobile();
+  useSEO("Generator Products | Leading Power USA", "Browse our full lineup of diesel and natural gas generators. Silent type, open frame, mobile, trailer, and container generators from 3kW to 3MW.");
 
   const DieselIcon = () => (
     <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
@@ -1101,6 +1120,11 @@ function CategoryPage({ catId }) {
   const isMobile = useIsMobile();
   const meta = CATEGORY_META[catId];
   const subcats = SUBCATEGORIES[catId] || [];
+  const seoMap = {
+    diesel: ["Diesel Generators | Leading Power USA", "Industrial diesel generators for commercial, oil field, and utility applications. Silent, open frame, mobile, and container type from 3kW to 3MW. Factory-direct pricing."],
+    "natural-gas": ["Natural Gas Generators | Leading Power USA", "Natural gas generator sets for commercial, industrial, and wellhead gas applications. 20kW to 10MW+. Ideal for Permian Basin flare gas reduction."],
+  };
+  useSEO(...(seoMap[catId] || ["Generator Products | Leading Power USA", ""]));
 
   return (
     <>
@@ -1311,6 +1335,7 @@ function RangePage({ rangeId }) {
           </FadeIn>
           <FadeIn delay={0.1}>
             <QuoteConfiguratorForm powerOptions={range.powerOptions} rangeTitle={range.title} />
+            <p style={{ fontSize: 13, color: MID, textAlign: "center", marginTop: 20, opacity: 0.75 }}>Typical lead time: 8–12 weeks from order confirmation.</p>
           </FadeIn>
         </div>
       </section>
@@ -1364,6 +1389,7 @@ function RangePage({ rangeId }) {
 // ═══════════════════ ABOUT PAGE ═══════════════════
 function AboutPage() {
   const isMobile = useIsMobile();
+  useSEO("About Leading Power USA | Factory-Direct Generator Sales", "Learn about Leading Power USA — the American division of Ningde Leading Power, 16 years of generator manufacturing, now serving the continental US from Houston, TX.");
   return (
     <>
       <PageHeader
@@ -1463,6 +1489,7 @@ function AboutPage() {
 // ═══════════════════ CONTACT PAGE ═══════════════════
 function ContactPage() {
   const isMobile = useIsMobile();
+  useSEO("Contact Leading Power USA | Get a Generator Quote", "Contact Leading Power USA for diesel and natural gas generator quotes, technical questions, and sales inquiries. Houston, TX. Call (432) 235-0801.");
   return (
     <>
       <PageHeader
@@ -1495,9 +1522,7 @@ function ContactPage() {
               <div style={{ padding: "28px 28px", background: WHITE, borderRadius: 16, border: `1px solid ${BORDER}` }}>
                 <h3 style={{ fontSize: 16, fontWeight: 700, color: DARK, margin: "0 0 12px" }}>Business hours</h3>
                 <div style={{ fontSize: 14, color: TEXT_MUTED, lineHeight: 1.8 }}>
-                  Monday – Friday: 8:00 AM – 6:00 PM CST<br />
-                  Saturday: 9:00 AM – 2:00 PM CST<br />
-                  Sunday: Closed<br />
+                  Monday – Friday: 9:00 AM – 5:00 PM CST<br />
                   <span style={{ color: ACCENT, fontWeight: 600 }}>24/7 emergency support available</span>
                 </div>
               </div>
@@ -1505,6 +1530,7 @@ function ContactPage() {
           </div>
           <FadeIn delay={0.1}>
             <ContactForm dark={false} />
+            <p style={{ fontSize: 13, color: TEXT_MUTED, textAlign: "center", marginTop: 16 }}>We typically respond within 1 business day.</p>
           </FadeIn>
         </div>
       </section>
