@@ -37,7 +37,19 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://leadingpowerus.com/faq</loc>
+    <lastmod>2026-06-04</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://leadingpowerus.com/privacy</loc>
+    <lastmod>2026-06-04</lastmod>
+    <priority>0.4</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://leadingpowerus.com/terms</loc>
     <lastmod>2026-06-04</lastmod>
     <priority>0.4</priority>
     <changefreq>yearly</changefreq>
@@ -61,7 +73,7 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://leadingpowerus.com/range-silent-500-3000</loc>
+    <loc>https://leadingpowerus.com/range-silent-500-3mw</loc>
     <lastmod>2026-06-04</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
@@ -91,37 +103,37 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://leadingpowerus.com/range-container-500-1000</loc>
+    <loc>https://leadingpowerus.com/range-container-500-1mw</loc>
     <lastmod>2026-06-04</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://leadingpowerus.com/range-container-1000-3000</loc>
+    <loc>https://leadingpowerus.com/range-container-1mw-3mw</loc>
     <lastmod>2026-06-04</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://leadingpowerus.com/range-ng-small-commercial</loc>
+    <loc>https://leadingpowerus.com/range-natgas-20-100</loc>
     <lastmod>2026-06-04</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://leadingpowerus.com/range-ng-commercial-industrial</loc>
+    <loc>https://leadingpowerus.com/range-natgas-100-500</loc>
     <lastmod>2026-06-04</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://leadingpowerus.com/range-ng-industrial-power</loc>
+    <loc>https://leadingpowerus.com/range-natgas-500-2mw</loc>
     <lastmod>2026-06-04</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://leadingpowerus.com/range-ng-utility</loc>
+    <loc>https://leadingpowerus.com/range-natgas-2mw-10mw</loc>
     <lastmod>2026-06-04</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
