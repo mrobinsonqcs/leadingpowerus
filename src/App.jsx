@@ -849,7 +849,7 @@ function HomePage() {
             <span style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.15em", textTransform: "uppercase" }}>Trusted By</span>
             <h2 style={{ fontSize: 28, fontWeight: 800, color: DARK, margin: "12px 0 40px", letterSpacing: "-0.02em" }}>Built for real operations</h2>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 24, background: WHITE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: "24px 40px", boxShadow: "0 4px 16px rgba(0,0,0,0.06)" }}>
-              <img src="/images/twoten-equipment-logo.png" alt="TwoTen Equipment Rentals logo" style={{ height: 72, width: "auto", display: "block" }} />
+              <img src="/images/210 no background.png" alt="TwoTen Equipment Rentals logo" style={{ height: 72, width: "auto", display: "block" }} />
               <div style={{ textAlign: "left" }}>
                 <div style={{ fontSize: 16, fontWeight: 700, color: DARK }}>TwoTen Equipment Rentals</div>
                 <div style={{ fontSize: 13, color: TEXT_MUTED, marginTop: 3 }}>Midland, TX — Covenant Driven Service</div>
@@ -1549,7 +1549,7 @@ function AboutPage() {
             <span style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.15em", textTransform: "uppercase" }}>Trusted By</span>
             <h2 style={{ fontSize: 24, fontWeight: 800, color: DARK, margin: "12px 0 32px", letterSpacing: "-0.02em" }}>Real customers. Real operations.</h2>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 24, background: WHITE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: "24px 40px", boxShadow: "0 4px 16px rgba(0,0,0,0.06)" }}>
-              <img src="/images/twoten-equipment-logo.png" alt="TwoTen Equipment Rentals logo" style={{ height: 72, width: "auto", display: "block" }} />
+              <img src="/images/210 no background.png" alt="TwoTen Equipment Rentals logo" style={{ height: 72, width: "auto", display: "block" }} />
               <div style={{ textAlign: "left" }}>
                 <div style={{ fontSize: 16, fontWeight: 700, color: DARK }}>TwoTen Equipment Rentals</div>
                 <div style={{ fontSize: 13, color: TEXT_MUTED, marginTop: 3 }}>Midland, TX — Covenant Driven Service</div>
