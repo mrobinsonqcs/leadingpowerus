@@ -1080,7 +1080,7 @@ function ProductsLandingPage() {
       desc: "Stationary, mobile, and containerized diesel generator sets in silent, open frame, trailer-mounted, and container configurations. Factory-direct US-spec builds.",
       to: "products-diesel",
       highlights: ["Silent Type", "Open Frame", "Mobile & Trailer", "Container Type"],
-      icon: <DieselIcon />,
+      photo: "/images/products/silent-30-150kw/silent-30-150kw-1.png",
     },
     {
       id: "natural-gas",
@@ -1089,7 +1089,7 @@ function ProductsLandingPage() {
       desc: "Clean-burning natural gas generators for commercial, industrial, and utility applications. Specialists in Permian Basin wellhead gas and flare gas recovery.",
       to: "products-natural-gas",
       highlights: ["Small Commercial", "Commercial & Industrial", "Industrial", "Utility Scale"],
-      icon: <GasIcon />,
+      photo: "/images/products/natgas-100-500kw/natgas-100-500kw-1.png",
     },
   ];
 
@@ -1108,22 +1108,25 @@ function ProductsLandingPage() {
               <FadeIn key={cat.id} delay={i * 0.1}>
                 <div
                   onClick={() => navigate(cat.to)}
-                  style={{ background: DARK, borderRadius: 20, padding: isMobile ? "36px 28px" : "52px 44px", cursor: "pointer", border: `1px solid ${DARK3}`, transition: "transform 0.3s, box-shadow 0.3s, border-color 0.3s", display: "flex", flexDirection: "column", height: "100%" }}
+                  style={{ position: "relative", overflow: "hidden", borderRadius: 20, cursor: "pointer", border: `1px solid ${DARK3}`, transition: "transform 0.3s, box-shadow 0.3s, border-color 0.3s", display: "flex", flexDirection: "column", height: "100%", minHeight: isMobile ? 380 : 460 }}
                   onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "0 24px 56px rgba(0,0,0,0.3)"; e.currentTarget.style.borderColor = ACCENT; }}
                   onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = DARK3; }}
                 >
-                  <div style={{ marginBottom: 24 }}>{cat.icon}</div>
-                  <div style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 8 }}>{cat.range}</div>
-                  <h2 style={{ fontSize: isMobile ? 24 : 30, fontWeight: 800, color: WHITE, margin: "0 0 14px", letterSpacing: "-0.02em", lineHeight: 1.2 }}>{cat.title}</h2>
-                  <p style={{ fontSize: 15, color: MID, lineHeight: 1.7, margin: "0 0 24px", flex: 1 }}>{cat.desc}</p>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 28 }}>
-                    {cat.highlights.map(h => (
-                      <span key={h} style={{ fontSize: 12, fontWeight: 600, color: MID, background: DARK2, padding: "5px 12px", borderRadius: 50, border: `1px solid ${DARK3}` }}>{h}</span>
-                    ))}
-                  </div>
-                  <div style={{ display: "inline-flex", alignItems: "center", gap: 8, color: ACCENT, fontWeight: 700, fontSize: 15 }}>
-                    Browse options
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  <img src={cat.photo} alt={cat.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(27,42,79,0.88) 0%, rgba(27,42,79,0.72) 100%)" }} />
+                  <div style={{ position: "relative", zIndex: 1, padding: isMobile ? "36px 28px" : "52px 44px", display: "flex", flexDirection: "column", height: "100%" }}>
+                    <div style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 8 }}>{cat.range}</div>
+                    <h2 style={{ fontSize: isMobile ? 24 : 30, fontWeight: 800, color: WHITE, margin: "0 0 14px", letterSpacing: "-0.02em", lineHeight: 1.2 }}>{cat.title}</h2>
+                    <p style={{ fontSize: 15, color: MID, lineHeight: 1.7, margin: "0 0 24px", flex: 1 }}>{cat.desc}</p>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 28 }}>
+                      {cat.highlights.map(h => (
+                        <span key={h} style={{ fontSize: 12, fontWeight: 600, color: MID, background: "rgba(36,53,97,0.7)", padding: "5px 12px", borderRadius: 50, border: `1px solid ${DARK3}` }}>{h}</span>
+                      ))}
+                    </div>
+                    <div style={{ display: "inline-flex", alignItems: "center", gap: 8, color: ACCENT, fontWeight: 700, fontSize: 15 }}>
+                      Browse options
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
                   </div>
                 </div>
               </FadeIn>
