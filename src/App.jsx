@@ -21,11 +21,15 @@ const BORDER = "#E5E2DB";
 const RouterCtx = createContext();
 const useRouter = () => useContext(RouterCtx);
 
+function pageFromUrl() {
+  const hash = window.location.hash.slice(1);
+  if (hash) return hash;
+  const { pathname } = window.location;
+  return (pathname === "/" || pathname === "") ? "home" : "__not_found__";
+}
+
 function Router({ children }) {
-  const [page, setPage] = useState(() => {
-    const hash = window.location.hash.slice(1);
-    return hash || "home";
-  });
+  const [page, setPage] = useState(pageFromUrl);
 
   const navigate = (p) => {
     window.history.pushState({ page: p }, "", p === "home" ? "/" : `#${p}`);
@@ -35,7 +39,7 @@ function Router({ children }) {
 
   useEffect(() => {
     const onPop = (e) => {
-      const p = (e.state && e.state.page) || window.location.hash.slice(1) || "home";
+      const p = (e.state && e.state.page) || pageFromUrl();
       setPage(p);
       window.scrollTo({ top: 0, behavior: "instant" });
     };
@@ -1308,13 +1312,18 @@ function RangePage({ rangeId }) {
 
       {/* Natural Gas Feature Highlight */}
       {range.fuelType === "natural-gas" && (
-        <section style={{ background: DARK2, padding: "20px 24px" }}>
+        <section style={{ background: DARK, borderBottom: `1px solid ${DARK3}`, padding: "28px 24px" }}>
           <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 16, background: "rgba(200,37,46,0.1)", border: `1px solid rgba(200,37,46,0.3)`, borderRadius: 12, padding: "18px 24px" }}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" flexShrink="0" style={{ flexShrink: 0 }}><path d="M12 2C12 2 7 8.5 7 13a5 5 0 0010 0c0-4.5-5-11-5-11z" fill="rgba(200,37,46,0.3)" stroke={ACCENT} strokeWidth="1.5" strokeLinejoin="round"/><circle cx="12" cy="13" r="2" fill={ACCENT}/></svg>
-              <p style={{ margin: 0, fontSize: 15, fontWeight: 600, color: WHITE, lineHeight: 1.5 }}>
-                Compatible with field gas, wellhead gas, and flare gas — not limited to pipeline-quality gas only.
-              </p>
+            <div style={{ display: "flex", alignItems: "center", gap: 20, background: "rgba(200,37,46,0.13)", border: `2px solid ${ACCENT}`, borderRadius: 14, padding: "20px 28px" }}>
+              <div style={{ width: 44, height: 44, background: ACCENT, borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 7 8.5 7 13a5 5 0 0010 0c0-4.5-5-11-5-11z" fill="rgba(255,255,255,0.3)" stroke="white" strokeWidth="1.5" strokeLinejoin="round"/><circle cx="12" cy="13" r="2" fill="white"/></svg>
+              </div>
+              <div>
+                <div style={{ fontSize: 11, fontWeight: 700, color: ACCENT, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 4 }}>Fuel Flexibility</div>
+                <p style={{ margin: 0, fontSize: 15, fontWeight: 600, color: WHITE, lineHeight: 1.5 }}>
+                  Compatible with field gas, wellhead gas, and flare gas — not limited to pipeline-quality gas only.
+                </p>
+              </div>
             </div>
           </div>
         </section>
