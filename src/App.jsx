@@ -98,10 +98,10 @@ function Link({ to, children, style = {}, ...props }) {
 
 // ═══════════════════ DATA ═══════════════════
 const CATEGORIES = [
-  { id: "silent", title: "Silent Type", range: "15 – 1000 kVA", photo: "/images/products/silent-30-150kw/silent-30-150kw-1.png" },
-  { id: "open", title: "Open Frame", range: "70 – 1000 kVA", photo: "/images/products/open-frame-20-100kw/open-frame-20-100kw-1.png" },
-  { id: "mobile", title: "Mobile & Trailer", range: "3 – 125 kVA", photo: "/images/products/mobile-10-50kw/mobile-10-50kw-1.png" },
-  { id: "container", title: "Container Type", range: "1000 – 2500 kVA", photo: "/images/products/container-500kw-1mw/container-500kw-1mw-1.png" },
+  { id: "silent", title: "Silent Type", range: "15 – 1000 kVA", photo: "/images/products/silent-30-150kw/silent-30-150kw-1.webp" },
+  { id: "open", title: "Open Frame", range: "70 – 1000 kVA", photo: "/images/products/open-frame-20-100kw/open-frame-20-100kw-1.webp" },
+  { id: "mobile", title: "Mobile & Trailer", range: "3 – 125 kVA", photo: "/images/products/mobile-10-50kw/mobile-10-50kw-1.webp" },
+  { id: "container", title: "Container Type", range: "1000 – 2500 kVA", photo: "/images/products/container-500kw-1mw/container-500kw-1mw-1.webp" },
 ];
 
 const PRODUCTS = [
@@ -110,7 +110,7 @@ const PRODUCTS = [
     title: "Silent Diesel Generator Set",
     range: "3 – 30 kW",
     desc: "Compact silent canopy generators ideal for residential backup, small business, and telecom sites.",
-    photo: "/images/products/silent-3-30kw/silent-3-30kw-1.png",
+    photo: "/images/products/silent-3-30kw/silent-3-30kw-1.webp",
     rangePage: "range-silent-3-30",
   },
   {
@@ -118,7 +118,7 @@ const PRODUCTS = [
     title: "Silent Diesel Generator Set",
     range: "30 – 150 kW",
     desc: "Mid-range silent series with soundproofed enclosure — commercial backup, hospitality, and light industrial.",
-    photo: "/images/products/silent-30-150kw/silent-30-150kw-1.png",
+    photo: "/images/products/silent-30-150kw/silent-30-150kw-1.webp",
     rangePage: "range-silent-30-150",
   },
   {
@@ -126,7 +126,7 @@ const PRODUCTS = [
     title: "Silent Diesel Generator Set",
     range: "150 – 500 kW",
     desc: "Large-frame silent generators for industrial facilities, data centers, and critical infrastructure.",
-    photo: "/images/products/silent-150-500kw-tan/silent-150-500kw-tan-1.png",
+    photo: "/images/products/silent-150-500kw-tan/silent-150-500kw-tan-1.webp",
     rangePage: "range-silent-150-500",
   },
   {
@@ -134,7 +134,7 @@ const PRODUCTS = [
     title: "Silent Diesel Generator Set",
     range: "500 kW – 3 MW",
     desc: "Heavy-duty large-scale silent generators for utilities, mining operations, and industrial plants.",
-    photo: "/images/products/silent-500kw-3mw/silent-500kw-3mw-1.png",
+    photo: "/images/products/silent-500kw-3mw/silent-500kw-3mw-1.webp",
     rangePage: "range-silent-500-3mw",
   },
   {
@@ -142,7 +142,7 @@ const PRODUCTS = [
     title: "Open Frame Diesel Generator Set",
     range: "20 – 100 kW",
     desc: "Open frame generators for indoor installations with existing enclosures or noise-tolerant environments.",
-    photo: "/images/products/open-frame-20-100kw/open-frame-20-100kw-1.png",
+    photo: "/images/products/open-frame-20-100kw/open-frame-20-100kw-1.webp",
     rangePage: "range-open-20-100",
   },
   {
@@ -150,7 +150,7 @@ const PRODUCTS = [
     title: "Open Frame Diesel Generator Set",
     range: "100 – 500 kW",
     desc: "High-output open frame generators for industrial facilities, manufacturing plants, and utility applications.",
-    photo: "/images/products/open-frame-100-500kw/open-frame-100-500kw-1.png",
+    photo: "/images/products/open-frame-100-500kw/open-frame-100-500kw-1.webp",
     rangePage: "range-open-100-500",
   },
   {
@@ -158,7 +158,7 @@ const PRODUCTS = [
     title: "Mobile / Trailer Generator Set",
     range: "10 – 50 kW",
     desc: "Trailer-mounted silent generators for construction sites, events, and emergency deployment.",
-    photo: "/images/products/mobile-10-50kw/mobile-10-50kw-1.png",
+    photo: "/images/products/mobile-10-50kw/mobile-10-50kw-1.webp",
     rangePage: "range-mobile-10-50",
   },
   {
@@ -166,7 +166,7 @@ const PRODUCTS = [
     title: "Mobile / Trailer Generator Set",
     range: "50 – 150 kW",
     desc: "Heavy-duty trailer generators for larger job sites, disaster response, and mobile power applications.",
-    photo: "/images/products/mobile-50-150kw/mobile-50-150kw-1.png",
+    photo: "/images/products/mobile-50-150kw/mobile-50-150kw-1.webp",
     rangePage: "range-mobile-50-150",
   },
   {
@@ -174,7 +174,7 @@ const PRODUCTS = [
     title: "Container Type Generator Set",
     range: "500 kW – 1 MW",
     desc: "ISO containerized power plants for remote sites, mining operations, and large commercial facilities.",
-    photo: "/images/products/container-500kw-1mw/container-500kw-1mw-1.png",
+    photo: "/images/products/container-500kw-1mw/container-500kw-1mw-1.webp",
     rangePage: "range-container-500-1mw",
   },
   {
@@ -182,7 +182,7 @@ const PRODUCTS = [
     title: "Container Type Generator Set",
     range: "1 MW – 3 MW",
     desc: "Mega-scale containerized generator systems for utility-grade power and large industrial complexes.",
-    photo: "/images/products/container-1mw-3mw/container-1mw-3mw-1.png",
+    photo: "/images/products/container-1mw-3mw/container-1mw-3mw-1.webp",
     rangePage: "range-container-1mw-3mw",
   },
   {
@@ -190,7 +190,7 @@ const PRODUCTS = [
     title: "Natural Gas Generator Set",
     range: "20 – 100 kW",
     desc: "Clean-burning natural gas generators for commercial backup, wellhead gas, and distributed generation.",
-    photo: "/images/products/natgas-20-100kw/natgas-20-100kw-1.png",
+    photo: "/images/products/natgas-20-100kw/natgas-20-100kw-1.webp",
     rangePage: "range-natgas-20-100",
   },
   {
@@ -198,7 +198,7 @@ const PRODUCTS = [
     title: "Natural Gas Generator Set",
     range: "100 – 500 kW",
     desc: "Mid-range natural gas generators for industrial facilities, Permian Basin wellhead, and flare gas recovery.",
-    photo: "/images/products/natgas-100-500kw/natgas-100-500kw-1.png",
+    photo: "/images/products/natgas-100-500kw/natgas-100-500kw-1.webp",
     rangePage: "range-natgas-100-500",
   },
   {
@@ -206,7 +206,7 @@ const PRODUCTS = [
     title: "Natural Gas Generator Set",
     range: "500 kW – 2 MW",
     desc: "Large natural gas generator sets for utility applications, industrial plants, and gas field power.",
-    photo: "/images/products/natgas-500kw-2mw/natgas-500kw-2mw-1.png",
+    photo: "/images/products/natgas-500kw-2mw/natgas-500kw-2mw-1.webp",
     rangePage: "range-natgas-500-2mw",
   },
   {
@@ -214,7 +214,7 @@ const PRODUCTS = [
     title: "Natural Gas Generator Set",
     range: "2 MW – 10 MW",
     desc: "Mega-scale natural gas power plants for utilities, large industrial complexes, and grid support.",
-    photo: "/images/products/natgas-2mw-10mw/natgas-2mw-10mw-1.png",
+    photo: "/images/products/natgas-2mw-10mw/natgas-2mw-10mw-1.webp",
     rangePage: "range-natgas-2mw-10mw",
   },
 ];
@@ -252,7 +252,7 @@ function Nav() {
     <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: scrolled || page !== "home" || menuOpen ? "rgba(27,42,79,0.97)" : "transparent", backdropFilter: scrolled || page !== "home" || menuOpen ? "blur(12px)" : "none", transition: "background 0.4s", borderBottom: scrolled || page !== "home" ? `1px solid ${DARK3}` : "1px solid transparent" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 20px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
         <a href="#" onClick={e => { e.preventDefault(); navigate("home"); }} style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-          <img src="/logos/horizontal.png" alt="Leading Power USA" style={{ height: isMobile ? 36 : 44, width: "auto", display: "block" }} />
+          <img src="/logos/horizontal.webp" alt="Leading Power USA" style={{ height: isMobile ? 36 : 44, width: "auto", display: "block" }} />
         </a>
         {isMobile ? (
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -305,7 +305,7 @@ function Footer() {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 40 }}>
           <div>
             <a href="#" onClick={e => { e.preventDefault(); navigate("home"); }} style={{ display: "inline-block", marginBottom: 16, textDecoration: "none" }}>
-              <img src="/logos/horizontal.png" alt="Leading Power USA" style={{ height: 42, width: "auto", display: "block" }} />
+              <img src="/logos/horizontal.webp" alt="Leading Power USA" style={{ height: 42, width: "auto", display: "block" }} />
             </a>
             <p style={{ fontSize: 13, color: MID, maxWidth: 300, lineHeight: 1.6 }}>Diesel generator sales, service, and support for the continental US.</p>
           </div>
@@ -567,7 +567,7 @@ function HomePage() {
           <FadeIn delay={0.2} style={{ flex: "0 0 auto", width: isMobile ? "100%" : "auto", maxWidth: isMobile ? 400 : "none" }}>
             <div style={{ position: "relative", width: "100%" }}>
               <div style={{ position: "relative", width: isMobile ? "100%" : 480, aspectRatio: "1", borderRadius: 24, overflow: "hidden", border: `1px solid ${DARK3}`, boxShadow: "0 30px 80px rgba(0,0,0,0.5)", background: DARK2 }}>
-                <img src="/images/products/silent-30-150kw/silent-30-150kw-1.png" alt="Leading Power USA silent diesel generator, factory-direct, 60Hz US-spec" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <img src="/images/products/silent-30-150kw/silent-30-150kw-1.webp" alt="Leading Power USA silent diesel generator, factory-direct, 60Hz US-spec" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
               <div style={{ position: "absolute", bottom: 24, left: -16, background: ACCENT, borderRadius: 10, padding: "14px 18px", boxShadow: "0 8px 32px rgba(0,0,0,0.4)" }}>
                 <div style={{ fontSize: 22, fontWeight: 800, color: WHITE }}>3kW – 3MW</div>
@@ -612,7 +612,7 @@ function HomePage() {
                 onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.25)"; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
               >
-                <img src="/images/products/natgas-100-500kw/natgas-100-500kw-1.png" alt="Leading Power USA natural gas generator" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <img src="/images/products/natgas-100-500kw/natgas-100-500kw-1.webp" alt="Leading Power USA natural gas generator" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.1) 100%)" }} />
                 <div style={{ position: "relative", zIndex: 1, padding: "36px 28px", textAlign: "center", display: "flex", flexDirection: "column", justifyContent: "flex-end", minHeight: 180 }}>
                   <h3 style={{ fontSize: 18, fontWeight: 700, color: WHITE, margin: "0 0 6px" }}>Natural Gas</h3>
@@ -629,7 +629,7 @@ function HomePage() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 32 : 64, alignItems: "center" }}>
             <FadeIn>
-              <img src="/images/products/silent-30-150kw/silent-30-150kw-2.png" alt="Leading Power USA 30kW–150kW silent diesel generator, commercial grade, 60Hz US-spec" style={{ display: "block", width: "100%", height: "auto", borderRadius: 20, border: `1px solid ${DARK3}` }} />
+              <img src="/images/products/silent-30-150kw/silent-30-150kw-2.webp" alt="Leading Power USA 30kW–150kW silent diesel generator, commercial grade, 60Hz US-spec" style={{ display: "block", width: "100%", height: "auto", borderRadius: 20, border: `1px solid ${DARK3}` }} />
             </FadeIn>
             <FadeIn delay={0.1}>
               <div>
@@ -681,7 +681,7 @@ function HomePage() {
             </FadeIn>
             <FadeIn delay={0.1}>
               <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "1", border: `1px solid ${DARK3}`, background: DARK2 }}>
-                <img src="/images/products/natgas-100-500kw/natgas-100-500kw-2.png" alt="Leading Power USA 100kW–500kW natural gas generator set" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <img src="/images/products/natgas-100-500kw/natgas-100-500kw-2.webp" alt="Leading Power USA 100kW–500kW natural gas generator set" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
             </FadeIn>
           </div>
@@ -694,7 +694,7 @@ function HomePage() {
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 32 : 64, alignItems: "center" }}>
             <FadeIn>
               <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "1", border: `1px solid ${DARK3}`, background: DARK2 }}>
-                <img src="/images/products/natgas-100-500kw/natgas-100-500kw-2.png" alt="Leading Power USA 100kW–500kW natural gas generator set, Permian Basin wellhead" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <img src="/images/products/natgas-100-500kw/natgas-100-500kw-2.webp" alt="Leading Power USA 100kW–500kW natural gas generator set, Permian Basin wellhead" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
@@ -742,7 +742,7 @@ function HomePage() {
 
       {/* STATS */}
       <section style={{ background: DARK, padding: "80px 24px", borderTop: `1px solid ${DARK3}`, borderBottom: `1px solid ${DARK3}`, position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, backgroundImage: `url(/images/products/silent-500kw-3mw/silent-500kw-3mw-1.png)`, backgroundSize: "cover", backgroundPosition: "center", opacity: 0.15 }} />
+        <div style={{ position: "absolute", inset: 0, backgroundImage: `url(/images/products/silent-500kw-3mw/silent-500kw-3mw-1.webp)`, backgroundSize: "cover", backgroundPosition: "center", opacity: 0.15 }} />
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 40, position: "relative", zIndex: 1 }}>
           {STATS.map((s, i) => (
             <FadeIn key={s.label} delay={i * 0.08}>
@@ -776,7 +776,7 @@ function HomePage() {
           <FadeIn delay={0.15}>
             <div style={{ position: "relative" }}>
               <div style={{ background: DARK3, borderRadius: 20, overflow: "hidden", aspectRatio: "4/3", border: `1px solid rgba(255,255,255,0.06)` }}>
-                <img src="/images/products/silent-500kw-3mw/silent-500kw-3mw-4.png" alt="Leading Power USA 500kW–3MW silent diesel generator, utility scale, manufacturing facility" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <img src="/images/products/silent-500kw-3mw/silent-500kw-3mw-4.webp" alt="Leading Power USA 500kW–3MW silent diesel generator, utility scale, manufacturing facility" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
               <div style={{ position: "absolute", bottom: -20, left: -20, background: ACCENT, borderRadius: 12, padding: "20px 24px", boxShadow: "0 8px 32px rgba(0,0,0,0.3)" }}>
                 <div style={{ fontSize: 28, fontWeight: 800, color: WHITE }}>10,000+</div>
@@ -849,7 +849,7 @@ function HomePage() {
             <span style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.15em", textTransform: "uppercase" }}>Trusted By</span>
             <h2 style={{ fontSize: 28, fontWeight: 800, color: DARK, margin: "12px 0 40px", letterSpacing: "-0.02em" }}>Built for real operations</h2>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 24, background: WHITE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: "24px 40px", boxShadow: "0 4px 16px rgba(0,0,0,0.06)" }}>
-              <img src="/images/210 no background.png" alt="TwoTen Equipment Rentals logo" style={{ height: 72, width: "auto", display: "block" }} />
+              <img src="/images/210 no background.webp" alt="TwoTen Equipment Rentals logo" style={{ height: 72, width: "auto", display: "block" }} />
               <div style={{ textAlign: "left" }}>
                 <div style={{ fontSize: 16, fontWeight: 700, color: DARK }}>TwoTen Equipment Rentals</div>
                 <div style={{ fontSize: 13, color: TEXT_MUTED, marginTop: 3 }}>Midland, TX — Covenant Driven Service</div>
@@ -1080,7 +1080,7 @@ function ProductsLandingPage() {
       desc: "Stationary, mobile, and containerized diesel generator sets in silent, open frame, trailer-mounted, and container configurations. Factory-direct US-spec builds.",
       to: "products-diesel",
       highlights: ["Silent Type", "Open Frame", "Mobile & Trailer", "Container Type"],
-      photo: "/images/products/silent-30-150kw/silent-30-150kw-1.png",
+      photo: "/images/products/silent-30-150kw/silent-30-150kw-1.webp",
     },
     {
       id: "natural-gas",
@@ -1089,7 +1089,7 @@ function ProductsLandingPage() {
       desc: "Clean-burning natural gas generators for commercial, industrial, and utility applications. Specialists in Permian Basin wellhead gas and flare gas recovery.",
       to: "products-natural-gas",
       highlights: ["Small Commercial", "Commercial & Industrial", "Industrial", "Utility Scale"],
-      photo: "/images/products/natgas-100-500kw/natgas-100-500kw-1.png",
+      photo: "/images/products/natgas-100-500kw/natgas-100-500kw-1.webp",
     },
   ];
 
@@ -1151,8 +1151,8 @@ function CategoryPage({ catId }) {
   useSEO(...(seoMap[catId] || ["Generator Products | Leading Power USA", ""]));
 
   const heroImg = catId === "diesel"
-    ? "/images/products/silent-30-150kw/silent-30-150kw-1.png"
-    : "/images/products/natgas-100-500kw/natgas-100-500kw-1.png";
+    ? "/images/products/silent-30-150kw/silent-30-150kw-1.webp"
+    : "/images/products/natgas-100-500kw/natgas-100-500kw-1.webp";
   const heroAlt = catId === "diesel"
     ? "Leading Power USA 30kW–150kW silent diesel generator, commercial grade, 60Hz US-spec"
     : "Leading Power USA 100kW–500kW natural gas generator set";
@@ -1552,7 +1552,7 @@ function AboutPage() {
             <span style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.15em", textTransform: "uppercase" }}>Trusted By</span>
             <h2 style={{ fontSize: 24, fontWeight: 800, color: DARK, margin: "12px 0 32px", letterSpacing: "-0.02em" }}>Real customers. Real operations.</h2>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 24, background: WHITE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: "24px 40px", boxShadow: "0 4px 16px rgba(0,0,0,0.06)" }}>
-              <img src="/images/210 no background.png" alt="TwoTen Equipment Rentals logo" style={{ height: 72, width: "auto", display: "block" }} />
+              <img src="/images/210 no background.webp" alt="TwoTen Equipment Rentals logo" style={{ height: 72, width: "auto", display: "block" }} />
               <div style={{ textAlign: "left" }}>
                 <div style={{ fontSize: 16, fontWeight: 700, color: DARK }}>TwoTen Equipment Rentals</div>
                 <div style={{ fontSize: 13, color: TEXT_MUTED, marginTop: 3 }}>Midland, TX — Covenant Driven Service</div>
@@ -1718,7 +1718,7 @@ function NotFoundPage() {
   return (
     <section style={{ background: DARK, minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 24px", textAlign: "center" }}>
       <div>
-        <img src="/logos/horizontal.png" alt="Leading Power USA" style={{ height: 48, width: "auto", marginBottom: 32 }} />
+        <img src="/logos/horizontal.webp" alt="Leading Power USA" style={{ height: 48, width: "auto", marginBottom: 32 }} />
         <div style={{ fontSize: 96, fontWeight: 800, color: ACCENT, lineHeight: 1, letterSpacing: "-0.04em" }}>404</div>
         <h1 style={{ fontSize: 28, fontWeight: 700, color: WHITE, margin: "16px 0 8px" }}>This page doesn't exist — but the power never goes out.</h1>
         <p style={{ fontSize: 16, color: MID, margin: "0 0 32px", maxWidth: 440 }}>The page you're looking for has moved or doesn't exist.</p>
