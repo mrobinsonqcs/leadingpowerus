@@ -269,6 +269,7 @@ function Nav() {
           <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
             {navLink("Home", "home")}
             {navLink("Products", "products")}
+            {navLink("FAQ", "faq")}
             {navLink("About", "about")}
             {navLink("Contact", "contact")}
             <a href="tel:4322350801" style={{ background: ACCENT, color: WHITE, padding: "10px 20px", borderRadius: 6, fontWeight: 700, fontSize: 13, textDecoration: "none", letterSpacing: "0.02em", transition: "transform 0.2s" }}
@@ -281,6 +282,7 @@ function Nav() {
         <div style={{ padding: "8px 20px 24px", borderTop: `1px solid ${DARK3}` }}>
           {mobileLink("Home", "home")}
           {mobileLink("Products", "products")}
+          {mobileLink("FAQ", "faq")}
           {mobileLink("About", "about")}
           {mobileLink("Contact", "contact")}
         </div>
@@ -312,6 +314,7 @@ function Footer() {
               <div style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>Quick Links</div>
               {fLink("Home", "home")}
               {fLink("Products", "products")}
+              {fLink("FAQ", "faq")}
               {fLink("About Us", "about")}
               {fLink("Contact Us", "contact")}
             </div>
@@ -329,6 +332,7 @@ function Footer() {
                 <span style={{ fontSize: 12, color: "#5A6070" }}>Mon–Fri 9:00 AM – 5:00 PM CST</span>
               </div>
               {fLink("Privacy Policy", "privacy")}
+              {fLink("Terms & Conditions", "terms")}
               <button onClick={() => navigate("contact")} style={{ marginTop: 14, background: ACCENT, color: WHITE, padding: "9px 18px", borderRadius: 6, fontWeight: 700, fontSize: 12, border: "none", cursor: "pointer", letterSpacing: "0.02em" }}>Request a Quote</button>
             </div>
           </div>
@@ -838,6 +842,23 @@ function HomePage() {
         </div>
       </section>
 
+      {/* TRUSTED BY */}
+      <section style={{ background: LIGHT, padding: "60px 24px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", textAlign: "center" }}>
+          <FadeIn>
+            <span style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.15em", textTransform: "uppercase" }}>Trusted By</span>
+            <h2 style={{ fontSize: 28, fontWeight: 800, color: DARK, margin: "12px 0 40px", letterSpacing: "-0.02em" }}>Built for real operations</h2>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 24, background: WHITE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: "24px 40px", boxShadow: "0 4px 16px rgba(0,0,0,0.06)" }}>
+              <img src="/images/twoten-equipment-logo.png" alt="TwoTen Equipment Rentals logo" style={{ height: 72, width: "auto", display: "block" }} />
+              <div style={{ textAlign: "left" }}>
+                <div style={{ fontSize: 16, fontWeight: 700, color: DARK }}>TwoTen Equipment Rentals</div>
+                <div style={{ fontSize: 13, color: TEXT_MUTED, marginTop: 3 }}>Midland, TX — Covenant Driven Service</div>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section style={{ background: DARK, padding: "80px 24px", textAlign: "center" }}>
         <FadeIn>
@@ -1282,6 +1303,20 @@ function RangePage({ rangeId }) {
         breadcrumbs={range.breadcrumb}
       />
 
+      {/* Natural Gas Feature Highlight */}
+      {range.fuelType === "natural-gas" && (
+        <section style={{ background: DARK2, padding: "20px 24px" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 16, background: "rgba(200,37,46,0.1)", border: `1px solid rgba(200,37,46,0.3)`, borderRadius: 12, padding: "18px 24px" }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" flexShrink="0" style={{ flexShrink: 0 }}><path d="M12 2C12 2 7 8.5 7 13a5 5 0 0010 0c0-4.5-5-11-5-11z" fill="rgba(200,37,46,0.3)" stroke={ACCENT} strokeWidth="1.5" strokeLinejoin="round"/><circle cx="12" cy="13" r="2" fill={ACCENT}/></svg>
+              <p style={{ margin: 0, fontSize: 15, fontWeight: 600, color: WHITE, lineHeight: 1.5 }}>
+                Compatible with field gas, wellhead gas, and flare gas — not limited to pipeline-quality gas only.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Photo Gallery */}
       <section style={{ background: LIGHT, padding: isMobile ? "48px 20px" : "80px 24px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -1507,6 +1542,23 @@ function AboutPage() {
         </div>
       </section>
 
+      {/* Trusted By */}
+      <section style={{ background: LIGHT, padding: "60px 24px", borderTop: `1px solid ${BORDER}` }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", textAlign: "center" }}>
+          <FadeIn>
+            <span style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.15em", textTransform: "uppercase" }}>Trusted By</span>
+            <h2 style={{ fontSize: 24, fontWeight: 800, color: DARK, margin: "12px 0 32px", letterSpacing: "-0.02em" }}>Real customers. Real operations.</h2>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 24, background: WHITE, border: `1px solid ${BORDER}`, borderRadius: 16, padding: "24px 40px", boxShadow: "0 4px 16px rgba(0,0,0,0.06)" }}>
+              <img src="/images/twoten-equipment-logo.png" alt="TwoTen Equipment Rentals logo" style={{ height: 72, width: "auto", display: "block" }} />
+              <div style={{ textAlign: "left" }}>
+                <div style={{ fontSize: 16, fontWeight: 700, color: DARK }}>TwoTen Equipment Rentals</div>
+                <div style={{ fontSize: 13, color: TEXT_MUTED, marginTop: 3 }}>Midland, TX — Covenant Driven Service</div>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* CTA */}
       <section style={{ background: DARK2, padding: "64px 24px", textAlign: "center" }}>
         <FadeIn>
@@ -1622,7 +1674,7 @@ function PrivacyPage() {
             <p>We retain your contact information only as long as necessary to respond to your inquiry and maintain reasonable business records. We do not maintain long-term marketing databases.</p>
           </Section>
           <Section title="Your Rights & Data Deletion">
-            <p>You may request deletion of any personal information we hold about you at any time by emailing <a href="mailto:mrobinson@twotenequipment.com" style={{ color: ACCENT, fontWeight: 600 }}>mrobinson@twotenequipment.com</a>. We will process deletion requests within 30 days.</p>
+            <p>You may request deletion of any personal information we hold about you at any time by emailing <a href="mailto:mrobinson@leadingpowerus.com" style={{ color: ACCENT, fontWeight: 600 }}>mrobinson@leadingpowerus.com</a>. We will process deletion requests within 30 days.</p>
           </Section>
           <Section title="Governing Law">
             <p>This Privacy Policy is governed by the laws of the State of Texas. Any disputes arising from this policy shall be resolved in the courts of Texas.</p>
@@ -1643,6 +1695,8 @@ function PageSwitch() {
   if (page === "about") return <AboutPage />;
   if (page === "contact") return <ContactPage />;
   if (page === "privacy") return <PrivacyPage />;
+  if (page === "terms") return <TermsPage />;
+  if (page === "faq") return <FAQPage />;
   // Product navigation
   if (page === "products") return <ProductsLandingPage />;
   if (page === "products-diesel") return <CategoryPage catId="diesel" />;
@@ -1671,6 +1725,99 @@ function NotFoundPage() {
         </div>
       </div>
     </section>
+  );
+}
+
+// ═══════════════════ TERMS PAGE ═══════════════════
+function TermsPage() {
+  useSEO("Terms & Conditions | Leading Power USA", "Terms and conditions for Leading Power USA generator sales — pricing, payment, delivery, warranty, and governing law.");
+  return (
+    <>
+      <PageHeader
+        label="Legal"
+        title="Terms & Conditions"
+        subtitle="Please read these terms carefully before placing an order."
+        breadcrumbs={[{ label: "Home", to: "home" }, { label: "Terms & Conditions" }]}
+      />
+      <section style={{ background: LIGHT, padding: "80px 24px" }}>
+        <div style={{ maxWidth: 860, margin: "0 auto" }}>
+          {[
+            { title: "1. Acceptance of Terms", body: "By purchasing any product from Leading Power USA, you agree to be bound by these Terms & Conditions. If you do not agree, do not place an order." },
+            { title: "2. Products & Pricing", body: "All prices are in US dollars and subject to change without notice. A 30% deposit is required to confirm your order. The remaining 70% is due at delivery. A 3% processing fee applies to all credit card payments. We accept wire transfer and ACH at no additional fee." },
+            { title: "3. Shipping & Delivery", body: "Leading Power USA ships nationwide across the continental US. Typical lead time is 8–12 weeks from order confirmation depending on configuration and current production schedule. Risk of loss transfers to the buyer at the point of delivery. Shipping costs are quoted separately." },
+            { title: "4. Warranty", body: "Every generator sold by Leading Power USA carries a 1 year warranty covering defects in materials and workmanship under normal use. Warranty service is handled directly by our team. The warranty does not cover damage resulting from misuse, improper installation, unauthorized modification, or failure to follow the operations and maintenance manual." },
+            { title: "5. Limitation of Liability", body: "Leading Power USA's liability is limited to the purchase price of the product. We are not liable for any indirect, incidental, consequential, or punitive damages arising from the use or inability to use our products, even if advised of the possibility of such damages." },
+            { title: "6. Intellectual Property", body: "All content on this website — including logos, product photos, copy, and design — is the property of Leading Power USA or its licensors. Reproduction or use without written permission is prohibited." },
+            { title: "7. Governing Law", body: "These Terms & Conditions are governed by the laws of the State of Texas, without regard to conflict of law principles. Any disputes shall be resolved in the courts of Texas." },
+            { title: "8. Contact", body: "Questions about these terms? Contact us at mrobinson@leadingpowerus.com or (432) 235-0801." },
+          ].map(({ title, body }) => (
+            <FadeIn key={title}>
+              <div style={{ marginBottom: 40 }}>
+                <h2 style={{ fontSize: 20, fontWeight: 700, color: DARK, margin: "0 0 12px" }}>{title}</h2>
+                <p style={{ fontSize: 15, color: "#5A5850", lineHeight: 1.8, margin: 0 }}>{body}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
+
+// ═══════════════════ FAQ PAGE ═══════════════════
+function FAQPage() {
+  const [open, setOpen] = useState(null);
+  useSEO("FAQ | Leading Power USA", "Frequently asked questions about Leading Power USA diesel and natural gas generators — lead times, warranty, payment terms, shipping, and more.");
+  const faqs = [
+    { q: "What is your lead time?", a: "Typical lead time is 8–12 weeks from order confirmation depending on configuration and current production schedule." },
+    { q: "Do your generators come with a warranty?", a: "Yes. Every generator comes with a 1 year warranty. Warranty service is handled directly by our team." },
+    { q: "What engine brands are available?", a: "We offer Cummins, Doosan, and Perkins engines depending on the power range and application. Contact us to discuss which engine is right for your needs." },
+    { q: "What alternator brands are available?", a: "Available alternator brands include Stamford and Leroy-Somer." },
+    { q: "Can I customize my generator?", a: "Yes. We offer custom enclosure colors, extended fuel tank configurations (8, 12, 16, 24, or 48 hour runtime), custom branding, and voltage configurations. Contact us to discuss your requirements." },
+    { q: "Can your natural gas generators run on field gas or flare gas?", a: "Yes. Our natural gas generators are compatible with field gas, wellhead gas, and flare gas — they are not limited to pipeline-quality gas only. This makes them ideal for Permian Basin and oil field applications." },
+    { q: "What voltage configurations are available?", a: "We offer 120/240V single phase, 120/208V three phase, and 277/480V three phase as standard configurations. Custom voltages are available on request." },
+    { q: "Do you offer an Automatic Transfer Switch (ATS)?", a: "Yes. ATS can be included with any generator order. Specify this when requesting a quote." },
+    { q: "How do I get a quote?", a: "Fill out the quote request form on any product range page or contact us directly at (432) 235-0801 or mrobinson@leadingpowerus.com. We typically respond within 1 business day." },
+    { q: "Where are you located?", a: "We are based in Houston, Texas and ship nationwide across the continental US." },
+    { q: "Do you ship outside the US?", a: "Currently we serve the continental US only. Contact us to discuss international inquiries." },
+    { q: "What are your payment terms?", a: "We require 30% down to confirm your order with the remaining 70% due at delivery. We accept wire transfer, ACH, and credit card (3% processing fee applies to credit card payments)." },
+    { q: "Do you offer financing?", a: "We do not currently offer in-house financing. We are working to add financing options in the future. Contact us to discuss your situation." },
+    { q: "Are your generators EPA certified?", a: "Yes. Our generators meet EPA requirements for stationary emergency use in the US. Specific certification details are available on each product range page." },
+    { q: "What fuel do your diesel generators use?", a: "Standard diesel #2 fuel. Extended fuel tank options are available for longer runtime between refueling." },
+    { q: "What certifications do your generators carry?", a: "Our generators carry CE and ISO 9001 certifications. Additional certifications are available on request." },
+    { q: "How do I maintain my generator?", a: "Each generator ships with a full operations and maintenance manual. Our team is available to answer maintenance questions at (432) 235-0801." },
+  ];
+  return (
+    <>
+      <PageHeader
+        label="Support"
+        title="Frequently Asked Questions"
+        subtitle="Everything you need to know about our generators, ordering process, and support."
+        breadcrumbs={[{ label: "Home", to: "home" }, { label: "FAQ" }]}
+      />
+      <section style={{ background: LIGHT, padding: "80px 24px" }}>
+        <div style={{ maxWidth: 860, margin: "0 auto" }}>
+          {faqs.map((f, i) => (
+            <FadeIn key={i} delay={i * 0.02}>
+              <div style={{ marginBottom: 8, border: `1px solid ${BORDER}`, borderRadius: 12, overflow: "hidden", background: WHITE }}>
+                <button
+                  onClick={() => setOpen(open === i ? null : i)}
+                  style={{ width: "100%", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 24px", background: "none", border: "none", cursor: "pointer", gap: 16 }}
+                >
+                  <span style={{ fontSize: 16, fontWeight: 700, color: DARK, lineHeight: 1.4 }}>{f.q}</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={ACCENT} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, transform: open === i ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }}><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                {open === i && (
+                  <div style={{ padding: "0 24px 20px" }}>
+                    <p style={{ fontSize: 15, color: TEXT_MUTED, lineHeight: 1.7, margin: 0 }}>{f.a}</p>
+                  </div>
+                )}
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }
 
