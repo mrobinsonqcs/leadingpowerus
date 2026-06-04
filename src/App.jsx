@@ -1714,7 +1714,7 @@ function PageSwitch() {
 
 function NotFoundPage() {
   const { navigate } = useRouter();
-  useSEO("Page Not Found | Leading Power USA", "The page you are looking for does not exist. Return to Leading Power USA to browse our generator lineup.");
+  useSEO("Page Not Found | Leading Power USA", "The page you are looking for has moved or does not exist.");
   return (
     <section style={{ background: DARK, minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 24px", textAlign: "center" }}>
       <div>
@@ -1733,7 +1733,7 @@ function NotFoundPage() {
 
 // ═══════════════════ TERMS PAGE ═══════════════════
 function TermsPage() {
-  useSEO("Terms & Conditions | Leading Power USA", "Terms and conditions for Leading Power USA generator sales — pricing, payment, delivery, warranty, and governing law.");
+  useSEO("Terms & Conditions | Leading Power USA", "Terms and conditions for Leading Power USA generator sales, warranties, and website use.");
   return (
     <>
       <PageHeader
@@ -1770,7 +1770,7 @@ function TermsPage() {
 // ═══════════════════ FAQ PAGE ═══════════════════
 function FAQPage() {
   const [open, setOpen] = useState(null);
-  useSEO("FAQ | Leading Power USA", "Frequently asked questions about Leading Power USA diesel and natural gas generators — lead times, warranty, payment terms, shipping, and more.");
+  useSEO("Generator FAQ | Leading Power USA", "Frequently asked questions about Leading Power USA generators — specifications, shipping, warranty, customization, and ordering.");
   const faqs = [
     { q: "What is your lead time?", a: "Typical lead time is 8–12 weeks from order confirmation depending on configuration and current production schedule." },
     { q: "Do your generators come with a warranty?", a: "Yes. Every generator comes with a 1 year warranty. Warranty service is handled directly by our team." },
