@@ -563,7 +563,7 @@ function HomePage() {
           <FadeIn delay={0.2} style={{ flex: "0 0 auto", width: isMobile ? "100%" : "auto", maxWidth: isMobile ? 400 : "none" }}>
             <div style={{ position: "relative", width: "100%" }}>
               <div style={{ position: "relative", width: isMobile ? "100%" : 480, aspectRatio: "1", borderRadius: 24, overflow: "hidden", border: `1px solid ${DARK3}`, boxShadow: "0 30px 80px rgba(0,0,0,0.5)", background: DARK2 }}>
-                <img src="/images/products/silent-30-150kw/silent-30-150kw-1.png" alt="Silent Diesel Generator" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <img src="/images/products/silent-30-150kw/silent-30-150kw-1.png" alt="Leading Power USA silent diesel generator, factory-direct, 60Hz US-spec" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
               <div style={{ position: "absolute", bottom: 24, left: -16, background: ACCENT, borderRadius: 10, padding: "14px 18px", boxShadow: "0 8px 32px rgba(0,0,0,0.4)" }}>
                 <div style={{ fontSize: 22, fontWeight: 800, color: WHITE }}>3kW – 3MW</div>
@@ -594,7 +594,7 @@ function HomePage() {
                   onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.25)"; }}
                   onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
                 >
-                  <img src={c.photo} alt={c.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                  <img src={c.photo} alt={`Leading Power USA ${c.title} generator`} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                   <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.1) 100%)" }} />
                   <div style={{ position: "relative", zIndex: 1, padding: "36px 28px", textAlign: "center", display: "flex", flexDirection: "column", justifyContent: "flex-end", minHeight: 180 }}>
                     <h3 style={{ fontSize: 18, fontWeight: 700, color: WHITE, margin: "0 0 6px" }}>{c.title}</h3>
@@ -608,7 +608,7 @@ function HomePage() {
                 onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.25)"; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
               >
-                <img src="/images/products/natgas-100-500kw/natgas-100-500kw-1.png" alt="Natural Gas" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <img src="/images/products/natgas-100-500kw/natgas-100-500kw-1.png" alt="Leading Power USA natural gas generator" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.1) 100%)" }} />
                 <div style={{ position: "relative", zIndex: 1, padding: "36px 28px", textAlign: "center", display: "flex", flexDirection: "column", justifyContent: "flex-end", minHeight: 180 }}>
                   <h3 style={{ fontSize: 18, fontWeight: 700, color: WHITE, margin: "0 0 6px" }}>Natural Gas</h3>
@@ -625,7 +625,7 @@ function HomePage() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 32 : 64, alignItems: "center" }}>
             <FadeIn>
-              <img src="/images/products/silent-30-150kw/silent-30-150kw-2.png" alt="Silent Diesel Generator" style={{ display: "block", width: "100%", height: "auto", borderRadius: 20, border: `1px solid ${DARK3}` }} />
+              <img src="/images/products/silent-30-150kw/silent-30-150kw-2.png" alt="Leading Power USA 30kW–150kW silent diesel generator, commercial grade, 60Hz US-spec" style={{ display: "block", width: "100%", height: "auto", borderRadius: 20, border: `1px solid ${DARK3}` }} />
             </FadeIn>
             <FadeIn delay={0.1}>
               <div>
@@ -677,7 +677,7 @@ function HomePage() {
             </FadeIn>
             <FadeIn delay={0.1}>
               <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "1", border: `1px solid ${DARK3}`, background: DARK2 }}>
-                <img src="/images/products/natgas-100-500kw/natgas-100-500kw-2.png" alt="Natural Gas Generator" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <img src="/images/products/natgas-100-500kw/natgas-100-500kw-2.png" alt="Leading Power USA 100kW–500kW natural gas generator set" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
             </FadeIn>
           </div>
@@ -690,7 +690,7 @@ function HomePage() {
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 32 : 64, alignItems: "center" }}>
             <FadeIn>
               <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "1", border: `1px solid ${DARK3}`, background: DARK2 }}>
-                <img src="/images/products/natgas-100-500kw/natgas-100-500kw-2.png" alt="Natural Gas Generator" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <img src="/images/products/natgas-100-500kw/natgas-100-500kw-2.png" alt="Leading Power USA 100kW–500kW natural gas generator set, Permian Basin wellhead" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
@@ -772,7 +772,7 @@ function HomePage() {
           <FadeIn delay={0.15}>
             <div style={{ position: "relative" }}>
               <div style={{ background: DARK3, borderRadius: 20, overflow: "hidden", aspectRatio: "4/3", border: `1px solid rgba(255,255,255,0.06)` }}>
-                <img src="/images/products/silent-500kw-3mw/silent-500kw-3mw-4.png" alt="Leading Power manufacturing facility" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <img src="/images/products/silent-500kw-3mw/silent-500kw-3mw-4.png" alt="Leading Power USA 500kW–3MW silent diesel generator, utility scale, manufacturing facility" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
               <div style={{ position: "absolute", bottom: -20, left: -20, background: ACCENT, borderRadius: 12, padding: "20px 24px", boxShadow: "0 8px 32px rgba(0,0,0,0.3)" }}>
                 <div style={{ fontSize: 28, fontWeight: 800, color: WHITE }}>10,000+</div>
@@ -865,7 +865,7 @@ function ProductCard({ product }) {
     >
       <div style={{ background: DARK, aspectRatio: "1", overflow: "hidden", position: "relative" }}>
         {product.photo ? (
-          <img src={product.photo} alt={product.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+          <img src={product.photo} alt={`Leading Power USA ${product.title} ${product.range}`} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
         ) : (
           <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <CategoryIcon id={product.category || "silent"} size={120} />
@@ -1126,6 +1126,13 @@ function CategoryPage({ catId }) {
   };
   useSEO(...(seoMap[catId] || ["Generator Products | Leading Power USA", ""]));
 
+  const heroImg = catId === "diesel"
+    ? "/images/products/silent-30-150kw/silent-30-150kw-1.png"
+    : "/images/products/natgas-100-500kw/natgas-100-500kw-1.png";
+  const heroAlt = catId === "diesel"
+    ? "Leading Power USA 30kW–150kW silent diesel generator, commercial grade, 60Hz US-spec"
+    : "Leading Power USA 100kW–500kW natural gas generator set";
+
   return (
     <>
       <PageHeader
@@ -1134,6 +1141,11 @@ function CategoryPage({ catId }) {
         subtitle={meta.desc}
         breadcrumbs={meta.breadcrumb}
       />
+      {/* Hero Image Banner */}
+      <div style={{ position: "relative", width: "100%", height: isMobile ? 220 : 340, overflow: "hidden", background: DARK }}>
+        <img src={heroImg} alt={heroAlt} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block", opacity: 0.6 }} />
+        <div style={{ position: "absolute", inset: 0, background: `linear-gradient(to right, rgba(27,42,79,0.7) 0%, transparent 60%)` }} />
+      </div>
       <section style={{ background: LIGHT, padding: isMobile ? "48px 20px 80px" : "80px 24px 120px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: 20 }}>
@@ -1223,6 +1235,24 @@ function SubCategoryPage({ subCatId }) {
   );
 }
 
+// ═══════════════════ RANGE SEO MAP ═══════════════════
+const RANGE_SEO = {
+  "silent-3-30": ["Small Silent Diesel Generators 3kW–30kW | Leading Power USA", "Compact silent diesel generators for residential backup and light commercial use. 3kW to 30kW, 60Hz US-spec, factory-direct pricing."],
+  "silent-30-150": ["Commercial Silent Diesel Generators 30kW–150kW | Leading Power USA", "Mid-size silent diesel generators for commercial and industrial applications. 30kW to 150kW, multiple engine brands, 60Hz US-spec."],
+  "silent-150-500": ["Heavy Industrial Silent Generators 150kW–500kW | Leading Power USA", "Large silent diesel generators for heavy industrial and oil field use. 150kW to 500kW, Cummins, Doosan, Perkins engines available."],
+  "silent-500-3000": ["Utility Scale Silent Generators 500kW–3MW | Leading Power USA", "Massive silent diesel generator sets for utility and large industrial applications. 500kW to 3MW, factory-direct from Leading Power USA."],
+  "open-20-100": ["Open Frame Diesel Generators 20kW–100kW | Leading Power USA", "Light industrial open frame diesel generators. 20kW to 100kW, fully exposed engine and alternator for easy maintenance."],
+  "open-100-500": ["Heavy Duty Open Frame Generators 100kW–500kW | Leading Power USA", "Large open frame diesel generators for heavy industrial and permanent installations. 100kW to 500kW."],
+  "mobile-10-50": ["Trailer Mounted Generators 10kW–50kW | Leading Power USA", "Portable trailer-mounted diesel generators for job sites and events. 10kW to 50kW, single axle, easy tow."],
+  "mobile-50-150": ["Heavy Trailer Generators 50kW–150kW | Leading Power USA", "Heavy duty trailer-mounted diesel generators for construction and industrial sites. 50kW to 150kW, tandem axle."],
+  "container-500-1000": ["Containerized Diesel Generators 500kW–1MW | Leading Power USA", "20-foot ISO containerized diesel generator sets for large industrial and utility applications. 500kW to 1MW."],
+  "container-1000-3000": ["Large Containerized Power Plants 1MW–3MW | Leading Power USA", "40-foot ISO container diesel generator power plants. 1MW to 3MW for utility scale and large industrial installations."],
+  "ng-small-commercial": ["Small Natural Gas Generators 20kW–100kW | Leading Power USA", "Compact natural gas generators for small commercial applications. 20kW to 100kW, ideal where gas supply is already on site."],
+  "ng-commercial-industrial": ["Natural Gas Generators 100kW–500kW | Leading Power USA", "Mid-size natural gas generators for commercial and Permian Basin wellhead gas applications. 100kW to 500kW, flare gas reduction."],
+  "ng-industrial-power": ["Industrial Natural Gas Generators 500kW–2MW | Leading Power USA", "Large industrial natural gas generator sets for co-generation and processing plants. 500kW to 2MW."],
+  "ng-utility": ["Utility Scale Natural Gas Generators 2MW–10MW+ | Leading Power USA", "Massive natural gas power generation systems for utility and pipeline applications. 2MW to 10MW+."],
+};
+
 // ═══════════════════ RANGE PAGE ═══════════════════
 function RangePage({ rangeId }) {
   const { navigate } = useRouter();
@@ -1230,7 +1260,10 @@ function RangePage({ rangeId }) {
   const [activeImg, setActiveImg] = useState(0);
 
   const range = RANGES[rangeId];
-  if (!range) return <NotFoundPage />;
+  const seoEntry = RANGE_SEO[rangeId] || [`${range ? range.title : "Generator"} | Leading Power USA`, range ? range.desc : "Generator range page — Leading Power USA."];
+  useSEO(seoEntry[0], seoEntry[1]);
+
+  if (!range) return null;
 
   const allPhotos = range.photos.flatMap(s => s.files.map(f => `/images/products/${s.folder}/${f}`));
   const hasPhotos = allPhotos.length > 0;
@@ -1538,12 +1571,78 @@ function ContactPage() {
   );
 }
 
+// ═══════════════════ PRIVACY PAGE ═══════════════════
+function PrivacyPage() {
+  const isMobile = useIsMobile();
+  useSEO("Privacy Policy | Leading Power USA", "Privacy policy for leadingpowerus.com — how we collect, use, and protect your information.");
+  const Section = ({ title, children }) => (
+    <div style={{ marginBottom: 40 }}>
+      <h2 style={{ fontSize: 20, fontWeight: 700, color: DARK, margin: "0 0 12px", borderBottom: `2px solid ${ACCENT}`, paddingBottom: 8, display: "inline-block" }}>{title}</h2>
+      <div style={{ fontSize: 15, color: TEXT_MUTED, lineHeight: 1.8 }}>{children}</div>
+    </div>
+  );
+  return (
+    <>
+      <PageHeader
+        label="Legal"
+        title="Privacy Policy"
+        subtitle="Last updated: June 2026"
+        breadcrumbs={[{ label: "Home", to: "home" }, { label: "Privacy Policy" }]}
+      />
+      <section style={{ background: LIGHT, padding: isMobile ? "48px 20px" : "80px 24px" }}>
+        <div style={{ maxWidth: 860, margin: "0 auto" }}>
+          <Section title="Introduction">
+            <p>Leading Power USA ("we", "our", or "us") operates leadingpowerus.com. This Privacy Policy explains how we collect, use, and protect your personal information when you visit our website or contact us.</p>
+          </Section>
+          <Section title="Information We Collect">
+            <p>We collect information you voluntarily provide through our contact and quote request forms, including:</p>
+            <ul style={{ paddingLeft: 24, marginTop: 8 }}>
+              <li>Full name</li>
+              <li>Email address</li>
+              <li>Phone number</li>
+              <li>Company name</li>
+              <li>Message content and project details</li>
+            </ul>
+            <p style={{ marginTop: 12 }}>We do not collect any information automatically beyond standard web server logs (IP address, browser type, referring URL) which are retained for security purposes only.</p>
+          </Section>
+          <Section title="How We Use Your Information">
+            <p>Information you submit is used solely for the purpose of responding to your inquiry or quote request. We do not use your information for marketing, profiling, or automated decision-making beyond the scope of your request.</p>
+          </Section>
+          <Section title="Data Sharing">
+            <p>We do not sell, rent, or share your personal information with third parties for their marketing purposes. Your data may be shared only in the following limited circumstances:</p>
+            <ul style={{ paddingLeft: 24, marginTop: 8 }}>
+              <li>With our form processing provider (Formspree) solely to deliver your submission to us</li>
+              <li>As required by applicable law or legal process</li>
+            </ul>
+          </Section>
+          <Section title="Cookies & Tracking">
+            <p>We do not use tracking cookies, advertising pixels, or analytics services that track individual users. Our website may use essential session cookies required for basic site functionality. No third-party advertising or behavioral tracking is employed.</p>
+          </Section>
+          <Section title="Data Retention">
+            <p>We retain your contact information only as long as necessary to respond to your inquiry and maintain reasonable business records. We do not maintain long-term marketing databases.</p>
+          </Section>
+          <Section title="Your Rights & Data Deletion">
+            <p>You may request deletion of any personal information we hold about you at any time by emailing <a href="mailto:mrobinson@twotenequipment.com" style={{ color: ACCENT, fontWeight: 600 }}>mrobinson@twotenequipment.com</a>. We will process deletion requests within 30 days.</p>
+          </Section>
+          <Section title="Governing Law">
+            <p>This Privacy Policy is governed by the laws of the State of Texas. Any disputes arising from this policy shall be resolved in the courts of Texas.</p>
+          </Section>
+          <Section title="Contact">
+            <p>If you have questions about this Privacy Policy, contact us at <a href="mailto:mrobinson@leadingpowerus.com" style={{ color: ACCENT, fontWeight: 600 }}>mrobinson@leadingpowerus.com</a> or call <a href="tel:4322350801" style={{ color: ACCENT, fontWeight: 600 }}>(432) 235-0801</a>.</p>
+          </Section>
+        </div>
+      </section>
+    </>
+  );
+}
+
 // ═══════════════════ APP ═══════════════════
 function PageSwitch() {
   const { page } = useRouter();
   if (page === "home") return <HomePage />;
   if (page === "about") return <AboutPage />;
   if (page === "contact") return <ContactPage />;
+  if (page === "privacy") return <PrivacyPage />;
   // Product navigation
   if (page === "products") return <ProductsLandingPage />;
   if (page === "products-diesel") return <CategoryPage catId="diesel" />;
@@ -1558,15 +1657,17 @@ function PageSwitch() {
 
 function NotFoundPage() {
   const { navigate } = useRouter();
+  useSEO("Page Not Found | Leading Power USA", "The page you are looking for does not exist. Return to Leading Power USA to browse our generator lineup.");
   return (
     <section style={{ background: DARK, minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 24px", textAlign: "center" }}>
       <div>
+        <img src="/logos/horizontal.png" alt="Leading Power USA" style={{ height: 48, width: "auto", marginBottom: 32 }} />
         <div style={{ fontSize: 96, fontWeight: 800, color: ACCENT, lineHeight: 1, letterSpacing: "-0.04em" }}>404</div>
-        <h1 style={{ fontSize: 28, fontWeight: 700, color: WHITE, margin: "16px 0 12px" }}>Page not found</h1>
-        <p style={{ fontSize: 16, color: MID, margin: "0 0 32px", maxWidth: 400 }}>The page you're looking for doesn't exist. Try one of the links below.</p>
+        <h1 style={{ fontSize: 28, fontWeight: 700, color: WHITE, margin: "16px 0 8px" }}>This page doesn't exist — but the power never goes out.</h1>
+        <p style={{ fontSize: 16, color: MID, margin: "0 0 32px", maxWidth: 440 }}>The page you're looking for has moved or doesn't exist.</p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-          <button onClick={() => navigate("home")} style={{ background: ACCENT, color: WHITE, padding: "13px 28px", borderRadius: 8, fontWeight: 700, fontSize: 15, border: "none", cursor: "pointer" }}>Go home</button>
-          <button onClick={() => navigate("products")} style={{ background: "transparent", color: WHITE, padding: "13px 28px", borderRadius: 8, fontWeight: 600, fontSize: 15, border: `1px solid ${DARK3}`, cursor: "pointer" }}>View products</button>
+          <button onClick={() => navigate("home")} style={{ background: ACCENT, color: WHITE, padding: "13px 28px", borderRadius: 8, fontWeight: 700, fontSize: 15, border: "none", cursor: "pointer" }}>Back to Home</button>
+          <button onClick={() => navigate("contact")} style={{ background: "transparent", color: WHITE, padding: "13px 28px", borderRadius: 8, fontWeight: 600, fontSize: 15, border: `1px solid ${DARK3}`, cursor: "pointer" }}>Contact Us</button>
         </div>
       </div>
     </section>
