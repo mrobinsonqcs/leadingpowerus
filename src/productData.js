@@ -121,7 +121,7 @@ export const RANGES = {
       { label: "3kW – 30kW" },
     ],
     photos: [
-      { folder: "silent-3-30kw", files: ["silent-3-30kw-1.png", "silent-3-30kw-2.png", "silent-3-30kw-3.png", "silent-3-30kw-4.png", "silent-3-30kw-5.png", "silent-3-30kw-6.png", "silent-3-30kw-collage.png"] },
+      { folder: "silent-3-30kw", files: ["silent-3-30kw-1.webp", "silent-3-30kw-2.webp", "silent-3-30kw-3.webp", "silent-3-30kw-4.webp", "silent-3-30kw-5.webp", "silent-3-30kw-6.webp", "silent-3-30kw-collage.webp"] },
     ],
     useCases: [
       { title: "Homeowners", desc: "Whole-home backup power during outages" },
@@ -147,8 +147,8 @@ export const RANGES = {
       { label: "30kW – 150kW" },
     ],
     photos: [
-      { folder: "silent-30-150kw", files: ["silent-30-150kw-1.png", "silent-30-150kw-2.png", "silent-30-150kw-3.png", "silent-30-150kw-4.png", "silent-30-150kw-5.png", "silent-30-150kw-6.png", "silent-30-150kw-collage.png"] },
-      { folder: "silent-30-150kw-blue", files: ["silent-30-150kw-blue-1.png", "silent-30-150kw-blue-2.png", "silent-30-150kw-blue-3.png", "silent-30-150kw-blue-4.png", "silent-30-150kw-blue-5.png", "silent-30-150kw-blue-6.png", "silent-30-150kw-blue-collage.png"] },
+      { folder: "silent-30-150kw", files: ["silent-30-150kw-1.webp", "silent-30-150kw-2.webp", "silent-30-150kw-3.webp", "silent-30-150kw-4.webp", "silent-30-150kw-5.webp", "silent-30-150kw-6.webp", "silent-30-150kw-collage.webp"] },
+      { folder: "silent-30-150kw-blue", files: ["silent-30-150kw-blue-1.webp", "silent-30-150kw-blue-2.webp", "silent-30-150kw-blue-3.webp", "silent-30-150kw-blue-4.webp", "silent-30-150kw-blue-5.webp", "silent-30-150kw-blue-6.webp", "silent-30-150kw-blue-collage.webp"] },
     ],
     useCases: [
       { title: "Construction Sites", desc: "Reliable power for tools, lighting, and site offices" },
@@ -175,8 +175,8 @@ export const RANGES = {
       { label: "150kW – 500kW" },
     ],
     photos: [
-      { folder: "silent-150-500kw-tan", files: ["silent-150-500kw-tan-1.png", "silent-150-500kw-tan-2.png", "silent-150-500kw-tan-3.png", "silent-150-500kw-tan-4.png", "silent-150-500kw-tan-5.png", "silent-150-500kw-tan-6.png", "silent-150-500kw-tan-collage.png"] },
-      { folder: "silent-150-500kw-gray", files: ["silent-150-500kw-gray-1.png", "silent-150-500kw-gray-2.png", "silent-150-500kw-gray-3.png", "silent-150-500kw-gray-4.png", "silent-150-500kw-gray-5.png", "silent-150-500kw-gray-6.png", "silent-150-500kw-gray-collage.png"] },
+      { folder: "silent-150-500kw-tan", files: ["silent-150-500kw-tan-1.webp", "silent-150-500kw-tan-2.webp", "silent-150-500kw-tan-3.webp", "silent-150-500kw-tan-4.webp", "silent-150-500kw-tan-5.webp", "silent-150-500kw-tan-6.webp", "silent-150-500kw-tan-collage.webp"] },
+      { folder: "silent-150-500kw-gray", files: ["silent-150-500kw-gray-1.webp", "silent-150-500kw-gray-2.webp", "silent-150-500kw-gray-3.webp", "silent-150-500kw-gray-4.webp", "silent-150-500kw-gray-5.webp", "silent-150-500kw-gray-6.webp", "silent-150-500kw-gray-collage.webp"] },
     ],
     useCases: [
       { title: "Large Manufacturing", desc: "Continuous and standby power for production lines" },
@@ -202,8 +202,8 @@ export const RANGES = {
       { label: "500kW – 3MW" },
     ],
     photos: [
-      { folder: "silent-500kw-3mw", files: ["silent-500kw-3mw-1.png", "silent-500kw-3mw-2.png", "silent-500kw-3mw-3.png", "silent-500kw-3mw-4.png", "silent-500kw-3mw-5.png", "silent-500kw-3mw-6.png", "silent-500kw-3mw-collage.png"] },
-      { folder: "silent-500kw-3mw-blue", files: ["silent-500kw-3mw-blue-1.png", "silent-500kw-3mw-blue-2.png", "silent-500kw-3mw-blue-3.png", "silent-500kw-3mw-blue-4.png", "silent-500kw-3mw-blue-5.png", "silent-500kw-3mw-blue-6.png", "silent-500kw-3mw-blue-collage.png"] },
+      { folder: "silent-500kw-3mw", files: ["silent-500kw-3mw-1.webp", "silent-500kw-3mw-2.webp", "silent-500kw-3mw-3.webp", "silent-500kw-3mw-4.webp", "silent-500kw-3mw-5.webp", "silent-500kw-3mw-6.webp", "silent-500kw-3mw-collage.webp"] },
+      { folder: "silent-500kw-3mw-blue", files: ["silent-500kw-3mw-blue-1.webp", "silent-500kw-3mw-blue-2.webp", "silent-500kw-3mw-blue-3.webp", "silent-500kw-3mw-blue-4.webp", "silent-500kw-3mw-blue-5.webp", "silent-500kw-3mw-blue-6.webp", "silent-500kw-3mw-blue-collage.webp"] },
     ],
     useCases: [
       { title: "Utilities & Grid Support", desc: "Peaking and emergency power for utility operators" },
@@ -229,7 +229,7 @@ export const RANGES = {
       { label: "20kW – 100kW" },
     ],
     photos: [
-      { folder: "open-frame-20-100kw", files: ["open-frame-20-100kw-1.png", "open-frame-20-100kw-2.png", "open-frame-20-100kw-3.png", "open-frame-20-100kw-4.png", "open-frame-20-100kw-5.png", "open-frame-20-100kw-6.png", "open-frame-20-100kw-collage.png"] },
+      { folder: "open-frame-20-100kw", files: ["open-frame-20-100kw-1.webp", "open-frame-20-100kw-2.webp", "open-frame-20-100kw-3.webp", "open-frame-20-100kw-4.webp", "open-frame-20-100kw-5.webp", "open-frame-20-100kw-6.webp", "open-frame-20-100kw-collage.webp"] },
     ],
     useCases: [
       { title: "Indoor Generator Rooms", desc: "Installations within an existing mechanical enclosure" },
@@ -255,7 +255,7 @@ export const RANGES = {
       { label: "100kW – 500kW" },
     ],
     photos: [
-      { folder: "open-frame-100-500kw", files: ["open-frame-100-500kw-1.png", "open-frame-100-500kw-2.png", "open-frame-100-500kw-3.png", "open-frame-100-500kw-4.png", "open-frame-100-500kw-5.png", "open-frame-100-500kw-6.png", "open-frame-100-500kw-collage.png"] },
+      { folder: "open-frame-100-500kw", files: ["open-frame-100-500kw-1.webp", "open-frame-100-500kw-2.webp", "open-frame-100-500kw-3.webp", "open-frame-100-500kw-4.webp", "open-frame-100-500kw-5.webp", "open-frame-100-500kw-6.webp", "open-frame-100-500kw-collage.webp"] },
     ],
     useCases: [
       { title: "Large Generator Rooms", desc: "Permanent indoor installation with dedicated enclosure" },
@@ -281,7 +281,7 @@ export const RANGES = {
       { label: "10kW – 50kW" },
     ],
     photos: [
-      { folder: "mobile-10-50kw", files: ["mobile-10-50kw-1.png", "mobile-10-50kw-2.png", "mobile-10-50kw-3.png", "mobile-10-50kw-4.png", "mobile-10-50kw-5.png", "mobile-10-50kw-6.png", "mobile-10-50kw-collage.png"] },
+      { folder: "mobile-10-50kw", files: ["mobile-10-50kw-1.webp", "mobile-10-50kw-2.webp", "mobile-10-50kw-3.webp", "mobile-10-50kw-4.webp", "mobile-10-50kw-5.webp", "mobile-10-50kw-6.webp", "mobile-10-50kw-collage.webp"] },
     ],
     useCases: [
       { title: "Construction & Job Sites", desc: "Tools, lighting, and site office power" },
@@ -307,7 +307,7 @@ export const RANGES = {
       { label: "50kW – 150kW" },
     ],
     photos: [
-      { folder: "mobile-50-150kw", files: ["mobile-50-150kw-1.png", "mobile-50-150kw-2.png", "mobile-50-150kw-3.png", "mobile-50-150kw-4.png", "mobile-50-150kw-5.png", "mobile-50-150kw-6.png", "mobile-50-150kw-collage.png"] },
+      { folder: "mobile-50-150kw", files: ["mobile-50-150kw-1.webp", "mobile-50-150kw-2.webp", "mobile-50-150kw-3.webp", "mobile-50-150kw-4.webp", "mobile-50-150kw-5.webp", "mobile-50-150kw-6.webp", "mobile-50-150kw-collage.webp"] },
     ],
     useCases: [
       { title: "Large Construction Projects", desc: "Cranes, welders, and heavy equipment support" },
@@ -333,7 +333,7 @@ export const RANGES = {
       { label: "500kW – 1MW" },
     ],
     photos: [
-      { folder: "container-500kw-1mw", files: ["container-500kw-1mw-1.png", "container-500kw-1mw-2.png", "container-500kw-1mw-3.png", "container-500kw-1mw-4.png", "container-500kw-1mw-5.png", "container-500kw-1mw-6.png", "container-500kw-1mw-7.png", "container-500kw-1mw-collage.png"] },
+      { folder: "container-500kw-1mw", files: ["container-500kw-1mw-1.webp", "container-500kw-1mw-2.webp", "container-500kw-1mw-3.webp", "container-500kw-1mw-4.webp", "container-500kw-1mw-5.webp", "container-500kw-1mw-6.webp", "container-500kw-1mw-7.webp", "container-500kw-1mw-collage.webp"] },
     ],
     useCases: [
       { title: "Mining Operations", desc: "Remote mine site power generation" },
@@ -359,7 +359,7 @@ export const RANGES = {
       { label: "1MW – 3MW" },
     ],
     photos: [
-      { folder: "container-1mw-3mw", files: ["container-1mw-3mw-1.png", "container-1mw-3mw-2.png", "container-1mw-3mw-3.png", "container-1mw-3mw-4.png", "container-1mw-3mw-5.png", "container-1mw-3mw-6.png", "container-1mw-3mw-collage.png"] },
+      { folder: "container-1mw-3mw", files: ["container-1mw-3mw-1.webp", "container-1mw-3mw-2.webp", "container-1mw-3mw-3.webp", "container-1mw-3mw-4.webp", "container-1mw-3mw-5.webp", "container-1mw-3mw-6.webp", "container-1mw-3mw-collage.webp"] },
     ],
     useCases: [
       { title: "Utility Operators", desc: "Grid peak shaving and emergency generation" },
@@ -383,7 +383,7 @@ export const RANGES = {
       { label: "Small Commercial (20kW – 100kW)" },
     ],
     photos: [
-      { folder: "natgas-20-100kw", files: ["natgas-20-100kw-1.png", "natgas-20-100kw-2.png", "natgas-20-100kw-3.png", "natgas-20-100kw-4.png", "natgas-20-100kw-5.png", "natgas-20-100kw-6.png", "natgas-20-100kw-collage.png"] },
+      { folder: "natgas-20-100kw", files: ["natgas-20-100kw-1.webp", "natgas-20-100kw-2.webp", "natgas-20-100kw-3.webp", "natgas-20-100kw-4.webp", "natgas-20-100kw-5.webp", "natgas-20-100kw-6.webp", "natgas-20-100kw-collage.webp"] },
     ],
     useCases: [
       { title: "Small Commercial Buildings", desc: "Offices, clinics, and professional services" },
@@ -407,7 +407,7 @@ export const RANGES = {
       { label: "Commercial & Industrial (100kW – 500kW)" },
     ],
     photos: [
-      { folder: "natgas-100-500kw", files: ["natgas-100-500kw-1.png", "natgas-100-500kw-2.png", "natgas-100-500kw-3.png", "natgas-100-500kw-4.png", "natgas-100-500kw-5.png", "natgas-100-500kw-6.png", "natgas-100-500kw-7.png", "natgas-100-500kw-collage.png"] },
+      { folder: "natgas-100-500kw", files: ["natgas-100-500kw-1.webp", "natgas-100-500kw-2.webp", "natgas-100-500kw-3.webp", "natgas-100-500kw-4.webp", "natgas-100-500kw-5.webp", "natgas-100-500kw-6.webp", "natgas-100-500kw-7.webp", "natgas-100-500kw-collage.webp"] },
     ],
     useCases: [
       { title: "Office Campuses", desc: "Commercial park and multi-tenant standby backup" },
@@ -431,7 +431,7 @@ export const RANGES = {
       { label: "Industrial & Power Generation (500kW – 2MW)" },
     ],
     photos: [
-      { folder: "natgas-500kw-2mw", files: ["natgas-500kw-2mw-1.png", "natgas-500kw-2mw-2.png", "natgas-500kw-2mw-3.png", "natgas-500kw-2mw-4.png", "natgas-500kw-2mw-5.png", "natgas-500kw-2mw-6.png", "natgas-500kw-2mw-collage.png"] },
+      { folder: "natgas-500kw-2mw", files: ["natgas-500kw-2mw-1.webp", "natgas-500kw-2mw-2.webp", "natgas-500kw-2mw-3.webp", "natgas-500kw-2mw-4.webp", "natgas-500kw-2mw-5.webp", "natgas-500kw-2mw-6.webp", "natgas-500kw-2mw-collage.webp"] },
     ],
     useCases: [
       { title: "Large Industrial Facilities", desc: "Continuous power for heavy production operations" },
@@ -455,7 +455,7 @@ export const RANGES = {
       { label: "Utility Scale (2MW – 10MW+)" },
     ],
     photos: [
-      { folder: "natgas-2mw-10mw", files: ["natgas-2mw-10mw-1.png", "natgas-2mw-10mw-2.png", "natgas-2mw-10mw-3.png", "natgas-2mw-10mw-4.png", "natgas-2mw-10mw-5.png", "natgas-2mw-10mw-6.png", "natgas-2mw-10mw-collage.png"] },
+      { folder: "natgas-2mw-10mw", files: ["natgas-2mw-10mw-1.webp", "natgas-2mw-10mw-2.webp", "natgas-2mw-10mw-3.webp", "natgas-2mw-10mw-4.webp", "natgas-2mw-10mw-5.webp", "natgas-2mw-10mw-6.webp", "natgas-2mw-10mw-collage.webp"] },
     ],
     useCases: [
       { title: "Pipeline Compressor Stations", desc: "Reliable drive power for gas transmission compressors" },
