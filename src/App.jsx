@@ -252,7 +252,7 @@ function Nav() {
     <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: scrolled || page !== "home" || menuOpen ? "rgba(27,42,79,0.97)" : "transparent", backdropFilter: scrolled || page !== "home" || menuOpen ? "blur(12px)" : "none", transition: "background 0.4s", borderBottom: scrolled || page !== "home" ? `1px solid ${DARK3}` : "1px solid transparent" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 20px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
         <a href="#" onClick={e => { e.preventDefault(); navigate("home"); }} style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-          <img src="/logos/horizontal.webp" alt="Leading Power USA" style={{ height: isMobile ? 36 : 44, width: "auto", display: "block" }} />
+          <img src="/logos/horizontal.png" alt="Leading Power USA" style={{ height: isMobile ? 36 : 44, width: "auto", display: "block" }} />
         </a>
         {isMobile ? (
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -305,7 +305,7 @@ function Footer() {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 40 }}>
           <div>
             <a href="#" onClick={e => { e.preventDefault(); navigate("home"); }} style={{ display: "inline-block", marginBottom: 16, textDecoration: "none" }}>
-              <img src="/logos/horizontal.webp" alt="Leading Power USA" style={{ height: 42, width: "auto", display: "block" }} />
+              <img src="/logos/horizontal.png" alt="Leading Power USA" style={{ height: 42, width: "auto", display: "block" }} />
             </a>
             <p style={{ fontSize: 13, color: MID, maxWidth: 300, lineHeight: 1.6 }}>Diesel generator sales, service, and support for the continental US.</p>
           </div>
@@ -1718,7 +1718,7 @@ function NotFoundPage() {
   return (
     <section style={{ background: DARK, minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 24px", textAlign: "center" }}>
       <div>
-        <img src="/logos/horizontal.webp" alt="Leading Power USA" style={{ height: 48, width: "auto", marginBottom: 32 }} />
+        <img src="/logos/horizontal.png" alt="Leading Power USA" style={{ height: 48, width: "auto", marginBottom: 32 }} />
         <div style={{ fontSize: 96, fontWeight: 800, color: ACCENT, lineHeight: 1, letterSpacing: "-0.04em" }}>404</div>
         <h1 style={{ fontSize: 28, fontWeight: 700, color: WHITE, margin: "16px 0 8px" }}>This page doesn't exist — but the power never goes out.</h1>
         <p style={{ fontSize: 16, color: MID, margin: "0 0 32px", maxWidth: 440 }}>The page you're looking for has moved or doesn't exist.</p>
