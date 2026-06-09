@@ -1725,15 +1725,18 @@ function NotFoundPage() {
   const { navigate } = useRouter();
   useSEO("Page Not Found | Leading Power USA", "The page you are looking for has moved or does not exist.");
   return (
-    <section style={{ background: DARK, minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 24px", textAlign: "center" }}>
-      <div>
-        <img src="/logos/horizontal.png" alt="Leading Power USA" style={{ height: 48, width: "auto", marginBottom: 32 }} />
-        <div style={{ fontSize: 96, fontWeight: 800, color: ACCENT, lineHeight: 1, letterSpacing: "-0.04em" }}>404</div>
-        <h1 style={{ fontSize: 28, fontWeight: 700, color: WHITE, margin: "16px 0 8px" }}>This page doesn't exist — but the power never goes out.</h1>
-        <p style={{ fontSize: 16, color: MID, margin: "0 0 32px", maxWidth: 440 }}>The page you're looking for has moved or doesn't exist.</p>
+    <section style={{ position: "relative", background: `linear-gradient(160deg, ${DARK} 0%, ${DARK2} 60%, #1a1030 100%)`, minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "80px 24px", textAlign: "center", overflow: "hidden" }}>
+      {/* Faint background image */}
+      <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/images/products/silent-500kw-3mw/silent-500kw-3mw-1.webp)", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.06 }} />
+      {/* Radial glow behind 404 */}
+      <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: 600, height: 600, background: "radial-gradient(ellipse, rgba(200,37,46,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
+      <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", maxWidth: 560 }}>
+        <div style={{ fontSize: "clamp(120px, 20vw, 160px)", fontWeight: 800, color: ACCENT, lineHeight: 1, letterSpacing: "-0.05em", opacity: 0.92, textShadow: `0 0 80px rgba(200,37,46,0.35)`, userSelect: "none" }}>404</div>
+        <h1 style={{ fontSize: "clamp(20px, 4vw, 28px)", fontWeight: 700, color: WHITE, margin: "20px 0 12px", letterSpacing: "-0.02em", lineHeight: 1.25 }}>This page doesn't exist — but the power never goes out.</h1>
+        <p style={{ fontSize: 16, color: MID, margin: "0 0 36px", lineHeight: 1.6 }}>The page you're looking for has moved or doesn't exist.</p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-          <button onClick={() => navigate("home")} style={{ background: ACCENT, color: WHITE, padding: "13px 28px", borderRadius: 8, fontWeight: 700, fontSize: 15, border: "none", cursor: "pointer" }}>Back to Home</button>
-          <button onClick={() => navigate("contact")} style={{ background: "transparent", color: WHITE, padding: "13px 28px", borderRadius: 8, fontWeight: 600, fontSize: 15, border: `1px solid ${DARK3}`, cursor: "pointer" }}>Contact Us</button>
+          <button onClick={() => navigate("home")} style={{ background: ACCENT, color: WHITE, padding: "13px 28px", borderRadius: 8, fontWeight: 700, fontSize: 15, border: "none", cursor: "pointer", transition: "opacity 0.2s" }} onMouseEnter={e => e.currentTarget.style.opacity = "0.85"} onMouseLeave={e => e.currentTarget.style.opacity = "1"}>Back to Home</button>
+          <button onClick={() => navigate("contact")} style={{ background: "transparent", color: WHITE, padding: "13px 28px", borderRadius: 8, fontWeight: 600, fontSize: 15, border: `1px solid ${DARK3}`, cursor: "pointer", transition: "border-color 0.2s" }} onMouseEnter={e => e.currentTarget.style.borderColor = MID} onMouseLeave={e => e.currentTarget.style.borderColor = DARK3}>Contact Us</button>
         </div>
       </div>
     </section>
