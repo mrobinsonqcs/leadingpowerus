@@ -331,7 +331,7 @@ function Footer() {
               <div style={{ fontSize: 12, fontWeight: 700, color: ACCENT, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>Contact</div>
               <div style={{ fontSize: 13, color: MID, lineHeight: 1.8 }}>
                 <a href="tel:4322350801" style={{ color: MID, textDecoration: "none" }}>(432) 235-0801</a><br />
-                mrobinson@leadingpowerus.com<br />
+                mrobinson@leadingpowerusa.com<br />
                 Houston, TX<br />
                 <span style={{ fontSize: 12, color: "#5A6070" }}>Mon–Fri 9:00 AM – 5:00 PM CST</span>
               </div>
@@ -1603,7 +1603,7 @@ function ContactPage() {
                 {[
                   { label: "Address", value: "Houston, TX", d: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z" },
                   { label: "Tel", value: "(432) 235-0801", d: "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" },
-                  { label: "E-mail", value: "mrobinson@leadingpowerus.com", d: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
+                  { label: "E-mail", value: "mrobinson@leadingpowerusa.com", d: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
                 ].map((item) => (
                   <div key={item.label} style={{ background: WHITE, padding: "24px 24px", borderRadius: 12, border: `1px solid ${BORDER}` }}>
                     <div style={{ width: 36, height: 36, background: ACCENT_LIGHT, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
@@ -1686,13 +1686,13 @@ function PrivacyPage() {
             <p>We retain your contact information only as long as necessary to respond to your inquiry and maintain reasonable business records. We do not maintain long-term marketing databases.</p>
           </Section>
           <Section title="Your Rights & Data Deletion">
-            <p>You may request deletion of any personal information we hold about you at any time by emailing <a href="mailto:mrobinson@leadingpowerus.com" style={{ color: ACCENT, fontWeight: 600 }}>mrobinson@leadingpowerus.com</a>. We will process deletion requests within 30 days.</p>
+            <p>You may request deletion of any personal information we hold about you at any time by emailing <a href="mailto:mrobinson@leadingpowerusa.com" style={{ color: ACCENT, fontWeight: 600 }}>mrobinson@leadingpowerusa.com</a>. We will process deletion requests within 30 days.</p>
           </Section>
           <Section title="Governing Law">
             <p>This Privacy Policy is governed by the laws of the State of Texas. Any disputes arising from this policy shall be resolved in the courts of Texas.</p>
           </Section>
           <Section title="Contact">
-            <p>If you have questions about this Privacy Policy, contact us at <a href="mailto:mrobinson@leadingpowerus.com" style={{ color: ACCENT, fontWeight: 600 }}>mrobinson@leadingpowerus.com</a> or call <a href="tel:4322350801" style={{ color: ACCENT, fontWeight: 600 }}>(432) 235-0801</a>.</p>
+            <p>If you have questions about this Privacy Policy, contact us at <a href="mailto:mrobinson@leadingpowerusa.com" style={{ color: ACCENT, fontWeight: 600 }}>mrobinson@leadingpowerusa.com</a> or call <a href="tel:4322350801" style={{ color: ACCENT, fontWeight: 600 }}>(432) 235-0801</a>.</p>
           </Section>
         </div>
       </section>
@@ -1764,7 +1764,7 @@ function TermsPage() {
             { title: "5. Limitation of Liability", body: "Leading Power USA's liability is limited to the purchase price of the product. We are not liable for any indirect, incidental, consequential, or punitive damages arising from the use or inability to use our products, even if advised of the possibility of such damages." },
             { title: "6. Intellectual Property", body: "All content on this website — including logos, product photos, copy, and design — is the property of Leading Power USA or its licensors. Reproduction or use without written permission is prohibited." },
             { title: "7. Governing Law", body: "These Terms & Conditions are governed by the laws of the State of Texas, without regard to conflict of law principles. Any disputes shall be resolved in the courts of Texas." },
-            { title: "8. Contact", body: "Questions about these terms? Contact us at mrobinson@leadingpowerus.com or (432) 235-0801." },
+            { title: "8. Contact", body: "Questions about these terms? Contact us at mrobinson@leadingpowerusa.com or (432) 235-0801." },
           ].map(({ title, body }) => (
             <FadeIn key={title}>
               <div style={{ marginBottom: 40 }}>
@@ -1792,7 +1792,7 @@ function FAQPage() {
     { q: "Can your natural gas generators run on field gas or flare gas?", a: "Yes. Our natural gas generators are compatible with field gas, wellhead gas, and flare gas — they are not limited to pipeline-quality gas only. This makes them ideal for Permian Basin and oil field applications." },
     { q: "What voltage configurations are available?", a: "We offer 120/240V single phase, 120/208V three phase, and 277/480V three phase as standard configurations. Custom voltages are available on request." },
     { q: "Do you offer an Automatic Transfer Switch (ATS)?", a: "Yes. ATS can be included with any generator order. Specify this when requesting a quote." },
-    { q: "How do I get a quote?", a: "Fill out the quote request form on any product range page or contact us directly at (432) 235-0801 or mrobinson@leadingpowerus.com. We typically respond within 1 business day." },
+    { q: "How do I get a quote?", a: "Fill out the quote request form on any product range page or contact us directly at (432) 235-0801 or mrobinson@leadingpowerusa.com. We typically respond within 1 business day." },
     { q: "Where are you located?", a: "We are based in Houston, Texas and ship nationwide across the continental US." },
     { q: "Do you ship outside the US?", a: "Currently we serve the continental US only. Contact us to discuss international inquiries." },
     { q: "What are your payment terms?", a: "We require 30% down to confirm your order with the remaining 70% due at delivery. We accept wire transfer, ACH, and credit card (3% processing fee applies to credit card payments)." },
